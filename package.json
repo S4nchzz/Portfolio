@@ -1,0 +1,28 @@
+{
+  "name": "x",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.3.5",
+    "next": "^15.2.5",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.9",
+    "react-dom": "^18.3.1",
+    "react-simple-typewriter": "^5.0.1",
+    "typewriter-effect": "^2.21.0",
+    "x": "file:"
+  },
+  "devDependencies": {
+    "@types/node": "22.14.0",
+    "typescript": "5.8.3"
+  }
+}
