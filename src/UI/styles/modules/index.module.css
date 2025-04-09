@@ -15,6 +15,7 @@
     font-size: 6rem;
     width: 50%;
     font-weight: bold;
+    flex-grow: 2;
 }
 
 .presentation {
@@ -36,4 +37,12 @@
     .profile_picture {
         margin-left: 0;
     }
+}
+
+/*
+* TypeWriter
+*/
+
+.cursorColor {
+    color: white;
 }
