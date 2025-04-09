@@ -1,0 +1,18 @@
+.nav {
+    display: flex;
+    justify-content: right;
+    gap: 2rem;
+    font-size: 1.1rem;
+    margin: 3rem;
+}
+
+.navItem {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: 'Montserrat';
+}
+
+.navItem:hover {
+    color: var(--muted);
+    transition: 100ms ease-in-out;
+}

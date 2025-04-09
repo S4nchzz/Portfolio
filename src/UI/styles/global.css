@@ -1,5 +1,5 @@
 :root {
-
+    --muted: rgb(197, 197, 197)
 }
 
 /* Fonts */
@@ -9,5 +9,5 @@
 }
 
 body {
-    color: white;
+    color: #ffffff;
 }
