@@ -1,0 +1,13 @@
+:root {
+
+}
+
+/* Fonts */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat.ttf');
+}
+
+body {
+    color: white;
+}
