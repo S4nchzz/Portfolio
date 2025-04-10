@@ -1,25 +1,22 @@
 import styles from "../UI/styles/modules/index.module.css"
 import TypewriterComponent from "typewriter-effect";
-
+import { motion } from "framer-motion"
+import { useState, useEffect, useRef} from "react";
 
 const Index = () => {
     return(
         <>
-            <img
-            src="/img/home/gradiant_background.png"
-            alt="top_background_gradiant"
-            className={styles.background_gradiant}
-            />
-
             <section className={styles.presentation}>
-                <h1 className={styles.title}>
+                <motion.h1 
+                className={styles.title}
+                initial={{ x: -300 }}
+                animate={{ x: 0 }}>
                     Hi, my name is
                     <span style={{color: '#74C9FF'}}>
                         <TypewriterComponent options={{
                             strings: 'Iyan',
                             autoStart: true,
-                            delay: 300,
-                            cursorClassName: styles.cursorColor
+                            delay: 300
                         }}/>
                     </span>
                     and I'm a
@@ -27,15 +24,17 @@ const Index = () => {
                         <TypewriterComponent options={{
                             strings: 'Full-Stack Developer.',
                             autoStart: true,
-                            cursorClassName: styles.cursorColor
+                            delay: 100
                         }}/>
                     </span>
-                    </h1>
-                <img
+                    </motion.h1>
+                <motion.img
                 src="/img/home/profile_vector.png"
                 alt="Profile picture"
                 className={styles.profile_picture}
-                ></img>
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                />
             </section>
         </>
     )

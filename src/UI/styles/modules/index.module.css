@@ -25,7 +25,7 @@
     align-items: center
 }
 
-.profile_picture {
+.profile_vector {
     margin-left: auto;
 }
 
@@ -43,6 +43,13 @@
 * TypeWriter
 */
 
-.cursorColor {
-    color: white;
+.mouseCircleFollower {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 200px;
+    height: 200px;
+    opacity: 20%;
+    border-radius: 50%;
+    background-color: white;
 }
