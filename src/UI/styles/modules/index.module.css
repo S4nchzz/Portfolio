@@ -51,28 +51,5 @@
     height: 200px;
     opacity: 20%;
     border-radius: 50%;
-    background-color: white;
-}
-
-/* Resume section */
-.resume_section {
-    margin-top: 10%;
-    margin-bottom: 10%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.projects_title {
-    font-family: 'Montserrat';
-    font-size: 3.5rem;
-    z-index: -1;
-    opacity: 0;
-}
-
-.animated_card {
-    width: 400px;
-    height: 40vh;
-    background-color: #1a212b;
+    background-color: rgb(255, 255, 255);
 }
