@@ -1,0 +1,95 @@
+{
+    "languages": [
+        {
+            "name": "Typescript",
+            "imgSource": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+        },
+        {
+            "name": "Javascript",
+            "imgSource": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+        },
+        {
+            "name": "Kotlin",
+            "imgSource": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg"
+        },
+        {
+            "name": "Java",
+            "imgSource": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+        }
+    ],
+
+    "database": [
+        {
+            "name": "MariaDB",
+            "imgSource": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mariadb/mariadb-original.svg"
+        },
+        {
+            "name": "MySQL",
+            "imgSource": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+        },
+        {
+            "name": "MongoDB",
+            "imgSource": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+        }
+    ],
+
+    "frontend": [
+        {
+            "name": "HTML",
+            "imgSource": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+        },
+        {
+            "name": "CSS",
+            "imgSource": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+        },
+        {
+            "name": "React",
+            "imgSource": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+        },
+        {
+            "name": "Bootstrap",
+            "imgSource": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+        },
+        {
+            "name": "Framer motion",
+            "imgSource": "https://cdn.worldvectorlogo.com/logos/framer-motion.svg"
+        }
+    ],
+
+    "backend": [
+        {
+            "name": "SpringBoot",
+            "imgSource": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
+        },
+        {
+            "name": "NestJS",
+            "imgSource": "https://icon.icepanel.io/Technology/svg/Nest.js.svg"
+        }
+    ],
+
+    "tools": [
+        {
+            "name": "Git",
+            "imgSource": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+        },
+        {
+            "name": "Docker",
+            "imgSource": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+        },
+        {
+            "name": "AWS",
+            "imgSource": "https://images.icon-icons.com/2407/PNG/512/aws_icon_146074.png"
+        }
+    ],
+
+    "os": [
+        {
+            "name": "Windows",
+            "imgSource": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg"
+        },
+        {
+            "name": "Linux",
+            "imgSource": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
+        }
+    ]
+}
