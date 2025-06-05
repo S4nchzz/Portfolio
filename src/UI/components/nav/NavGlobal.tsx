@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { Container, Nav, Navbar, NavItem, NavLink } from "react-bootstrap"
-import styles from "../../styles/modules/nav.module.css"
+import style from "../../styles/modules/nav.module.css"
 
 const NavGlobal = () => {
     const [showMenu, setShowMenu] = useState<boolean>(false)
@@ -9,25 +9,24 @@ const NavGlobal = () => {
         <>
             <Navbar bg="dark" data-bs-theme="dark" className="p-4" expand="lg">
                 <Container fluid>
-                    <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav" style={{fontSize: '1.2rem'}}>
+                    <Navbar.Collapse id="basic-navbar-nav" className={style.collapse}>
                         <Nav
                         onSelect={() => setShowMenu(!showMenu)}
-                        className={styles.nav}
-                        >
+                        className={style.nav}>
                             <NavItem>
-                                <NavLink className={styles.navItem} as={Link} href="/home">Home</NavLink>
+                                <NavLink className={style.navItem} as={Link} href="/home">Home</NavLink>
                             </NavItem>
                             
                             <NavItem>
-                                <NavLink className={styles.navItem} as={Link} href="/projects">Servicios</NavLink>
+                                <NavLink className={style.navItem} as={Link} href="/projects">Whoami</NavLink>
                             </NavItem>
 
                             <NavItem>
-                                <NavLink className={styles.navItem} as={Link} href="/about">Cuotas</NavLink>
+                                <NavLink className={style.navItem} as={Link} href="/about">Technologies</NavLink>
                             </NavItem>
                             
                             <NavItem>
-                                <NavLink className={styles.navItem} as={Link} href="contact">Contacto</NavLink>
+                                <NavLink className={style.navItem} as={Link} href="contact">Contact</NavLink>
                             </NavItem>
                         </Nav>
                     </Navbar.Collapse>

@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "next build"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +20,6 @@
     "react-bootstrap": "^2.10.9",
     "react-dom": "^18.3.1",
     "react-simple-typewriter": "^5.0.1",
-    "typewriter-effect": "^2.21.0",
     "x": "file:"
   },
   "devDependencies": {

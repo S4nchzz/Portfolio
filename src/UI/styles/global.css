@@ -1,5 +1,11 @@
 :root {
-    --muted: rgb(197, 197, 197)
+    --muted: rgb(197, 197, 197);
+    --cream: #FFEBD0;
+    --cream-dark-1: #fae4c6c2;
+    --aqua: #278783;
+    --aqua-light-1:#40a8a3;
+    --aqua-opacity-5: #27878281;
+    --aqua-muted: #1d4b48;
 }
 
 /* Fonts */
@@ -8,7 +14,17 @@
     src: url('/fonts/Montserrat.ttf');
 }
 
+@font-face {
+    font-family: 'Ahsing';
+    src: url('/fonts/Ahsing.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins.ttf');
+}
+
 body {
-    background-color: #0d1116;
+    background-color: var(--cream);
     color: white;
 }
