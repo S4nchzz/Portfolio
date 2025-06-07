@@ -50,37 +50,37 @@ const Index = () => {
                     marginLeft: '10rem',
                     marginRight: '10rem'
                 }}>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
+                    <p>asd</p>
                     <TechBlock/>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
                     <p>asd</p>
                     <p>asd</p>
                     <p>asd</p>

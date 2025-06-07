@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import Technology from "./Technology"
 import style from '../../styles/modules/techBlock.module.css'
+import CustomSeparator from "../customSeparator/CustomSeparator"
+import { motion } from 'framer-motion'
 
 type TechListStructure = {
     data: TechType
@@ -30,8 +32,13 @@ const TechBlock = () => {
         fetchTechs()
     }, [])
 
+    const [execAnimation, setExecAnimation] = useState<boolean>(false)
+
     return (
-        <div className={style.container}>
+        <motion.div
+            onViewportEnter={() => setExecAnimation(true)}
+            onViewportLeave={() => setExecAnimation(false)}
+            className={style.container}>
             <div>
                 {
                     tech &&
@@ -41,9 +48,8 @@ const TechBlock = () => {
                 }
             </div>
 
-            <div
-                className={style.splitter}
-            />
+            <CustomSeparator execAnimation={execAnimation}/>
+
             <div>
                 {
                     tech &&
@@ -59,7 +65,7 @@ const TechBlock = () => {
                     return <Technology tech={tech}/>
                 })
             } */}
-        </div>
+        </motion.div>
     )
 }
 
