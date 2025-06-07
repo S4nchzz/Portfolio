@@ -1,0 +1,115 @@
+{
+  "data": {
+    "frontend": [
+      {
+        "name": "Typescript",
+        "imgpath": "/img/tech/Typescript.svg",
+        "mainColor": "#3178C6"
+      },
+      {
+        "name": "Javascript",
+        "imgpath": "/img/tech/Javascript.svg",
+        "mainColor": "#F7DF1E"
+      },
+      {
+        "name": "NextJS",
+        "imgpath": "/img/tech/Next.js.svg",
+        "mainColor": "#1A1A1A"
+      },
+      {
+        "name": "HTML",
+        "imgpath": "/img/tech/HTML5.svg",
+        "mainColor": "#E34F26"
+      },
+      {
+        "name": "CSS",
+        "imgpath": "/img/tech/CSS3.svg",
+        "mainColor": "#1572B6"
+      },
+      {
+        "name": "React",
+        "imgpath": "/img/tech/React.svg",
+        "mainColor": "#61DAFB"
+      },
+      {
+        "name": "Bootstrap",
+        "imgpath": "/img/tech/Bootstrap.svg",
+        "mainColor": "#7952B3"
+      }
+    ],
+    "backend": [
+      {
+        "name": "NestJS",
+        "imgpath": "/img/tech/Nest.js.svg",
+        "mainColor": "#DF234F"
+      },
+      {
+        "name": "Express",
+        "imgpath": "/img/tech/Express.svg",
+        "mainColor": "#1A1A1A"
+      },
+      {
+        "name": "Java",
+        "imgpath": "/img/tech/Java.svg",
+        "mainColor": "#007396"
+      },
+      {
+        "name": "Springboot",
+        "imgpath": "/img/tech/Spring.svg",
+        "mainColor": "#6DB33F"
+      },
+      {
+        "name": "Kotlin",
+        "imgpath": "/img/tech/Kotlin.svg",
+        "mainColor": "#D52C9D"
+      },
+      {
+        "name": "JWT",
+        "imgpath": "/img/tech/JWT.svg",
+        "mainColor": "#D500F9"
+      },
+      {
+        "name": "Maven",
+        "imgpath": "/img/tech/Maven.svg",
+        "mainColor": "#C71A36"
+      },
+      {
+        "name": "Gradle",
+        "imgpath": "/img/tech/Gradle.svg",
+        "mainColor": "#02303A"
+      },
+      {
+        "name": "MySQL",
+        "imgpath": "/img/tech/MySQL.svg",
+        "mainColor": "#4479A1"
+      },
+      {
+        "name": "MongoDB",
+        "imgpath": "/img/tech/MongoDB.svg",
+        "mainColor": "#47A248"
+      }
+    ],
+    "other": [
+      {
+        "name": "Linux",
+        "imgpath": "/img/tech/Linux.svg",
+        "mainColor": "#FCC624"
+      },
+      {
+        "name": "Windows",
+        "imgpath": "/img/tech/Windows.svg",
+        "mainColor": "#0078D6"
+      },
+      {
+        "name": "Docker",
+        "imgpath": "/img/tech/Docker.svg",
+        "mainColor": "#2496ED"
+      },
+      {
+        "name": "Git",
+        "imgpath": "/img/tech/Git.svg",
+        "mainColor": "#F05032"
+      }
+    ]
+  }
+}

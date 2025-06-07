@@ -73,7 +73,15 @@ const LateralSection = () => {
     }
 
     return (
-        <div className={style.container}>
+        <motion.div 
+            initial={{
+                opacity: 0
+            }}
+
+            animate={{
+                opacity: 1
+            }}
+            className={style.container}>
             <ul>
                 {
                     sectionsProvider.sections &&
@@ -101,7 +109,7 @@ const LateralSection = () => {
                     })
                 }
             </ul>
-        </div>
+        </motion.div>
     )
 }
 
