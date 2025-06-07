@@ -9,12 +9,16 @@
             "svgpath": "/img/sections/dots.svg"
         },
         {
-            "name": "Personal Projects",
+            "name": "Projects",
             "svgpath": "/img/sections/folder.svg"
         },
         {
             "name": "Work",
             "svgpath": "/img/sections/box.svg"
+        },
+        {
+            "name": "Contact",
+            "svgpath": "/img/sections/contact.svg"
         }
     ]
 }

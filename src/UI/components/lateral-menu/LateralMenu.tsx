@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { MouseEvent, useEffect, useRef, useState } from 'react'
 import style from '../../styles/modules/lateralSection.module.css'
+import { motion } from 'framer-motion'
 
 type UseLateralSection = {
     display: number,
@@ -19,7 +20,7 @@ type SectionProvider = {
     sections: SectionStructure
 }
 
-const sectionProvider = (): SectionProvider => {
+const useSectionProvider = (): SectionProvider => {
     const [sections, setSections] = useState<SectionStructure>(null)
     useEffect(() => {
         const fetchSections = async () => {
@@ -43,7 +44,33 @@ export const useLateralSection = (): UseLateralSection => {
 }
 
 const LateralSection = () => {
-    const sectionsProvider: SectionProvider = sectionProvider()
+    const sectionsProvider: SectionProvider = useSectionProvider()
+    const [x, setX] = useState(0)
+
+    const ulVariant = {
+        initial: {
+            width: 0,
+        },
+
+        hover: {
+            width: 'fit-content',
+            paddingRight: '20px'
+        }
+    }
+
+    const liVariant = {
+        initial: {
+            opacity: 0,
+        },
+
+        hover: {
+            opacity: 1,
+            transition: {
+                type: 'spring',
+                delay: 0.2
+            }
+        }
+    }
 
     return (
         <div className={style.container}>
@@ -52,13 +79,24 @@ const LateralSection = () => {
                     sectionsProvider.sections &&
                     sectionsProvider.sections.data.map((section: SectionData) => {
                         return (
-                            <li>
+                            <motion.li
+                                variants={ulVariant}
+                                initial='initial'
+                                whileHover='hover'
+                                style={{
+                                    display:'flex',
+                                    flexDirection: 'row',
+                                    alignItems: 'center'
+                                }}
+                                >
                                 <img
                                     src={section.svgpath}
                                     alt={section.name}
                                 />
-                                <span>{section.name}</span>
-                            </li>
+                                <motion.span
+                                    variants={liVariant}
+                                >{section.name}</motion.span>
+                            </motion.li>
                         )
                     })
                 }

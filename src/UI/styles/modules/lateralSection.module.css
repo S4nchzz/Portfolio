@@ -8,23 +8,23 @@
 .container ul {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-
-    background-color: var(--dark);
+    gap: .7rem;
     width: max-content; /* 👈 clave */
     
     list-style-type: none;
     font-family: 'Poppins';
     padding: 1rem;
-    border-radius: 10rem;
-    border: 2px solid var(--muted-3);
 }
 
 
 .container li {
+    background-color: var(--dark);
+    border-radius: 10rem;
+    border: 2px solid var(--muted-3);
     display: flex;
     flex-direction: row;
     gap: 0.7rem;
+    width: fit-content;
 
     cursor: pointer;
     justify-content: left;
@@ -32,9 +32,6 @@
 
 .container li img {
     object-fit: contain;
-    width: 24px
-}
-
-.container li span {
-    display: none;
+    width: 20px;
+    padding: 1rem;
 }
