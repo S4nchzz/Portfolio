@@ -1,0 +1,20 @@
+{
+    "data": [
+        {
+            "name": "Whoami",
+            "svgpath": "/img/sections/whoami.svg"
+        },
+        {
+            "name": "Technologies",
+            "svgpath": "/img/sections/dots.svg"
+        },
+        {
+            "name": "Personal Projects",
+            "svgpath": "/img/sections/folder.svg"
+        },
+        {
+            "name": "Work",
+            "svgpath": "/img/sections/box.svg"
+        }
+    ]
+}

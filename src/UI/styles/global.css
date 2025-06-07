@@ -1,9 +1,12 @@
 :root {
     --bg: #0D0D0D;
+    --dark: #161616;
     --text-color: #F2F2F2;
     --blue-1: #212A3F;
     --blue-2: #566072;
-    --muted: #BEBEBE;
+    --muted-1: #BEBEBE;
+    --muted-2: #797979;
+    --muted-3: #3d3d3d;
 }
 
 /* Fonts */
