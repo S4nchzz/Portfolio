@@ -6,20 +6,6 @@
     gap: 1rem;
 }
 
-.container:first-child {
-    flex: 1;
-}
-
 .container >*:not(:first-child):not(:last-child):not(.splitter) {
 
-}
-
-.container:last-child {
-    flex: 1;
-}
-
-.splitter {
-    width: 10px;
-    height: 10px;
-    background-color: red;
 }

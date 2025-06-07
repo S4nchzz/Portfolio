@@ -3,15 +3,23 @@ import style from '../../styles/modules/customSeparator.module.css'
 import { motion } from 'framer-motion'
 
 type CustomSeparatorProps = {
-    execAnimation?: boolean
+    execAnimation?: boolean,
+    rotate?: boolean
 }
 
-const CustomSeparator = ({execAnimation = false}: CustomSeparatorProps) => {
+const CustomSeparator = ({execAnimation = false, rotate = false}: CustomSeparatorProps) => {
     return (
-        <div className={style.container}>
+        <div
+            style={{
+                rotate: rotate ? '180deg' : '0'
+            }}
+            className={style.container}>
             <motion.div
                 initial={{
-                    opacity: 0
+                    opacity: 0,
+                    transition: {
+                        delay: 0
+                    }
                 }}
 
                 animate={{
@@ -26,15 +34,17 @@ const CustomSeparator = ({execAnimation = false}: CustomSeparatorProps) => {
             
             <motion.div
                 initial={{
-                    height: 0
+                    height: 0,
+                    transition: {
+                        delay: 0
+                    }
                 }}
                 animate={{
                     height: execAnimation ? 500 : 0
                 }}
 
                 transition={{
-                    type: 'spring',
-                    duration: 5,
+                    duration: execAnimation ? 3.5 : 0,
                     delay: .5
                 }}
                 className={style.line}

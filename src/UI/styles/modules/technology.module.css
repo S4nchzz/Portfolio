@@ -3,8 +3,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 3px solid;
-    border-radius: 1rem;
     gap: 1rem;
     width: fit-content;
     height: fit-content;
@@ -18,7 +16,7 @@
     width: 46px;
 }
 
-.container h4 {
+.container h5 {
     margin: 0;
     font-family: 'Poppins';
 }

@@ -2,10 +2,9 @@
     text-align: center;
 }
 
-.container h1 {
-    font-family: 'Ahsing';
-    color: var(--text-color);
-    font-size: 15vh;
+.subcontainer {
+    margin-left: 10rem;
+    margin-right: 10rem;
 }
 
 .container h3 {
@@ -13,4 +12,20 @@
     color: var(--aqua);
     font-size: 5vh;
     text-align: center;
+}
+
+.techSection {
+    display: flex;
+    align-items: center;
+}
+
+.techSection span {
+    flex: 1;
+    font-family: 'Edwardian';
+    color: var(--text-color);
+    font-size: 10vh;
+}
+
+.techSection >*:not(span) {
+    flex: 1;
 }

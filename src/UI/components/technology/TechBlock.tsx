@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import Technology from "./Technology"
+import TechItem from "./TechItem"
 import style from '../../styles/modules/techBlock.module.css'
 import CustomSeparator from "../customSeparator/CustomSeparator"
 import { motion } from 'framer-motion'
@@ -16,8 +16,7 @@ type TechType = {
 
 export type TechInfo = {
     name: string,
-    imgpath: string,
-    mainColor: string
+    imgpath: string
 }
 
 const TechBlock = () => {
@@ -38,12 +37,29 @@ const TechBlock = () => {
         <motion.div
             onViewportEnter={() => setExecAnimation(true)}
             onViewportLeave={() => setExecAnimation(false)}
+
+            initial={{
+                opacity: 0,
+                transition: {
+                    delay: 0
+                }
+            }}
+
+            whileInView={{
+                opacity: 1
+            }}
+
+            transition={{
+                delay: 0.2,
+                duration: 1
+            }}
+
             className={style.container}>
             <div>
                 {
                     tech &&
                     tech.data.frontend.map((tech: TechInfo) => {
-                        return <Technology tech={tech}/>
+                        return <TechItem tech={tech}/>
                     })
                 }
             </div>
@@ -54,17 +70,21 @@ const TechBlock = () => {
                 {
                     tech &&
                     tech.data.backend.map((tech: TechInfo) => {
-                        return <Technology tech={tech}/>
+                        return <TechItem tech={tech}/>
                     })
                 }
             </div>
 
-            {/* {
-                tech &&
-                tech.data.other.map((tech: TechInfo) => {
-                    return <Technology tech={tech}/>
-                })
-            } */}
+            <CustomSeparator rotate={true} execAnimation={execAnimation}/>
+
+            <div>
+                {
+                    tech &&
+                    tech.data.other.map((tech: TechInfo) => {
+                        return <TechItem tech={tech}/>
+                    })
+                }
+            </div>
         </motion.div>
     )
 }

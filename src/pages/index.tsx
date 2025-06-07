@@ -3,9 +3,7 @@ import AnimatedText from "../UI/components/animated/animatedText/AnimatedText";
 import { useNav } from "../UI/components/nav/Nav";
 import style from "../UI/styles/modules/index.module.css"
 import { motion } from 'framer-motion'
-import Technology from "../UI/components/technology/Technology";
 import TechBlock from "../UI/components/technology/TechBlock";
-
 
 const Index = () => {
     const {
@@ -45,11 +43,7 @@ const Index = () => {
                     }/>
                 </motion.div>
 
-                <div
-                style={{
-                    marginLeft: '10rem',
-                    marginRight: '10rem'
-                }}>
+                <div className={style.subcontainer}>
                     <p>asd</p>
                     <p>asd</p>
                     <p>asd</p>
@@ -80,8 +74,32 @@ const Index = () => {
                     <p>asd</p>
                     <p>asd</p>
                     <p>asd</p>
-                    <TechBlock/>
                     <p>asd</p>
+
+                    <div className={style.techSection}>
+                        <motion.span
+                            initial={{
+                                x: -10,
+                                opacity: 0,
+                                transition: {
+                                    delay: 0
+                                }
+                            }}
+
+                            whileInView={{
+                                x: 0,
+                                opacity: 1
+                            }}
+
+                            transition={{
+                                type: 'spring',
+                                delay: .5,
+                                duration: 2
+                            }}
+                        >Technologies</motion.span>
+                        <TechBlock/>
+                    </div>
+
                     <p>asd</p>
                     <p>asd</p>
                     <p>asd</p>

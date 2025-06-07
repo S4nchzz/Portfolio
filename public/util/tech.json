@@ -3,112 +3,95 @@
     "frontend": [
       {
         "name": "Typescript",
-        "imgpath": "/img/tech/Typescript.svg",
-        "mainColor": "#3178C6"
+        "imgpath": "/img/tech/Typescript.svg"
       },
       {
         "name": "Javascript",
-        "imgpath": "/img/tech/Javascript.svg",
-        "mainColor": "#F7DF1E"
+        "imgpath": "/img/tech/Javascript.svg"
       },
       {
         "name": "NextJS",
-        "imgpath": "/img/tech/Next.js.svg",
-        "mainColor": "#1A1A1A"
+        "imgpath": "/img/tech/Next.js.svg"
       },
       {
         "name": "HTML",
-        "imgpath": "/img/tech/HTML5.svg",
-        "mainColor": "#E34F26"
+        "imgpath": "/img/tech/HTML5.svg"
       },
       {
         "name": "CSS",
-        "imgpath": "/img/tech/CSS3.svg",
-        "mainColor": "#1572B6"
+        "imgpath": "/img/tech/CSS3.svg"
       },
       {
         "name": "React",
-        "imgpath": "/img/tech/React.svg",
-        "mainColor": "#61DAFB"
+        "imgpath": "/img/tech/React.svg"
       },
       {
         "name": "Bootstrap",
-        "imgpath": "/img/tech/Bootstrap.svg",
-        "mainColor": "#7952B3"
+        "imgpath": "/img/tech/Bootstrap.svg"
       }
     ],
     "backend": [
       {
         "name": "NestJS",
-        "imgpath": "/img/tech/Nest.js.svg",
-        "mainColor": "#DF234F"
+        "imgpath": "/img/tech/Nest.js.svg"
       },
       {
         "name": "Express",
-        "imgpath": "/img/tech/Express.svg",
-        "mainColor": "#1A1A1A"
+        "imgpath": "/img/tech/Express.svg"
       },
       {
         "name": "Java",
-        "imgpath": "/img/tech/Java.svg",
-        "mainColor": "#007396"
+        "imgpath": "/img/tech/Java.svg"
       },
       {
         "name": "Springboot",
-        "imgpath": "/img/tech/Spring.svg",
-        "mainColor": "#6DB33F"
+        "imgpath": "/img/tech/Spring.svg"
       },
       {
         "name": "Kotlin",
-        "imgpath": "/img/tech/Kotlin.svg",
-        "mainColor": "#D52C9D"
+        "imgpath": "/img/tech/Kotlin.svg"
       },
       {
         "name": "JWT",
-        "imgpath": "/img/tech/JWT.svg",
-        "mainColor": "#D500F9"
+        "imgpath": "/img/tech/JWT.svg"
       },
       {
         "name": "Maven",
-        "imgpath": "/img/tech/Maven.svg",
-        "mainColor": "#C71A36"
+        "imgpath": "/img/tech/Maven.svg"
       },
       {
         "name": "Gradle",
-        "imgpath": "/img/tech/Gradle.svg",
-        "mainColor": "#02303A"
+        "imgpath": "/img/tech/Gradle.svg"
       },
       {
         "name": "MySQL",
-        "imgpath": "/img/tech/MySQL.svg",
-        "mainColor": "#4479A1"
+        "imgpath": "/img/tech/MySQL.svg"
       },
       {
         "name": "MongoDB",
-        "imgpath": "/img/tech/MongoDB.svg",
-        "mainColor": "#47A248"
+        "imgpath": "/img/tech/MongoDB.svg"
       }
     ],
     "other": [
       {
         "name": "Linux",
-        "imgpath": "/img/tech/Linux.svg",
-        "mainColor": "#FCC624"
+        "imgpath": "/img/tech/Linux.svg"
       },
       {
         "name": "Windows",
-        "imgpath": "/img/tech/Windows.svg",
-        "mainColor": "#0078D6"
+        "imgpath": "/img/tech/Windows.svg"
+      },
+      {
+        "name": "AWS",
+        "imgpath": "/img/tech/aws.svg"
       },
       {
         "name": "Docker",
-        "imgpath": "/img/tech/Docker.svg",
-        "mainColor": "#2496ED"
+        "imgpath": "/img/tech/Docker.svg"
       },
       {
         "name": "Git",
-        "imgpath": "/img/tech/Git.svg",
-        "mainColor": "#F05032"
+        "imgpath": "/img/tech/Git.svg"
       }
     ]
   }
