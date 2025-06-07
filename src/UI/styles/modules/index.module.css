@@ -1,55 +1,16 @@
-.background_gradiant {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: -1;
+.container {
+    text-align: center;
 }
 
-/*
-* Presentation
-*/
-.title {
-    font-family: 'Montserrat';
-    font-size: 5rem;
-    width: 50%;
-    font-weight: bold;
-    flex-grow: 2;
+.container h1 {
+    font-family: 'Ahsing';
+    color: var(--text-color);
+    font-size: 15vh;
 }
 
-.presentation {
-    display: flex;
-    flex-direction: row;
-    padding: 7%;
-    align-items: center
-}
-
-.profile_vector {
-    margin-left: auto;
-}
-
-@media (max-width: 1600px) {
-    .presentation {
-        flex-direction: column;
-    }
-
-    .profile_picture {
-        margin-left: 0;
-    }
-}
-
-/*
-* TypeWriter
-*/
-
-.mouseCircleFollower {
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    width: 200px;
-    height: 200px;
-    opacity: 20%;
-    border-radius: 50%;
-    background-color: rgb(255, 255, 255);
+.container h3 {
+    font-family: 'Poppins';
+    color: var(--aqua);
+    font-size: 5vh;
+    text-align: center;
 }

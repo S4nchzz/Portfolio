@@ -9,7 +9,7 @@ const NavGlobal = () => {
         <>
             <Navbar bg="dark" data-bs-theme="dark" className="p-4" expand="lg">
                 <Container fluid>
-                    <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav" style={{fontSize: '1.2rem'}}>
+                    <Navbar.Collapse id="basic-navbar-nav" style={{fontSize: '1.2rem'}}>
                         <Nav
                         onSelect={() => setShowMenu(!showMenu)}
                         className={styles.nav}

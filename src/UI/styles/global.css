@@ -1,5 +1,9 @@
 :root {
-    --muted: rgb(197, 197, 197)
+    --bg: #0D0D0D;
+    --text-color: #F2F2F2;
+    --blue-1: #212A3F;
+    --blue-2: #566072;
+    --muted: #BEBEBE;
 }
 
 /* Fonts */
@@ -8,7 +12,22 @@
     src: url('/fonts/Montserrat.ttf');
 }
 
+@font-face {
+    font-family: 'Ahsing';
+    src: url('/fonts/Ahsing.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins.ttf');
+}
+
+@font-face {
+    font-family: 'Edwardian';
+    src: url('/fonts/Edwardian.ttf');
+}
+
 body {
-    background-color: #0d1116;
-    color: white;
+    background-color: var(--bg);
+    color: var(--text-color);
 }

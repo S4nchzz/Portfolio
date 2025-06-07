@@ -1,14 +1,25 @@
+.collapse {
+    display: flex;
+    justify-content: right;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
 .nav {
     display: flex;
     justify-content: right;
-    gap: 2rem;
-    font-size: 1.1rem;
-    margin: 3rem;
+    gap: 1.3rem;
+    width: 99%;
+    margin-top: 2rem;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 .navItem {
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: var(--muted);
     font-family: 'Montserrat';
 }
 
