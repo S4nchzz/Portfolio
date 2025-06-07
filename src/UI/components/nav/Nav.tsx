@@ -2,9 +2,28 @@ import Link from "next/link"
 import { useState } from "react"
 import { Container, Nav, Navbar, NavItem, NavLink } from "react-bootstrap"
 import styles from "../../styles/modules/nav.module.css"
+import LateralMenu from "../lateral-menu/LateralMenu"
+
+type UseNavProps = {
+    fixed: boolean,
+    setFixed: (mustBeFixed: boolean) => void
+}
+
+export const useNav = (): UseNavProps => {
+    const [fixed, setFixed] = useState<boolean>(false)
+    return {
+        fixed,
+        setFixed
+    }
+}
 
 const NavGlobal = () => {
     const [showMenu, setShowMenu] = useState<boolean>(false)
+    
+    const {
+        fixed,
+    } = useNav()
+
     return (
         <>
             <Navbar bg="dark" data-bs-theme="dark" className="p-4" expand="lg">
@@ -13,6 +32,7 @@ const NavGlobal = () => {
                         <Nav
                         onSelect={() => setShowMenu(!showMenu)}
                         className={styles.nav}
+                        style={fixed ? { position: 'fixed' } : {}}
                         >
                             <NavItem>
                                 <NavLink className={styles.navItem} as={Link} href="/home">Home</NavLink>
@@ -33,6 +53,8 @@ const NavGlobal = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+
+            <LateralMenu/>
         </>
     )
 }
