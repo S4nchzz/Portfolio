@@ -16,7 +16,7 @@ const AnimatedText = ({text, style}: AnimatedTextProps) => {
         chars.map((char, index) => {
             return (
                 <motion.span
-                style={style}
+                    style={style}
                     key={index}
                     whileHover={{
                         y: -10

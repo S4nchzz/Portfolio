@@ -4,25 +4,8 @@ import { Container, Nav, Navbar, NavItem, NavLink } from "react-bootstrap"
 import styles from "../../styles/modules/nav.module.css"
 import LateralMenu from "../lateral-menu/LateralMenu"
 
-type UseNavProps = {
-    fixed: boolean,
-    setFixed: (mustBeFixed: boolean) => void
-}
-
-export const useNav = (): UseNavProps => {
-    const [fixed, setFixed] = useState<boolean>(false)
-    return {
-        fixed,
-        setFixed
-    }
-}
-
 const NavGlobal = () => {
     const [showMenu, setShowMenu] = useState<boolean>(false)
-    
-    const {
-        fixed,
-    } = useNav()
 
     return (
         <>
@@ -32,7 +15,7 @@ const NavGlobal = () => {
                         <Nav
                         onSelect={() => setShowMenu(!showMenu)}
                         className={styles.nav}
-                        style={fixed ? { position: 'fixed' } : {}}
+                        style={false ? { position: 'fixed' } : {}}
                         >
                             <NavItem>
                                 <NavLink className={styles.navItem} as={Link} href="/home">Home</NavLink>

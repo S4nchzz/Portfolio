@@ -1,6 +1,6 @@
 .container {
     position: fixed;
-    left:2%;
+    left: 2%;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -9,7 +9,6 @@
     display: flex;
     flex-direction: column;
     gap: .7rem;
-    width: max-content; /* 👈 clave */
     
     list-style-type: none;
     font-family: 'Poppins';
@@ -20,7 +19,7 @@
 .container li {
     background-color: var(--dark);
     border-radius: 10rem;
-    border: 2px solid var(--muted-3);
+    border: 2px solid var(--muted-5);
     display: flex;
     flex-direction: row;
     gap: 0.7rem;

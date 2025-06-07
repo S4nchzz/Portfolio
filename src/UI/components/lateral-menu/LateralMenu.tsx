@@ -34,18 +34,8 @@ const useSectionProvider = (): SectionProvider => {
     return { sections }
 }
 
-export const useLateralSection = (): UseLateralSection => {
-    const [display, setDisplay] = useState<number>(0)
-
-    return {
-        display,
-        setDisplay
-    }
-}
-
 const LateralSection = () => {
     const sectionsProvider: SectionProvider = useSectionProvider()
-    const [x, setX] = useState(0)
 
     const ulVariant = {
         initial: {
