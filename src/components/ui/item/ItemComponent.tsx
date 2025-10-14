@@ -1,21 +1,23 @@
 import style from '@/styles/item.module.css'
 import { ItemComponentType } from '@/types/types'
 import Image from 'next/image'
+import { DragEvent } from 'react'
 
 const ItemComponent = ({
-    img,
-    name,
-    type
+    item,
+    onDrag
 }: ItemComponentType) => {
     return (
-        <div className={style.container}>
+        <div
+            className={style.container}
+            onDrag={(e) => onDrag(e, item)}>
             <Image
                 width={40}
                 height={30}
-                src={img}
+                src={item.img}
                 alt='Program image'
             />
-            <span className={style.name}>{name}</span>
+            <span className={style.name}>{item.name}</span>
         </div>
     )
 }
