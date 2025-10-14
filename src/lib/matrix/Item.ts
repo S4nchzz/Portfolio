@@ -3,7 +3,7 @@ import { ItemType } from "../constants/Item.enum";
 import { randomUUID } from "crypto";
 
 export class Item implements ItemIface {
-    uuid: string;
+    readonly uuid: string;
     img: string;
     name: string;
     type: ItemType;

@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+    width: 95px;
+    height: 70px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container:hover {
+    background-color: #eeeeee;
+}

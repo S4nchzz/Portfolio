@@ -1,14 +1,13 @@
 'use client'
 
-import { useMatrix } from "@/contexts/matrix/matrix.context"
+import { ItemType } from "@/lib/constants/Item.enum"
+import ItemComponent from "../ui/item/ItemComponent"
 
 const PageComponent = () => {
-    const matrix = useMatrix()
-
     return (
         <>
             {
-                
+                <ItemComponent img='/img/items/notepad.svg'  name="Notepad" type={ItemType.NOTEPAD}/>
             }
         </>
     )
