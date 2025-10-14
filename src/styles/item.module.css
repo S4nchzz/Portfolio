@@ -8,8 +8,9 @@
     height: 70px;
     border-radius: 5px;
     cursor: pointer;
+    color: white;
 }
 
 .container:hover {
-    background-color: #eeeeee;
+    background-color: #eeeeee18;
 }

@@ -35,11 +35,14 @@ const MatrixProvider = ({ children }: {children: ReactNode}) => {
             let i_json = 0
             matrix.forEach((row, ri) => {
                 row.forEach((_col, rc) => {
-                    matrix[ri][rc] = new Item(
-                        json[i_json].img,
-                        json[i_json].name,
-                        json[i_json].type
-                    )
+                    matrix[ri][rc] = i_json < Object.keys(json).length - 1
+                        ? new Item(
+                            json[i_json].img,
+                            json[i_json].name,
+                            json[i_json].type
+                        )
+                        : null
+                    
                     if (i_json < Object.keys(json).length - 1){
                         i_json++
                     }

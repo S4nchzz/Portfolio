@@ -5,27 +5,27 @@
     "type": "NOTEPAD"
   },
   {
-    "img": "/img/items/notepad.svg",
+    "img": "/img/items/file-explorer.svg",
     "name": "File Explorer",
     "type": "FILE_EXPLORER"
   },
   {
-    "img": "/img/items/notepad.svg",
+    "img": "/img/items/calculator.svg",
     "name": "Calculator",
     "type": "CALCULATOR"
   },
   {
-    "img": "/img/items/notepad.svg",
+    "img": "/img/items/browser.svg",
     "name": "Browser",
     "type": "BROWSER"
   },
   {
-    "img": "/img/items/notepad.svg",
+    "img": "/img/items/settings.svg",
     "name": "Settings",
     "type": "SETTINGS"
   },
   {
-    "img": "/img/items/notepad.svg",
+    "img": "/img/items/terminal.svg",
     "name": "Terminal",
     "type": "TERMINAL"
   }
