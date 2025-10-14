@@ -63,7 +63,6 @@ const PageComponent = () => {
 
                                 return (
                                     <div
-                                    style={{backgroundColor:'#222222ff'}}
                                         key={`hb-${ri}-${ci}`}
                                         data-key={JSON.stringify({ row: ri, col: ci })} /* INVERTED BECAUSE GRID ORIENTATION IS SET TO COLUMN */
                                         className={style.hiddenBox}

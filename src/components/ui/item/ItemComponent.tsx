@@ -10,11 +10,13 @@ const ItemComponent = ({
 }: ItemComponentType) => {
     return (
         <div
+        draggable={true}
             className={style.container}
             onDrag={(e) => onDrag(e, item, currentIndex)}>
             <Image
-                width={40}
-                height={30}
+                draggable={false}
+                width={50}
+                height={40}
                 src={item.img}
                 alt='Program image'
             />

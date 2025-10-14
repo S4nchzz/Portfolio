@@ -55,9 +55,6 @@ const MatrixProvider = ({ children }: {children: ReactNode}) => {
                     nextCol = 0
                     nextRow++
                 }
-                
-                
-                
             })
 
             setMount(true)
