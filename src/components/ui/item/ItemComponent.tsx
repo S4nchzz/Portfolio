@@ -5,12 +5,13 @@ import { DragEvent } from 'react'
 
 const ItemComponent = ({
     item,
+    currentIndex,
     onDrag
 }: ItemComponentType) => {
     return (
         <div
             className={style.container}
-            onDrag={(e) => onDrag(e, item)}>
+            onDrag={(e) => onDrag(e, item, currentIndex)}>
             <Image
                 width={40}
                 height={30}

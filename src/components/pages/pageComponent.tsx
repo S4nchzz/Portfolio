@@ -5,6 +5,7 @@ import { Item } from '@/lib/matrix/Item'
 import style from '@/styles/pageComponent.module.css'
 import ItemComponent from '../ui/item/ItemComponent'
 import { DragEvent, useState } from 'react'
+import { ItemComponentTypeCurrentIndex } from '@/types/types'
 
 const PageComponent = () => {
     const {
@@ -12,10 +13,13 @@ const PageComponent = () => {
         addElementByRowCol
     } = useMatrix()
 
-    const [itemBeingDragged, setItemBeingDragged] = useState<Item | undefined>(undefined)
+    const [itemBeingDragged, setItemBeingDragged] = useState<{ item: Item, index: ItemComponentTypeCurrentIndex} | undefined>(undefined)
 
-    const handleItemDrag = (e: DragEvent<HTMLDivElement>, item: Item) => {
-        setItemBeingDragged(item)
+    const handleItemDrag = (e: DragEvent<HTMLDivElement>, item: Item, index: ItemComponentTypeCurrentIndex) => {
+        setItemBeingDragged({
+            item: item,
+            index: index
+        })
     }
 
     const handleOnDrop = (e: DragEvent<HTMLDivElement>) => {
@@ -33,7 +37,8 @@ const PageComponent = () => {
         addElementByRowCol({
             col: dataKeyParsed.col,
             row: dataKeyParsed.row,
-            item: itemBeingDragged
+            item: itemBeingDragged.item,
+            lastElementPosition: itemBeingDragged.index
         })
     }
 
@@ -47,15 +52,20 @@ const PageComponent = () => {
                                 if (item instanceof Item) {
                                     return <ItemComponent
                                         onDrag={handleItemDrag}
-                                        key={item.name + ci}
+                                        currentIndex={{
+                                            row: ri,
+                                            col: ci
+                                        }}
+                                        key={item.name + ri + ci}
                                         item={item}
                                     />
                                 }
 
                                 return (
                                     <div
+                                    style={{backgroundColor:'#222222ff'}}
                                         key={`hb-${ri}-${ci}`}
-                                        data-key={JSON.stringify({ row: ci, col: ri })} /* INVERTED BECAUSE GRID ORIENTATION IS SET TO COLUMN */
+                                        data-key={JSON.stringify({ row: ri, col: ci })} /* INVERTED BECAUSE GRID ORIENTATION IS SET TO COLUMN */
                                         className={style.hiddenBox}
                                         onDrop={handleOnDrop}
                                         onDragOver={(e) => e.preventDefault()}>
