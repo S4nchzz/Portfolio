@@ -1,14 +1,19 @@
 'use client'
 
-import { ItemType } from "@/lib/constants/Item.enum"
-import ItemComponent from "../ui/item/ItemComponent"
+import { useMatrix } from '@/contexts/matrix/matrix.context'
+import style from '@/styles/pageComponent.module.css'
+
 
 const PageComponent = () => {
+    const {
+        getMatrix
+    } = useMatrix()
+
     return (
         <>
-            {
-                <ItemComponent img='/img/items/notepad.svg'  name="Notepad" type={ItemType.NOTEPAD}/>
-            }
+            <div className={style.grid}>
+                
+            </div>
         </>
     )
 }

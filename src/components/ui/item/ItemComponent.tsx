@@ -1,4 +1,3 @@
-import { Item } from '@/lib/matrix/Item'
 import style from '@/styles/item.module.css'
 import { ItemComponentType } from '@/types/types'
 import Image from 'next/image'

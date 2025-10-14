@@ -1,0 +1,32 @@
+[
+  {
+    "img": "/img/items/notepad.svg",
+    "name": "Notepad",
+    "type": "NOTEPAD"
+  },
+  {
+    "img": "/img/items/notepad.svg",
+    "name": "File Explorer",
+    "type": "FILE_EXPLORER"
+  },
+  {
+    "img": "/img/items/notepad.svg",
+    "name": "Calculator",
+    "type": "CALCULATOR"
+  },
+  {
+    "img": "/img/items/notepad.svg",
+    "name": "Browser",
+    "type": "BROWSER"
+  },
+  {
+    "img": "/img/items/notepad.svg",
+    "name": "Settings",
+    "type": "SETTINGS"
+  },
+  {
+    "img": "/img/items/notepad.svg",
+    "name": "Terminal",
+    "type": "TERMINAL"
+  }
+]

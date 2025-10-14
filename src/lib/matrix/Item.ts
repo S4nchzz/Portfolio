@@ -1,6 +1,6 @@
 import { ItemIface } from "@/interface/Item.interface";
 import { ItemType } from "../constants/Item.enum";
-import { randomUUID } from "crypto";
+import { v4 as uuidv4 } from 'uuid';
 
 export class Item implements ItemIface {
     readonly uuid: string;
@@ -9,7 +9,7 @@ export class Item implements ItemIface {
     type: ItemType;
 
     constructor(img: string, name: string, type: ItemType) {
-        this.uuid = randomUUID()
+        this.uuid = uuidv4()
         this.img = img
         this.name = name
         this.type = type
