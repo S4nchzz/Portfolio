@@ -26,7 +26,6 @@ const PageComponent = () => {
         e.stopPropagation();
         e.preventDefault();
 
-        console.log(itemBeingDragged);
         const dataKey = e.currentTarget.dataset.key
         if (!dataKey) throw new Error('The hidden box row col are mismatching.')
 

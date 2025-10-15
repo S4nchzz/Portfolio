@@ -1,7 +1,6 @@
 import style from '@/styles/item.module.css'
 import { ItemComponentType } from '@/types/types'
 import Image from 'next/image'
-import { DragEvent } from 'react'
 
 const ItemComponent = ({
     item,

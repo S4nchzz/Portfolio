@@ -14,7 +14,6 @@ export const MatrixContext = createContext<MatrixContextType | undefined>(undefi
 
 const MatrixProvider = ({ children }: {children: ReactNode}) => {
     const [matrix, setMatrix] = useState<(Item | null)[][] | undefined>(undefined)
-    const [mount, setMount] = useState<boolean>(false)
     
     const generateEmptyMatrix = () => {
         const eMatrix: (Item | null)[][] = Array.from({ length: MatrixEnum.ROWS }, () =>
@@ -24,8 +23,26 @@ const MatrixProvider = ({ children }: {children: ReactNode}) => {
         return eMatrix
     }
 
+    const preloadLocalStorageMatrix = (): boolean => {
+        const mtx_pos_save = localStorage.getItem('mtx_pos_save')
+        if (!mtx_pos_save) return false
+        const preloadMatrixJSON = JSON.parse(mtx_pos_save)
+
+        const preloadMatrix: (Item | null)[][] = preloadMatrixJSON.map((row: []) => {
+            return row.map((cell: Item | null) => {
+                if (!cell) return null
+                return new Item(cell.img, cell.name, cell.type)
+            })
+        })
+
+        console.log(preloadMatrix);
+        setMatrix(preloadMatrix)
+        return true
+    }
+
     useEffect(() => {
-        if (mount) return
+        if (preloadLocalStorageMatrix()) return
+
         const matrix = generateEmptyMatrix()
 
         const getMainItems = async() => {
@@ -35,6 +52,7 @@ const MatrixProvider = ({ children }: {children: ReactNode}) => {
         
             if (!matrix) throw new Error('Matrix dont initialized.')
             
+                console.log(json);
             let nextRow = 0
             let nextCol = 0
             json.forEach((defaultItem) => {
@@ -57,7 +75,6 @@ const MatrixProvider = ({ children }: {children: ReactNode}) => {
                 }
             })
 
-            setMount(true)
             setMatrix(matrix)
         }
 
@@ -65,7 +82,7 @@ const MatrixProvider = ({ children }: {children: ReactNode}) => {
     }, [])
 
     useEffect(() => {
-        console.log(matrix);
+       
     }, [matrix])
 
     return (
@@ -105,7 +122,7 @@ export const useMatrix = () => {
             })
         })
 
-        console.log(matrixUpdated);
+       
         setMatrix(matrixUpdated)
     }
 
@@ -117,8 +134,9 @@ export const useMatrix = () => {
 
             matrixUpdated[row][col]  = item
             matrixUpdated[lastElementPosition.row][lastElementPosition.col] = null
-            
-            console.log(matrixUpdated);
+
+            localStorage.setItem('mtx_pos_save', JSON.stringify(matrixUpdated))
+
             setMatrix(matrixUpdated)
             matrixContext!.setMatrix(matrixUpdated)
         }

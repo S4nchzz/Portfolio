@@ -1,5 +1,10 @@
 [
   {
+    "img": "/img/items/trash.svg",
+    "name": "Trash",
+    "type": "TRASH"
+  },
+  {
     "img": "/img/items/notepad.svg",
     "name": "Notepad",
     "type": "NOTEPAD"
