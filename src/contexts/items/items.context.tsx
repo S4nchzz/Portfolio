@@ -5,7 +5,9 @@ import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffe
 
 type ItemRefState = {
     component: HTMLDivElement,
-    resetStyle: () => void
+    methodList: {
+        resetStyle: () => void
+    }
 }
 
 type ItemContextType = {
@@ -53,7 +55,10 @@ export const useItemRefStateList = () => {
 
         itemContext!.setItemRefStateList(prev => [
             ...prev,
-            { component: component, resetStyle: resetStyle }
+            { 
+                component: component,
+                methodList: { resetStyle: resetStyle }
+            }
         ])
     }
 
@@ -66,7 +71,7 @@ export const useItemRefStateList = () => {
     const resetGlobalStyle = (from: HTMLDivElement) => {
         itemContext!.itemRefStateList.forEach((item: ItemRefState) => {
             if (item.component !== from) {
-                item.resetStyle()
+                item.methodList.resetStyle()
             }
         })
     }
