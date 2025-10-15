@@ -1,4 +1,4 @@
-import { useItemComponentList } from '@/contexts/items/items.context'
+import { useItemRefStateList } from '@/contexts/items/items.context'
 import style from '@/styles/item.module.css'
 import { ItemComponentType } from '@/types/types'
 import Image from 'next/image'
@@ -14,13 +14,18 @@ const ItemComponent = ({
 
     const {
         setItems,
-        resetStyle
-    } = useItemComponentList()
+        resetGlobalStyle
+    } = useItemRefStateList()
+
+    const resetStyle = () => {
+        if (ref.current) ref.current.style = ''
+        setClick(false)
+    }
 
     useEffect(() => {
-        if (ref.current) setItems(ref.current)
+        if (ref.current) setItems(ref.current, resetStyle)
     }, [])
-    
+
     return (
         <div
             ref={ref}
@@ -33,7 +38,7 @@ const ItemComponent = ({
             onDrag={(e) => onDrag(e, item, currentIndex)}
             onClick={() => {
                 setClick(!click)
-                resetStyle()
+                if (ref.current) resetGlobalStyle(ref.current)
             }}
             >
             <Image

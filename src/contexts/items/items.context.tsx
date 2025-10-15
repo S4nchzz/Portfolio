@@ -3,21 +3,25 @@
 import { ItemType } from "@/lib/constants/Item.enum";
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useState } from "react";
 
+type ItemRefState = {
+    component: HTMLDivElement,
+    resetStyle: () => void
+}
+
 type ItemContextType = {
-    itemComponentList: HTMLDivElement[]
-    setItemComponentList: Dispatch<SetStateAction<HTMLDivElement[]>>
+    itemRefStateList: ItemRefState[]
+    setItemRefStateList: Dispatch<SetStateAction<ItemRefState[]>>
 }
 
 export const ItemContext = createContext<ItemContextType | undefined>(undefined)
 
-
 const ItemProvider = ({ children }: { children: ReactNode }) => {
-    const [itemComponentList, setItemComponentList] = useState<HTMLDivElement[]>([])
+    const [itemRefStateList, setItemRefStateList] = useState<ItemRefState[]>([])
     
     return (
         <ItemContext.Provider value={{
-            itemComponentList,
-            setItemComponentList
+            itemRefStateList,
+            setItemRefStateList
         }}>
             {children}
         </ItemContext.Provider>
@@ -26,11 +30,11 @@ const ItemProvider = ({ children }: { children: ReactNode }) => {
 
 export default ItemProvider
 
-export const useItemComponentList = () => {
+export const useItemRefStateList = () => {
     const itemContext = useContext(ItemContext)
 
     useEffect(() => {
-        if (!itemContext) throw new Error('ItemComponentList not loaded, is this hook being used at the same DOM level?')
+        if (!itemContext) throw new Error('ItemRefStateList not loaded, is this hook being used at the same DOM level?')
     }, [itemContext])
 
     const checkContext = () => {
@@ -40,30 +44,37 @@ export const useItemComponentList = () => {
     const getItems = () => {
         checkContext()
 
-        return itemContext!.itemComponentList
+        return itemContext!.itemRefStateList
     }
 
-    const setItems = (component: HTMLDivElement) => {
+    const setItems = (component: HTMLDivElement, resetStyle: () => void ) => {
         checkContext()
-        if (!component) throw new Error('HOOK: useItemComponentList / setItems() | components@param is null or undefined')
+        if (!component) throw new Error('HOOK: useItemRefStateList / setItems() | components@param is null or undefined')
 
-        itemContext!.setItemComponentList((prevItems: HTMLDivElement[])  => [...prevItems, component])
+        itemContext!.setItemRefStateList(prev => [
+            ...prev,
+            { component: component, resetStyle: resetStyle }
+        ])
     }
 
-    const resetStyle = () => {
-        checkContext()
-
-        itemContext!.itemComponentList.forEach(item => {
-            item.style = ''
-        });
+    const getElementByType = (itemType: ItemType) => {
+        return itemContext!.itemRefStateList.find((item) => (
+            item.component.dataset.type as ItemType) == itemType
+        )
     }
 
-    const getElementByType = (itemType: ItemType) => { return itemContext!.itemComponentList.find((item) => (item.dataset.type as ItemType) == itemType) }
+    const resetGlobalStyle = (from: HTMLDivElement) => {
+        itemContext!.itemRefStateList.forEach((item: ItemRefState) => {
+            if (item.component !== from) {
+                item.resetStyle()
+            }
+        })
+    }
 
     return {
         getItems,
         setItems,
         getElementByType,
-        resetStyle
+        resetGlobalStyle
     }
 }
