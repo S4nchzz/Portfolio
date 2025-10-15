@@ -8,7 +8,7 @@ const PageComponent = () => {
     return (
         <div className={style.page}>
             <div className={style.container}>
-                    <DesktopRender/>
+                <DesktopRender/>
             </div>
         </div>
     )

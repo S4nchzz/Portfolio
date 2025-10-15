@@ -4,6 +4,7 @@ import { ItemComponentTypeCurrentIndex } from "@/types/types"
 import { DragEvent, useState } from "react"
 import ItemComponent from "../item/ItemComponent"
 import style from '@/styles/desktopRender.module.css'
+import { useItemComponentList } from "@/contexts/items/items.context"
 
 const DesktopRender = () => {
     const {

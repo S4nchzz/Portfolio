@@ -1,11 +1,11 @@
 'use client'
 
 import { ItemType } from "@/lib/constants/Item.enum";
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useState } from "react";
 
 type ItemContextType = {
     itemComponentList: HTMLDivElement[]
-    setItemComponentList: (component: HTMLDivElement[]) => void
+    setItemComponentList: Dispatch<SetStateAction<HTMLDivElement[]>>
 }
 
 export const ItemContext = createContext<ItemContextType | undefined>(undefined)
@@ -43,17 +43,19 @@ export const useItemComponentList = () => {
         return itemContext!.itemComponentList
     }
 
-    const setItems = (components: HTMLDivElement | HTMLDivElement[]) => {
+    const setItems = (component: HTMLDivElement) => {
         checkContext()
-        if (!components) throw new Error('HOOK: useItemComponentList / setItems() | components@param is null or undefined')
-        
-        if (Array.isArray(components)) {
-            itemContext!.setItemComponentList(components)
-            return
-        }
+        if (!component) throw new Error('HOOK: useItemComponentList / setItems() | components@param is null or undefined')
 
-        const prevItems = itemContext!.itemComponentList
-        itemContext!.setItemComponentList([...prevItems, components])
+        itemContext!.setItemComponentList((prevItems: HTMLDivElement[])  => [...prevItems, component])
+    }
+
+    const resetStyle = () => {
+        checkContext()
+
+        itemContext!.itemComponentList.forEach(item => {
+            item.style = ''
+        });
     }
 
     const getElementByType = (itemType: ItemType) => { return itemContext!.itemComponentList.find((item) => (item.dataset.type as ItemType) == itemType) }
@@ -61,6 +63,7 @@ export const useItemComponentList = () => {
     return {
         getItems,
         setItems,
-        getElementByType
+        getElementByType,
+        resetStyle
     }
 }

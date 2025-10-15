@@ -1,7 +1,8 @@
+import { useItemComponentList } from '@/contexts/items/items.context'
 import style from '@/styles/item.module.css'
 import { ItemComponentType } from '@/types/types'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const ItemComponent = ({
     item,
@@ -9,9 +10,20 @@ const ItemComponent = ({
     onDrag
 }: ItemComponentType) => {
     const [click, setClick] = useState<boolean>(false)
+    const ref = useRef<HTMLDivElement>(null)
 
+    const {
+        setItems,
+        resetStyle
+    } = useItemComponentList()
+
+    useEffect(() => {
+        if (ref.current) setItems(ref.current)
+    }, [])
+    
     return (
         <div
+            ref={ref}
             data-type={item.type}
             style={{
                 backgroundColor: click ? '#7979794d' : undefined
@@ -19,7 +31,10 @@ const ItemComponent = ({
             draggable={true}
             className={style.container}
             onDrag={(e) => onDrag(e, item, currentIndex)}
-            onClick={() => setClick(!click)}
+            onClick={() => {
+                setClick(!click)
+                resetStyle()
+            }}
             >
             <Image
                 draggable={false}
