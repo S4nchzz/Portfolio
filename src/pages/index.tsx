@@ -39,38 +39,6 @@ const Index = () => {
                 </motion.div>
 
                 <div className={style.subcontainer}>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-
                     <div className={style.techSection}>
                         <motion.span
                             initial={{
@@ -94,14 +62,6 @@ const Index = () => {
                         >Technologies</motion.span>
                         <TechBlock/>
                     </div>
-
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
-                    <p>asd</p>
                 </div>
             </div>
         </>
