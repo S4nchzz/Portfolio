@@ -68,7 +68,7 @@ export const useItemRefStateList = () => {
         )
     }
 
-    const resetGlobalStyle = (from: HTMLDivElement) => {
+    const resetGlobalStyle = (from?: HTMLDivElement) => {
         itemContext!.itemRefStateList.forEach((item: ItemRefState) => {
             if (item.component !== from) {
                 item.methodList.resetStyle()

@@ -4,12 +4,17 @@ import { ItemComponentTypeCurrentIndex } from "@/types/types"
 import { DragEvent, useState } from "react"
 import ItemComponent from "../item/ItemComponent"
 import style from '@/styles/desktopRender.module.css'
+import { useItemRefStateList } from "@/contexts/items/items.context"
 
 const DesktopRender = () => {
     const {
         getMatrix,
         addElementByRowCol
     } = useMatrix()
+
+    const {
+        resetGlobalStyle
+    } = useItemRefStateList()
 
     const [itemBeingDragged, setItemBeingDragged] = useState<{ item: Item, index: ItemComponentTypeCurrentIndex} | undefined>(undefined)
 
@@ -57,6 +62,7 @@ const DesktopRender = () => {
                         } else {
                             return (
                                 <div
+                                    onClick={() => resetGlobalStyle()}
                                     key={`hb-${ri}-${ci}`}
                                     data-key={JSON.stringify({ row: ri, col: ci })}
                                     className={style.hiddenBox}
