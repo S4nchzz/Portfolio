@@ -40,6 +40,10 @@ const ItemComponent = ({
                 setClick(!click)
                 if (ref.current) resetGlobalStyle(ref.current)
             }}
+
+            onDoubleClick={() => {
+                
+            }}
             >
             <Image
                 draggable={false}

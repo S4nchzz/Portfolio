@@ -1,6 +1,10 @@
 import { ItemType } from "@/lib/constants/Item.enum"
 import { Item } from "@/lib/matrix/Item"
-import { DragEvent } from "react"
+import { DragEvent, ReactNode } from "react"
+
+export type ChildrenType = {
+    children: ReactNode
+}
 
 export type ItemComponentTypeCurrentIndex = {
     row: number,
