@@ -34,3 +34,8 @@ export type TaskbarAppItemAttr = {
     windowType: ItemType,
     windowAtatchedUuid: string
 }
+
+export type UseMouseType = {
+    x: number,
+    y: number
+}

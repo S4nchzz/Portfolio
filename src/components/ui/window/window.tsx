@@ -1,21 +1,31 @@
 import { useWindow } from '@/contexts/window/window.context'
+import useMouse from '@/hooks/useMouse'
 import style from '@/styles/window.module.css'
 import { WindowType } from '@/types/types'
 import Image from 'next/image'
+import { useState } from 'react'
 
 const Window = (attr: WindowType) => {
+    const [onDrag, setOnDrag] = useState<boolean>(false)
     const {
         deleteWindow,
         setMinimizeWindowState
     } = useWindow()
 
+    const {
+        pos
+    } = useMouse()
+
     return (
         <div
             className={style.container}
             style={{
-                visibility: attr.windowAttr.isMinimized ? 'hidden' : undefined
+                visibility: attr.windowAttr.isMinimized || onDrag ? 'hidden' : undefined,
+                left: onDrag ? pos.x : undefined,
+                top: onDrag ? pos.y : undefined
             }}
-            draggable={true}>
+            draggable={true}
+            onDrag={() => setOnDrag(!onDrag)}>
                 {attr.node}
             <div
                 className={style.windowControlContainer}>

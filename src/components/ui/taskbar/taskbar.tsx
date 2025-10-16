@@ -2,7 +2,6 @@ import style from '@/styles/taskbar.module.css'
 import Image from 'next/image'
 import { useState } from 'react'
 import TaskbarAppItem from './taskbarAppItem'
-import { ItemType } from '@/lib/constants/Item.enum'
 import { useWindow } from '@/contexts/window/window.context'
 
 const Taskbar = () => {
