@@ -1,3 +1,5 @@
+'use client'
+
 import { WindowIface } from "@/interface/windowIface";
 import { ChildrenType } from "@/types/types";
 import { createContext, Dispatch, SetStateAction, useContext, useState } from "react";
