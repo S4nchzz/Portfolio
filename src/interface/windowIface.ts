@@ -1,6 +1,7 @@
 import { ItemType } from "@/lib/constants/Item.enum"
 
 export interface WindowIface {
+    uuid: string,
     node: React.ReactNode,
     type: ItemType
 }

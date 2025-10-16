@@ -41,8 +41,16 @@ export const useWindow = () => {
         return ctx_window!.windowList
     }
 
+    const deleteWindow = (uuid: string) => {
+        checkWindowContext()
+        
+        const updatedList = ctx_window!.windowList.filter((window: WindowIface) => window.uuid == uuid)
+        ctx_window!.setWindowList(updatedList)
+    }
+
     return {
         addWindow,
-        getWindows
+        getWindows,
+        deleteWindow
     }
 }

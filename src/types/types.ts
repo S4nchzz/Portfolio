@@ -25,6 +25,7 @@ export type ItemFromJSON = {
 }
 
 export type WindowType = {
+    uuid: string,
     node: ReactNode,
     windowAttr: WindowAttr
 }

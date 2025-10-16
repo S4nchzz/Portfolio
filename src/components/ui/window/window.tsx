@@ -1,12 +1,19 @@
+import { useWindow } from '@/contexts/window/window.context'
 import style from '@/styles/window.module.css'
 import { WindowType } from '@/types/types'
 import Image from 'next/image'
 
 const Window = (attr: WindowType) => {
-    console.log(attr.windowAttr);
+    const {
+        deleteWindow
+    } = useWindow()
+
     return (
-        <div className={style.container}>
-            <div className={style.windowControlContainer}>
+        <div
+            className={style.container}
+            draggable={true}>
+            <div
+                className={style.windowControlContainer}>
                 <div className={style.windowControl}>
                     <ul>
                         <li>
@@ -34,6 +41,9 @@ const Window = (attr: WindowType) => {
                                 alt='Cross'
                                 width={26}
                                 height={26}
+                                onClick={() => {
+                                    deleteWindow(attr.uuid)
+                                }}
                             />
                         </li>
                     </ul>
