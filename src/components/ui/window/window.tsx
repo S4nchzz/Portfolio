@@ -11,24 +11,27 @@ const Window = () => {
                             <Image
                                 src={'/img/desktop/window/minimize.svg'}
                                 alt='Minimize'
-                                width={22}
-                                height={22}
+                                width={14}
+                                height={14}
                             />
                         </li>
                         <li>
                             <Image
+                                style={{
+                                    marginLeft: '8px' /* Optical ilusion added some margin pixels to left */
+                                }}
                                 src={'/img/desktop/window/maximize.svg'}
                                 alt='Maximize'
-                                width={22}
-                                height={22}
+                                width={18}
+                                height={18}
                             />
                         </li>
                         <li>
                             <Image
                                 src={'/img/desktop/window/cross.svg'}
                                 alt='Cross'
-                                width={22}
-                                height={22}
+                                width={26}
+                                height={26}
                             />
                         </li>
                     </ul>
