@@ -6,6 +6,7 @@ import ItemComponent from "../item/ItemComponent"
 import style from '@/styles/desktopRender.module.css'
 import { useItemRefStateList } from "@/contexts/items/items.context"
 import Taskbar from "../taskbar/taskbar"
+import Window from "../window/window"
 
 const DesktopRender = () => {
     const {
@@ -78,8 +79,10 @@ const DesktopRender = () => {
                     })
                 }
             </div>
+            <Window/>
 
             <Taskbar/>
+
         </>
     )
 }
