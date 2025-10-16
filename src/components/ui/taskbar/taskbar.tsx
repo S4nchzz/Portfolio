@@ -1,6 +1,8 @@
 import style from '@/styles/taskbar.module.css'
 import Image from 'next/image'
 import { useState } from 'react'
+import TaskbarAppItem from './taskbarAppItem'
+import { ItemType } from '@/lib/constants/Item.enum'
 
 const Taskbar = () => {
     const [searchBarFocused, setSearchBarFocused] = useState<boolean>(false)
@@ -36,6 +38,8 @@ const Taskbar = () => {
                     className={style.searchBarInput}
                 />
             </div>
+
+            <TaskbarAppItem appType={ItemType.BROWSER}/>
         </div>
     )
 }
