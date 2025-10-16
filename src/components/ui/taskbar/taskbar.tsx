@@ -39,7 +39,9 @@ const Taskbar = () => {
                 />
             </div>
 
+            <TaskbarAppItem appType={ItemType.SETTINGS}/>
             <TaskbarAppItem appType={ItemType.BROWSER}/>
+            <TaskbarAppItem appType={ItemType.TERMINAL}/>
         </div>
     )
 }

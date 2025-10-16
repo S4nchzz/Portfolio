@@ -91,7 +91,7 @@ const DesktopRender = () => {
             {
                 getWindows().map((window: WindowIface, index: number) => {
                     console.log(window);
-                    return buildWindow(window.type, window.node, index)
+                    return buildWindow(window, index)
                 })
             }
             <Taskbar/>

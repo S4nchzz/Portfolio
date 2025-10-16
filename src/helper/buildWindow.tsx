@@ -7,7 +7,7 @@ import Settings from "@/components/ui/applications/settings";
 import Terminal from "@/components/ui/applications/terminal";
 import Trash from "@/components/ui/applications/trash";
 import Window from "@/components/ui/window/window";
-import { WindowAttr } from "@/interface/windowIface";
+import { WindowAttr, WindowIface } from "@/interface/windowIface";
 import { ItemType } from "@/lib/constants/Item.enum";
 import { ReactNode } from "react";
 import { v4 as uuidv4 } from 'uuid';
@@ -55,8 +55,8 @@ export const appWindowDefaultAttr: Record<ItemType, WindowAttr> = {
     },
 };
 
-const buildWindow = (type: ItemType, node: ReactNode, key: number) => {
-    return <Window key={`${key}-${type}`} uuid={uuidv4()} node={node} windowAttr={appWindowDefaultAttr[type]} />
+const buildWindow = (window: WindowIface, key: number) => {
+    return <Window key={`${key}-${window.type}`} uuid={window.uuid} node={window.node} windowAttr={appWindowDefaultAttr[window.type]} />
 }
 
 export default buildWindow
