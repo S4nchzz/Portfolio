@@ -1,9 +1,11 @@
 import { ItemType } from "@/lib/constants/Item.enum"
+import { ReactNode } from "react"
 
 export interface WindowIface {
     uuid: string,
-    node: React.ReactNode,
-    type: ItemType
+    node: ReactNode,
+    type: ItemType,
+    windowAttr: WindowAttr
 }
 
 export interface WindowAttr {
@@ -12,6 +14,7 @@ export interface WindowAttr {
     isOpened: boolean,
     isFocused: boolean,
     isMaximized: boolean,
+    isMinimized: boolean,
     x: number,
     y: number
 }

@@ -20,6 +20,6 @@ const appComponents: Record<ItemType, ReactNode> = {
     [ItemType.DEFAULT]: <Default/>,
 }
 
-const getAppComponent = (type: ItemType) => appComponents[type] ||<Default/>
+const getAppComponent = (type: ItemType) => appComponents[type] || <Default/>
 
 export default getAppComponent

@@ -3,9 +3,14 @@ import Image from 'next/image'
 import { useState } from 'react'
 import TaskbarAppItem from './taskbarAppItem'
 import { ItemType } from '@/lib/constants/Item.enum'
+import { useWindow } from '@/contexts/window/window.context'
 
 const Taskbar = () => {
     const [searchBarFocused, setSearchBarFocused] = useState<boolean>(false)
+
+    const {
+        getWindows
+    } = useWindow()
 
     return (
         <div className={style.container}>
@@ -39,9 +44,18 @@ const Taskbar = () => {
                 />
             </div>
 
-            <TaskbarAppItem appType={ItemType.SETTINGS}/>
-            <TaskbarAppItem appType={ItemType.BROWSER}/>
-            <TaskbarAppItem appType={ItemType.TERMINAL}/>
+
+            {
+                getWindows().map((window, index) => {
+                    return (
+                        <TaskbarAppItem
+                            key={window.uuid + index}
+                            windowType={window.type}
+                            windowAtatchedUuid={window.uuid}
+                        />
+                    )
+                })
+            }
         </div>
     )
 }

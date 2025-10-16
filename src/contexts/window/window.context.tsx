@@ -48,9 +48,30 @@ export const useWindow = () => {
         ctx_window!.setWindowList(updatedList)
     }
 
+    const setMinimizeWindowState = (state: boolean, uuid: string) => {
+        checkWindowContext();
+
+        ctx_window!.setWindowList(prev =>
+            prev.map(win => {
+                if (win.uuid === uuid) {
+                    return {
+                        ...win,
+                        windowAttr: {
+                            ...win.windowAttr,
+                            isMinimized: state
+                        }
+                    };
+                }
+                return win;
+            })
+        );
+    };
+
+
     return {
         addWindow,
         getWindows,
-        deleteWindow
+        deleteWindow,
+        setMinimizeWindowState
     }
 }

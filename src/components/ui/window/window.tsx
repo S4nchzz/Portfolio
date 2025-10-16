@@ -5,13 +5,18 @@ import Image from 'next/image'
 
 const Window = (attr: WindowType) => {
     const {
-        deleteWindow
+        deleteWindow,
+        setMinimizeWindowState
     } = useWindow()
 
     return (
         <div
             className={style.container}
+            style={{
+                visibility: attr.windowAttr.isMinimized ? 'hidden' : undefined
+            }}
             draggable={true}>
+                {attr.node}
             <div
                 className={style.windowControlContainer}>
                 <div className={style.windowControl}>
@@ -22,6 +27,9 @@ const Window = (attr: WindowType) => {
                                 alt='Minimize'
                                 width={14}
                                 height={14}
+                                onClick={() => {
+                                    setMinimizeWindowState(true, attr.uuid)
+                                }}
                             />
                         </li>
                         <li>

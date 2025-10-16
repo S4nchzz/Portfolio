@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import getAppComponent from '@/helper/getAppComponent'
 import { v4 as uuidv4 } from 'uuid';
+import getDefaultWindowAttr from '@/helper/getDefaultWindowAttr'
 
 const ItemComponent = ({
     item,
@@ -54,9 +55,10 @@ const ItemComponent = ({
                 addWindow({
                     uuid: uuidv4(),
                     node: getAppComponent(item.type),
-                    type: item.type
+                    type: item.type,
+                    windowAttr: getDefaultWindowAttr(item.type)
                 })
-            }}> 
+            }}>
             <Image
                 draggable={false}
                 width={50}
