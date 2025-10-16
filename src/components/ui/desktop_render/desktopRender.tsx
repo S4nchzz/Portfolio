@@ -6,7 +6,9 @@ import ItemComponent from "../item/ItemComponent"
 import style from '@/styles/desktopRender.module.css'
 import { useItemRefStateList } from "@/contexts/items/items.context"
 import Taskbar from "../taskbar/taskbar"
-import Window from "../window/window"
+import { useWindow } from "@/contexts/window/window.context"
+import { WindowIface } from "@/interface/windowIface"
+import buildWindow from "@/helper/buildWindow"
 
 const DesktopRender = () => {
     const {
@@ -46,9 +48,14 @@ const DesktopRender = () => {
             })
     }
 
+    const {
+        getWindows
+    } = useWindow()
+
     return (
         <>
             <div className={style.grid}>
+                {/* SHOW ITEMS */}
                 {
                     getMatrix()?.map((row, ri) => {
                         return row.map((item, ci) => {
@@ -78,11 +85,16 @@ const DesktopRender = () => {
                         })
                     })
                 }
+
             </div>
-            <Window/>
-
+            {/* SHOW WINDOWS */}
+            {
+                getWindows().map((window: WindowIface) => {
+                    console.log(window);
+                    return buildWindow(window.type, window.node)
+                })
+            }
             <Taskbar/>
-
         </>
     )
 }

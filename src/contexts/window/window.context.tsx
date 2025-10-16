@@ -35,7 +35,14 @@ export const useWindow = () => {
         ctx_window!.setWindowList(prev => [...prev, window])
     }
 
+    const getWindows = (): WindowIface[] => {
+        checkWindowContext()
+
+        return ctx_window!.windowList
+    }
+
     return {
-        addWindow
+        addWindow,
+        getWindows
     }
 }

@@ -1,7 +1,9 @@
 import style from '@/styles/window.module.css'
+import { WindowType } from '@/types/types'
 import Image from 'next/image'
 
-const Window = () => {
+const Window = (attr: WindowType) => {
+    console.log(attr.windowAttr);
     return (
         <div className={style.container}>
             <div className={style.windowControlContainer}>

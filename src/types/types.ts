@@ -1,3 +1,4 @@
+import { WindowAttr } from "@/interface/windowIface"
 import { ItemType } from "@/lib/constants/Item.enum"
 import { Item } from "@/lib/matrix/Item"
 import { DragEvent, ReactNode } from "react"
@@ -21,4 +22,9 @@ export type ItemFromJSON = {
     img: string,
     name: string,
     type: ItemType
+}
+
+export type WindowType = {
+    node: ReactNode,
+    windowAttr: WindowAttr
 }

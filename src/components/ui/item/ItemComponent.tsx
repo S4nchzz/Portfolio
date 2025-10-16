@@ -51,7 +51,8 @@ const ItemComponent = ({
                 if (!ref.current) throw new Error('Item reference is not initialized when trying to open it. ')
 
                 addWindow({
-                    node: getAppComponent(item.type)
+                    node: getAppComponent(item.type),
+                    type: item.type
                 })
             }}> 
             <Image
