@@ -44,7 +44,6 @@ const Taskbar = () => {
                 />
             </div>
 
-
             {
                 getWindows().map((window, index) => {
                     return (

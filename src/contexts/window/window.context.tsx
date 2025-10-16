@@ -31,8 +31,16 @@ export const useWindow = () => {
     }
 
     const addWindow = (window: WindowIface) =>  {
+        const resetPrevFocus = (prevs: WindowIface[]) => {
+            return prevs.map((winPrev) => {
+                winPrev.windowAttr.isFocused = false
+                return winPrev
+            })
+        }
+
+
         checkWindowContext()
-        ctx_window!.setWindowList(prev => [...prev, window])
+        ctx_window!.setWindowList(prev => [...resetPrevFocus(prev), window])
     }
 
     const getWindows = (): WindowIface[] => {
@@ -58,20 +66,33 @@ export const useWindow = () => {
                         ...win,
                         windowAttr: {
                             ...win.windowAttr,
-                            isMinimized: state
+                            isMinimized: state,
+                            isFocused: !state
                         }
                     };
                 }
-                return win;
+                return {
+                    ...win,
+                    windowAttr: {
+                        ...win.windowAttr,
+                        isFocused: false
+                    }
+                };
             })
         );
     };
 
+    const getWindow = (uuid: string) => {
+        checkWindowContext()
+
+        return ctx_window!.windowList.find((window) => window.uuid == uuid)
+    }
 
     return {
         addWindow,
         getWindows,
         deleteWindow,
-        setMinimizeWindowState
+        setMinimizeWindowState,
+        getWindow
     }
 }

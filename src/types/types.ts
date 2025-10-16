@@ -29,3 +29,8 @@ export type WindowType = {
     node: ReactNode,
     windowAttr: WindowAttr
 }
+
+export type TaskbarAppItemAttr = {
+    windowType: ItemType,
+    windowAtatchedUuid: string
+}
