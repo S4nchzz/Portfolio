@@ -1,4 +1,5 @@
 import { useItemRefStateList } from '@/contexts/items/items.context'
+import { useWindow } from '@/contexts/window/window.context'
 import style from '@/styles/item.module.css'
 import { ItemComponentType } from '@/types/types'
 import Image from 'next/image'
@@ -26,6 +27,10 @@ const ItemComponent = ({
         if (ref.current) setItems(ref.current, resetStyle)
     }, [])
 
+    const {
+        addWindow
+    } = useWindow()
+
     return (
         <div
             ref={ref}
@@ -42,7 +47,11 @@ const ItemComponent = ({
             }}
 
             onDoubleClick={() => {
-                
+                addWindow({
+                    isOpened: true,
+                    isFocused: true,
+                    isMaximized: false
+                })
             }}
             >
             <Image

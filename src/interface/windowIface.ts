@@ -1,9 +1,9 @@
 export interface WindowIface {
-    width: string,
-    height: string,
+    width?: string,
+    height?: string,
     isOpened: boolean,
     isFocused: boolean,
     isMaximized: boolean,
-    x: number,
-    y: number
+    x?: number,
+    y?: number
 }
