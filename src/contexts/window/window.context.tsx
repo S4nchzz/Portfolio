@@ -30,18 +30,8 @@ export const useWindow = () => {
         if (!ctx_window) throw new Error('Window context not initialized, where are you using this hook?')
     }
 
-    const addWindow = (window: WindowIface = {
-        width: "1400px",
-        height: "700px",
-        isOpened: true,
-        isFocused: true,
-        isMaximized: false,
-        //! CAUTION WITH X AND Y
-        x: 0,
-        y: 0
-    }) =>  {
+    const addWindow = (window: WindowIface) =>  {
         checkWindowContext()
-        console.log(window);
         ctx_window!.setWindowList(prev => [...prev, window])
     }
 

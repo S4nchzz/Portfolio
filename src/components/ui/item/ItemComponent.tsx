@@ -4,6 +4,7 @@ import style from '@/styles/item.module.css'
 import { ItemComponentType } from '@/types/types'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
+import getAppComponent from '@/helper/getAppComponent'
 
 const ItemComponent = ({
     item,
@@ -47,13 +48,12 @@ const ItemComponent = ({
             }}
 
             onDoubleClick={() => {
+                if (!ref.current) throw new Error('Item reference is not initialized when trying to open it. ')
+
                 addWindow({
-                    isOpened: true,
-                    isFocused: true,
-                    isMaximized: false
+                    node: getAppComponent(item.type)
                 })
-            }}
-            >
+            }}> 
             <Image
                 draggable={false}
                 width={50}

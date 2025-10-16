@@ -1,9 +1,10 @@
 export enum ItemType {
-    TRASH = 'trash',
-    NOTEPAD = 'notepad',
-    FILE_EXPLORER = 'file_explorer',
-    CALCULATOR = 'calculator',
-    BROWSER = 'browser',
-    SETTINGS = 'settings',
-    TERMINAL = 'terminal'
+    DEFAULT = 'DEFAULT',
+    TRASH = 'TRASH',
+    NOTEPAD = 'NOTEPAD',
+    FILE_EXPLORER = 'FILE_EXPLORER',
+    CALCULATOR = 'CALCULATOR',
+    BROWSER = 'BROWSER',
+    SETTINGS = 'SETTINGS',
+    TERMINAL = 'TERMINAL'
 }
