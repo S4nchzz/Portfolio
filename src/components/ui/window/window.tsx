@@ -3,10 +3,10 @@ import useMouse from '@/hooks/useMouse'
 import style from '@/styles/window.module.css'
 import { WindowType } from '@/types/types'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 
 const Window = (attr: WindowType) => {
-    const [onDrag, setOnDrag] = useState<boolean>(false)
     const {
         deleteWindow,
         setMinimizeWindowState
@@ -16,16 +16,21 @@ const Window = (attr: WindowType) => {
         pos
     } = useMouse()
 
+    const windowRef = useRef<HTMLDivElement>(null)
     return (
-        <div
+        <motion.div
+            ref={windowRef}
+            drag
+            dragMomentum={false}
+            dragElastic={0}
             className={style.container}
-            style={{
-                visibility: attr.windowAttr.isMinimized || onDrag ? 'hidden' : undefined,
-                left: onDrag ? pos.x : undefined,
-                top: onDrag ? pos.y : undefined
+            initial={{
+                x: window.innerWidth / 2,
+                y: window.innerHeight / 2
             }}
-            draggable={true}
-            onDrag={() => setOnDrag(!onDrag)}>
+            style={{
+                visibility: attr.windowAttr.isMinimized ? 'hidden' : undefined,
+            }}>
                 {attr.node}
             <div
                 className={style.windowControlContainer}>
@@ -70,7 +75,7 @@ const Window = (attr: WindowType) => {
             <div className={style.windowContent}>
 
             </div>
-        </div>
+        </motion.div>
     )
 }
 
