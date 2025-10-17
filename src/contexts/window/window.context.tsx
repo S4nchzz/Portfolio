@@ -88,11 +88,32 @@ export const useWindow = () => {
         return ctx_window!.windowList.find((window) => window.uuid == uuid)
     }
 
+    const setMaximizedWindowState = (state: boolean, uuid: string) => {
+        checkWindowContext()
+
+        ctx_window!.setWindowList(prev => {
+            return prev.map((w) => {
+                if (w.uuid === uuid) {
+                    return {
+                        ...w,
+                        windowAttr: {
+                            ...w.windowAttr,
+                            isMaximized: state
+                        }
+                    };
+                }
+
+                return w;
+            });
+        })
+    }
+
     return {
         addWindow,
         getWindows,
         deleteWindow,
         setMinimizeWindowState,
+        setMaximizedWindowState,
         getWindow
     }
 }

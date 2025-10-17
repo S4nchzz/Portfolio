@@ -9,12 +9,33 @@ import { motion } from 'framer-motion'
 const Window = (attr: WindowType) => {
     const {
         deleteWindow,
-        setMinimizeWindowState
+        setMinimizeWindowState,
+        setMaximizedWindowState
     } = useWindow()
 
     const {
         pos
     } = useMouse()
+
+    const [dragAnimation, setDragAnimation] = useState<{
+        width: string | undefined
+        height: string | undefined
+        x: number | undefined
+        y: number | undefined
+    }>()
+
+    const [isMaximized, setMaximized] = useState<boolean>(false)
+
+    useEffect(() => {
+        console.log(`Window: ${attr.uuid} | Maximized: ${attr.windowAttr.isMaximized}`);
+
+        setDragAnimation({
+            width: attr.windowAttr.isMaximized ? '100%' : undefined,
+            height: attr.windowAttr.isMaximized ? '100%' : undefined,
+            x: attr.windowAttr.isMaximized ? 0 : undefined,
+            y: attr.windowAttr.isMaximized ? 0 : undefined
+        })
+    }, [attr])
 
     const windowRef = useRef<HTMLDivElement>(null)
     return (
@@ -24,9 +45,11 @@ const Window = (attr: WindowType) => {
             dragMomentum={false}
             dragElastic={0}
             className={style.container}
-            initial={{
-                x: window.innerWidth / 2,
-                y: window.innerHeight / 2
+            animate={{
+                ...dragAnimation
+            }}
+            transition={{
+                duration: .2
             }}
             style={{
                 visibility: attr.windowAttr.isMinimized ? 'hidden' : undefined,
@@ -56,6 +79,10 @@ const Window = (attr: WindowType) => {
                                 alt='Maximize'
                                 width={18}
                                 height={18}
+                                onClick={() => {
+                                    setMaximizedWindowState(isMaximized, attr.uuid)
+                                    setMaximized(!isMaximized)
+                                }}
                             />
                         </li>
                         <li>
