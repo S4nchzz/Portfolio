@@ -1,5 +1,6 @@
 import { WindowAttr } from "@/interface/windowIface"
 import { ItemType } from "@/lib/constants/Item.enum"
+import { TerminalCommands } from "@/lib/constants/terminalCommands.enum"
 import { Item } from "@/lib/matrix/Item"
 import { DragEvent, ReactNode } from "react"
 
@@ -43,4 +44,11 @@ export type UseMouseType = {
 
 export type TaskBarMenuStateType = {
     open: boolean
+}
+
+export type TerminalInputType = {
+    focus: boolean
+    onSend: (command: string) => void /* Method will convert the string command into TerminalCommands */
+    message?: string
+    disable: boolean
 }

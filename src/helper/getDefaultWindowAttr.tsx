@@ -34,8 +34,8 @@ export const appWindowDefaultAttr: Record<ItemType, WindowAttr> = {
     },
     'TERMINAL': {
         ...defaultWindowAttr,
-        width: '1200px',
-        height: '800px',
+        width: '1100px',
+        height: '600px',
     },
     'TRASH': {
         ...defaultWindowAttr,

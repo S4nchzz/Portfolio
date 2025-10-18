@@ -13,7 +13,6 @@ const TaskbarAppItem = (attr: TaskbarAppItemAttr) => {
     const windowData = getWindow(attr.windowAtatchedUuid)
     const isMinimized = windowData?.windowAttr.isMinimized ?? false
     const isFocused = windowData?.windowAttr.isFocused ?? false
-    console.log('Focus: ' + isFocused);
 
     return (
         <div

@@ -88,7 +88,6 @@ const DesktopRender = () => {
             {/* SHOW WINDOWS */}
             {
                 getWindows().map((window: WindowIface, index: number) => {
-                    console.log(window);
                     return buildWindow(window, index)
                 })
             }

@@ -1,0 +1,21 @@
+.container {
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    font-size: 14;
+    color: rgb(165, 165, 165);
+}
+
+.container:hover {
+    cursor: default;
+}
+
+.container::selection {
+    background-color: rgb(97, 97, 97);
+    font-weight: bold;
+}
+
+.input {
+    display: flex;
+}
