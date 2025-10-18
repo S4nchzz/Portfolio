@@ -22,6 +22,7 @@ const PageComponent = () => {
 
     return (
         <div className={style.page}>
+            <div className={style.virtualBody}/>
             <div
                 className={style.container}
                 onClick={() => {
