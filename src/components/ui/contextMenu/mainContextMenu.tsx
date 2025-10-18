@@ -19,7 +19,7 @@ const MainContextMenu = ({ open, xy }: {
 
             animate={{
                 opacity: open ? 1 : 0,
-                display: open ? 'block' : 'none'
+                display: open ? 'flex' : 'none'
             }}
             
             style={{
