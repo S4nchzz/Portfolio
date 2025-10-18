@@ -44,9 +44,14 @@ const ItemComponent = ({
             draggable={true}
             className={style.container}
             onDrag={(e) => onDrag(e, item, currentIndex)}
-            onClick={() => {
+            onClick={(e) => {
+                e.stopPropagation()
                 setClick(!click)
                 if (ref.current) resetGlobalStyle(ref.current)
+            }}
+            onContextMenu={(e) => {
+                e.stopPropagation()
+                /* ITEM CONTEXT MENU */
             }}
 
             onDoubleClick={() => {

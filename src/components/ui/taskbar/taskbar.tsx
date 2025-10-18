@@ -1,6 +1,6 @@
 import style from '@/styles/taskbar.module.css'
 import Image from 'next/image'
-import { ChangeEvent, useEffect, useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import TaskbarAppItem from './taskbarAppItem'
 import { useWindow } from '@/contexts/window/window.context'
 import StartMenu from './startMenu'
@@ -17,7 +17,7 @@ const Taskbar = () => {
     const [isSearchMenuOpened, setIsSearchMenuOpened] = useState<boolean>(false)
 
     const handleSearchChange = (e: ChangeEvent) => {
-
+        
     }
 
     return (
@@ -54,7 +54,7 @@ const Taskbar = () => {
                     width={32}
                     height={32}
                 />
-                
+
                 <input
                     placeholder='Search'
                     className={style.searchBarInput}

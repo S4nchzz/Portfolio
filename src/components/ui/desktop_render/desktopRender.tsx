@@ -16,10 +16,6 @@ const DesktopRender = () => {
         addElementByRowCol
     } = useMatrix()
 
-    const {
-        resetGlobalStyle
-    } = useItemRefStateList()
-
     const [itemBeingDragged, setItemBeingDragged] = useState<{ item: Item, index: ItemComponentTypeCurrentIndex} | undefined>(undefined)
 
     const handleItemDrag = (e: DragEvent<HTMLDivElement>, item: Item, index: ItemComponentTypeCurrentIndex) => {
@@ -72,12 +68,14 @@ const DesktopRender = () => {
                             } else {
                                 return (
                                     <div
-                                        onClick={() => resetGlobalStyle()}
                                         key={`hb-${ri}-${ci}`}
                                         data-key={JSON.stringify({ row: ri, col: ci })}
                                         className={style.hiddenBox}
                                         onDrop={handleOnDrop}
-                                        onDragOver={(e) => e.preventDefault()}>
+                                        onDragOver={(e) => e.preventDefault()}
+                                        onDrag={(e) => e.preventDefault()}
+                                        onClick={(e) => e.preventDefault()}
+                                        onContextMenu={(e) => e.preventDefault()}>
                                         {/* TO DROP SOMETHING HERE */}
                                     </div>
                                 )

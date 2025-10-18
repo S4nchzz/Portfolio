@@ -46,8 +46,12 @@ const Window = (attr: WindowType) => {
             dragMomentum={false}
             dragElastic={0}
             className={style.container}
+            initial={{
+                opacity: 0,
+            }}
             animate={{
-                ...dragAnimation
+                ...dragAnimation,
+                opacity: 1
             }}
             transition={{
                 duration: .2
