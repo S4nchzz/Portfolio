@@ -40,3 +40,7 @@ export type UseMouseType = {
     x: number,
     y: number
 }
+
+export type StarMenuType = {
+    open: boolean
+}

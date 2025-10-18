@@ -1,8 +1,9 @@
 import style from '@/styles/taskbar.module.css'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import TaskbarAppItem from './taskbarAppItem'
 import { useWindow } from '@/contexts/window/window.context'
+import StartMenu from './startMenu'
 
 const Taskbar = () => {
     const [searchBarFocused, setSearchBarFocused] = useState<boolean>(false)
@@ -11,8 +12,14 @@ const Taskbar = () => {
         getWindows
     } = useWindow()
 
+    const [isStartMenuOpened, setIsStartMenuOpened] = useState<boolean>(false)
+
+    useEffect(() => {
+console.log(isStartMenuOpened);
+    }, [isStartMenuOpened])
     return (
         <div className={style.container}>
+            <StartMenu open={isStartMenuOpened}/>
             <div className={style.wImageContainer}>
                 <Image
                     className={style.wImage}
@@ -20,6 +27,7 @@ const Taskbar = () => {
                     alt='Wlogo'
                     width={32}
                     height={32}
+                    onClick={() => setIsStartMenuOpened(!isStartMenuOpened)}
                 />
             </div>
 
