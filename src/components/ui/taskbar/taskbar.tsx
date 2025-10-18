@@ -1,9 +1,10 @@
 import style from '@/styles/taskbar.module.css'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import TaskbarAppItem from './taskbarAppItem'
 import { useWindow } from '@/contexts/window/window.context'
 import StartMenu from './startMenu'
+import SearchMenu from './searchMenu'
 
 const Taskbar = () => {
     const [searchBarFocused, setSearchBarFocused] = useState<boolean>(false)
@@ -13,13 +14,17 @@ const Taskbar = () => {
     } = useWindow()
 
     const [isStartMenuOpened, setIsStartMenuOpened] = useState<boolean>(false)
+    const [isSearchMenuOpened, setIsSearchMenuOpened] = useState<boolean>(false)
 
-    useEffect(() => {
-console.log(isStartMenuOpened);
-    }, [isStartMenuOpened])
+    const handleSearchChange = (e: ChangeEvent) => {
+
+    }
+
     return (
         <div className={style.container}>
             <StartMenu open={isStartMenuOpened}/>
+            <SearchMenu open={isSearchMenuOpened}/>
+
             <div className={style.wImageContainer}>
                 <Image
                     className={style.wImage}
@@ -27,7 +32,12 @@ console.log(isStartMenuOpened);
                     alt='Wlogo'
                     width={32}
                     height={32}
-                    onClick={() => setIsStartMenuOpened(!isStartMenuOpened)}
+                    onClick={() => {
+                        setIsStartMenuOpened(!isStartMenuOpened)
+                        if (!isStartMenuOpened) {
+                            setIsSearchMenuOpened(false)
+                        }
+                    }}
                 />
             </div>
 
@@ -48,6 +58,13 @@ console.log(isStartMenuOpened);
                 <input
                     placeholder='Search'
                     className={style.searchBarInput}
+                    onClick={() => {
+                        setIsSearchMenuOpened(!isSearchMenuOpened)
+                        if (!isSearchMenuOpened) {
+                            setIsStartMenuOpened(false)
+                        }
+                    }}
+                    onChange={handleSearchChange}
                 />
             </div>
 

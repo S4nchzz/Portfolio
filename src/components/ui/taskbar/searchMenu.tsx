@@ -1,8 +1,8 @@
-import style from '@/styles/startmenu.module.css'
+import style from '@/styles/searchMenu.module.css'
 import { TaskBarMenuStateType } from '@/types/types'
 import { motion } from 'framer-motion'
 
-const StartMenu = ({ open }: TaskBarMenuStateType) => {
+const SearchMenu = ({ open }: TaskBarMenuStateType ) => {
     return (
         <motion.div
             className={style.container}
@@ -24,4 +24,4 @@ const StartMenu = ({ open }: TaskBarMenuStateType) => {
     )
 }
 
-export default StartMenu
+export default SearchMenu

@@ -41,6 +41,6 @@ export type UseMouseType = {
     y: number
 }
 
-export type StarMenuType = {
+export type TaskBarMenuStateType = {
     open: boolean
 }
