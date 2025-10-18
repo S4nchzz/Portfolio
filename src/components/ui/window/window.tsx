@@ -5,6 +5,7 @@ import { WindowType } from '@/types/types'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import getAppImage from '@/helper/getAppImage'
 
 const Window = (attr: WindowType) => {
     const {
@@ -53,17 +54,25 @@ const Window = (attr: WindowType) => {
             }}
             style={{
                 visibility: attr.windowAttr.isMinimized ? 'hidden' : undefined,
+                width: attr.windowAttr.width,
+                height: attr.windowAttr.height
             }}>
-                {attr.node}
             <div
                 className={style.windowControlContainer}
                 onDoubleClick={() => {
                     setMaximizedWindowState(isMaximized, attr.uuid)
                     setMaximized(!isMaximized)
-                }}
-                >
+                }}>
                 <div className={style.windowControl}>
-                    <ul>
+                    <div className={style.windowIcon}>
+                        <Image
+                            src={`/img/items/${getAppImage(attr.nodeType)}`}
+                            alt='Minimize'
+                            width={24}
+                            height={24}
+                        />
+                    </div>
+                    <ul className={style.windowButtons}>
                         <li>
                             <Image
                                 src={'/img/desktop/window/minimize.svg'}
@@ -105,7 +114,7 @@ const Window = (attr: WindowType) => {
                 </div>
             </div>
             <div className={style.windowContent}>
-
+                {attr.node}
             </div>
         </motion.div>
     )
