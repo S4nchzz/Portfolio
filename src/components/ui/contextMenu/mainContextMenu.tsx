@@ -13,11 +13,13 @@ const MainContextMenu = ({ open, xy }: {
         <motion.div
             className={style.container}
             initial={{
-                opacity: 0
+                opacity: 0,
+                display: 'none'
             }}
 
             animate={{
                 opacity: open ? 1 : 0,
+                display: open ? 'block' : 'none'
             }}
             
             style={{
@@ -29,7 +31,7 @@ const MainContextMenu = ({ open, xy }: {
                         const ctx_key = key as keyof typeof ContextMenuType
                         return (
                             <>
-                                <li key={index + key}>
+                                <li>
                                     <Image
                                         width={22}
                                         height={22}
