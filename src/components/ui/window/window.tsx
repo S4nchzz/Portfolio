@@ -56,7 +56,12 @@ const Window = (attr: WindowType) => {
             }}>
                 {attr.node}
             <div
-                className={style.windowControlContainer}>
+                className={style.windowControlContainer}
+                onDoubleClick={() => {
+                    setMaximizedWindowState(isMaximized, attr.uuid)
+                    setMaximized(!isMaximized)
+                }}
+                >
                 <div className={style.windowControl}>
                     <ul>
                         <li>
