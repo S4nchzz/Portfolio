@@ -42,13 +42,14 @@ const Terminal = () => {
 
     const onSend = (command: string) => {
         command = command.toLowerCase()
+        if (command) setCommandList(prev => [...prev, command])
+            
         /* Start command = start notepad for example */
         if (command.startsWith('start')) {
             /* If the app exists start --> notepad <-- then the command name will be start by default to find it on TerminalCommands*/
             if (manageStartCommand(command)) command = 'start'
         }
 
-        if (command) setCommandList(prev => [...prev, command])
         setNPrevCommand(0)
         console.log(commandList);
 
