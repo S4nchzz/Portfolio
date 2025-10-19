@@ -47,8 +47,35 @@ OOOOOOOOOO                      OOOOOOOOOO
                                                 
                                           
         `,
-        [TerminalCommands.linkedin]: "",
-        [TerminalCommands.help]: ""
+        [TerminalCommands.linkedin]: `
+              JKKKKKKKKKKJ              
+          KKKKKKKKKKKKKKKKKKLK          
+       KKKKKKKKKKKKKKKKKKKKKKKKKK       
+     JLLKKKKKKKKKKKKKKKKKKKKKKKKKKJ     
+    KKLKKKKLLLKKKKKKKKKKKKKKKKKKKLKK    
+  JKKKKKKKY    KKKKKKKKKKKKKKKKKKKKKKJ  
+ KKKKKKKKM     LKKKKKKKKKKKKKKKKKKKKKKJ 
+ KKKKKKKKKLSWSMKLKKKKKKLKKKKKKKKKKKKKKK 
+ KKKKKKKKKNOPPOKLMPPPOLKPWYUNKKKKKKKKKKJ
+KKKKKKKKKK     KKX            VKKKKKKKKK
+KKKKKKKKKK     KKW      XZ     UKKKKKKKK
+KKKKKKKKKK     KKX    RKKKN     LKKKKKKK      LINKEDIN: https://www.linkedin.com/in/s4nchzz/
+KKKKKKKKKK     KKX    OKKKM     LKKKKKKK
+JKKKKKKKKK     KKX    OKKKN     LKKKKKKK
+ KKKKKKKKK     KKX    OKKKM     LKKKKKK 
+ JKKKKKKKK     JKX    OKKKM     LKKKKKK 
+  KKKKKKKKORQRPKKNQQQPLKKKLPQQQOKKKKKK  
+    KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKJ   
+     JKLKKKKKKKKKKKKKKKKKKKKKKLKKKJ     
+       KKKKKKKKKKKKKKKKKKKKKKKKKK       
+          KKKKKKKKKKKKKKKKKKLK          
+             JKKKKKKKKKKKKJ                                 
+        `,
+        [TerminalCommands.help]: `WHOAMI: Some info from me.
+GITHUB: A github link to visit my projects.
+LINKEDIN: A linkedin link to visit my experience profile.
+HELP: To show the available commands.
+        `
     }
 
     return commandMap[command]
