@@ -51,6 +51,7 @@ export type TerminalInputType = {
     onSend: (command: string) => void /* Method will convert the string command into TerminalCommands */
     message?: string
     disable: boolean
+    iText?: string
 }
 
 export type ManageTerminalCommandType = {
