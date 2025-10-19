@@ -52,3 +52,7 @@ export type TerminalInputType = {
     message?: string
     disable: boolean
 }
+
+export type ManageTerminalCommandType = {
+    command: TerminalCommands
+}

@@ -2,18 +2,33 @@ import style from '@/styles/terminal.module.css'
 import TerminalInput from '../terminalInput/terminalInput'
 import { useState } from 'react'
 import { TerminalCommands } from '@/lib/constants/terminalCommands.enum'
+import manageTerminalCommand from '@/helper/manageTerminalCommand'
 
 const Terminal = () => {
     const [focusInput, setFocusInput] = useState<boolean>(false)
 
     const [commandResults, setCommandResults] = useState<string[]>([])
     const defaultErrorMessage = '\"$cc\" is not a valid command, please use help to get more info.'
+
     const onSend = (command: string) => {
-        const c = command as keyof TerminalCommands
-        const isCommandValid = Object.keys(TerminalCommands).some((command) => command == c)
-        if (!isCommandValid) {
-            setCommandResults(prev => [...prev, defaultErrorMessage.replace('$cc', c)])
+        if (command === 'cls' || command === 'clear') {
+            setCommandResults([])
+            return
         }
+
+        const commandValid = Object.values(TerminalCommands).find((c) => c == command )
+        if (!commandValid) {
+            setCommandResults(prev => [...prev, defaultErrorMessage.replace('$cc', command)])
+            return
+        }
+
+        setCommandResults(
+            prev => [
+                ...prev,
+                manageTerminalCommand({
+                    command: commandValid
+                })
+            ])
     }
 
     const [keyControlDown, setKeyControlDown] = useState<boolean>(false)

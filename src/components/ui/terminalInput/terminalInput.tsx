@@ -24,7 +24,7 @@ const TerminalInput = ({ focus, onSend, message = '', disable }: TerminalInputTy
                     onChange={(e) => setText(e.target.value)}
                     className={style.container}/>
             </div>
-            {message}
+            <pre>{message}</pre>
         </div>
     )
 }

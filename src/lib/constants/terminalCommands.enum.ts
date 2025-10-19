@@ -1,6 +1,6 @@
 export enum TerminalCommands {
-    whoami,
-    github,
-    linkedin,
-    help,
+    whoami = "whoami",
+    github = "github",
+    linkedin = "linkedin",
+    help = "help"
 }
