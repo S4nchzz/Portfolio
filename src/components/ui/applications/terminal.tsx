@@ -1,6 +1,6 @@
 import style from '@/styles/terminal.module.css'
 import TerminalInput from '../terminalInput/terminalInput'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { TerminalCommands } from '@/lib/constants/terminalCommands.enum'
 import manageTerminalCommand from '@/helper/manageTerminalCommand'
 
@@ -81,23 +81,25 @@ const Terminal = () => {
                 <div className={style.prompt}>
                     {
                         commandResults.map((message, index) => {
+                            const isLast = index + 1 === commandResults.length;
                             return <TerminalInput
                                         key={index}
                                         focus={focusInput}
                                         onSend={onSend}
                                         message={message}
-                                        disable={index + 1 != commandResults.length}
-                                        iText={keyPrevCommand ? commandList.at(commandList.length - nPrevCommand) : undefined}
+                                        disable={!isLast}
+                                        iText={isLast && keyPrevCommand ? commandList.at(commandList.length - nPrevCommand) : undefined}
                                     />
                         })
                     }
-                    { commandResults.length == 0
-                        && <TerminalInput
-                                focus={focusInput}
-                                onSend={onSend}
-                                disable={commandResults.length > 0}
-                                iText={keyPrevCommand ? commandList.at(commandList.length - nPrevCommand) : undefined}
-                            />
+                    {
+                        commandResults.length == 0
+                            && <TerminalInput
+                                    focus={focusInput}
+                                    onSend={onSend}
+                                    disable={commandResults.length > 0}
+                                    iText={keyPrevCommand ? commandList.at(commandList.length - nPrevCommand) : undefined}
+                                />
                     }
                 </div>
             </div>

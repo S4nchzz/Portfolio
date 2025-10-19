@@ -28,8 +28,6 @@ const Window = (attr: WindowType) => {
     const [isMaximized, setMaximized] = useState<boolean>(false)
 
     useEffect(() => {
-        console.log(`Window: ${attr.uuid} | Maximized: ${attr.windowAttr.isMaximized}`);
-
         setDragAnimation({
             width: attr.windowAttr.isMaximized ? '100%' : undefined,
             height: attr.windowAttr.isMaximized ? '100%' : undefined,

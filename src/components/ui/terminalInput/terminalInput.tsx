@@ -10,26 +10,23 @@ const TerminalInput = ({ focus, onSend, message = '', disable, iText }: Terminal
         if (focus) ref.current.focus()
     }, [focus]);
 
-    useEffect(() => {
-        console.log(iText);
-    }, [iText]);
-
     const [text, setText] = useState<string>(iText ? iText : '')
     const [isBeingChanged, setIsBeingChanged] = useState<boolean>(false)
     return (
         <div className={style.container}>
+            <pre>{message}</pre>
             <div className={style.input}>
                 C:\home\root{'\>'}
                 <input
                     ref={ref}
                     disabled={disable}
                     defaultValue={iText}
+                    value={text ? text : !isBeingChanged ? iText : ''}
                     onKeyDown={(k) => {
                         if (k.code === 'ArrowUp' || k.code === 'ArrowDown') {
                             k.preventDefault()
                         }
 
-                        console.log(text);
                         if (k.key == 'Enter') onSend(iText && !isBeingChanged ? iText : text)
                     }}
                     onChange={(e) => {
@@ -38,7 +35,6 @@ const TerminalInput = ({ focus, onSend, message = '', disable, iText }: Terminal
                     }}
                     className={style.container}/>
             </div>
-            <pre>{message}</pre>
         </div>
     )
 }
