@@ -34,9 +34,10 @@ const Terminal = ({
         if (!appExists) return false
 
         const appTypeCast = appToBeOpened as ItemType
+        const uuid = uuidv4()
         addWindow({
-                    uuid: uuidv4(),
-                    node: getAppComponent(appTypeCast),
+                    uuid: uuid,
+                    node: getAppComponent(appTypeCast, uuid),
                     type: appTypeCast,
                     windowAttr: getDefaultWindowAttr(appTypeCast)
                 })
