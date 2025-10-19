@@ -57,9 +57,10 @@ const ItemComponent = ({
             onDoubleClick={() => {
                 if (!ref.current) throw new Error('Item reference is not initialized when trying to open it. ')
 
+                const uuid = uuidv4()
                 addWindow({
-                    uuid: uuidv4(),
-                    node: getAppComponent(item.type),
+                    uuid: uuid,
+                    node: getAppComponent(item.type, uuid),
                     type: item.type,
                     windowAttr: getDefaultWindowAttr(item.type)
                 })

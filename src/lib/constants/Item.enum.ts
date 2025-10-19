@@ -6,5 +6,6 @@ export enum ItemType {
     CALCULATOR = 'CALCULATOR',
     BROWSER = 'BROWSER',
     SETTINGS = 'SETTINGS',
-    TERMINAL = 'TERMINAL'
+    TERMINAL = 'TERMINAL',
+    RESUME= 'RESUME'
 }

@@ -50,9 +50,8 @@ const MatrixProvider = ({ children }: {children: ReactNode}) => {
             if (!data) throw new Error('mainApp.json empty or not found.')
             const json: ItemFromJSON[] = await data.json()
         
-            if (!matrix) throw new Error('Matrix dont initialized.')
+            if (!matrix) throw new Error('Matrix is not initialized.')
             
-                console.log(json);
             let nextRow = 0
             let nextCol = 0
             json.forEach((defaultItem) => {

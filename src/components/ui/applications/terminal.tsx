@@ -8,9 +8,12 @@ import { useWindow } from '@/contexts/window/window.context'
 import { v4 as uuidv4 } from 'uuid';
 import getAppComponent from '@/helper/getAppComponent'
 import getDefaultWindowAttr from '@/helper/getDefaultWindowAttr'
+import { ApplicationType } from '@/types/types'
 
 
-const Terminal = () => {
+const Terminal = ({
+    wUuid
+}: ApplicationType) => {
     const [focusInput, setFocusInput] = useState<boolean>(false)
 
     const [commandResults, setCommandResults] = useState<string[]>([])

@@ -1,4 +1,8 @@
-const Calculator = () => {
+import { ApplicationType } from "@/types/types"
+
+const Calculator = ({
+    wUuid
+}: ApplicationType) => {
     return (
         <>
         </>

@@ -10,7 +10,9 @@ export interface WindowIface {
 
 export interface WindowAttr {
     width: string,
+    minWidth?: string
     height: string,
+    minHeight?: string
     isOpened: boolean,
     isFocused: boolean,
     isMaximized: boolean,

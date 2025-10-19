@@ -8,6 +8,7 @@ const apps: Record<ItemType, string> = {
     [ItemType.SETTINGS]: 'settings.svg',
     [ItemType.TERMINAL]: 'terminal.svg',
     [ItemType.TRASH]: 'trash.svg',
+    [ItemType.RESUME]: 'cv.svg',
     [ItemType.DEFAULT]: '',
 }
 

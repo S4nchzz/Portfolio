@@ -1,4 +1,8 @@
-const Default = () => {
+import { ApplicationType } from "@/types/types"
+
+const Default = ({
+    wUuid
+}: ApplicationType) => {
     return (
         <>
         </>

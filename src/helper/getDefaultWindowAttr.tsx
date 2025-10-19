@@ -3,7 +3,9 @@ import { ItemType } from "@/lib/constants/Item.enum";
 
 const defaultWindowAttr: WindowAttr = {
     width: '1400px',
+    minWidth: undefined,
     height: '700px',
+    minHeight: undefined,
     isOpened: true,
     isFocused: true,
     isMinimized: false,
@@ -39,6 +41,12 @@ export const appWindowDefaultAttr: Record<ItemType, WindowAttr> = {
     },
     'TRASH': {
         ...defaultWindowAttr,
+    },
+    'RESUME': {
+        ...defaultWindowAttr,
+        minWidth: '500px',
+        width: 'fit-content',
+        height: '90vh',
     },
     'DEFAULT': {
         ...defaultWindowAttr,

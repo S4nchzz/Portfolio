@@ -1,4 +1,8 @@
-const Settings = () => {
+import { ApplicationType } from "@/types/types"
+
+const Settings = ({
+    wUuid
+}: ApplicationType) => {
     return (
         <>
         </>

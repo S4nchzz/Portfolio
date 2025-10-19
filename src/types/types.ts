@@ -58,3 +58,7 @@ export type TerminalInputType = {
 export type ManageTerminalCommandType = {
     command: TerminalCommands
 }
+
+export type ApplicationType = {
+    wUuid: string
+}

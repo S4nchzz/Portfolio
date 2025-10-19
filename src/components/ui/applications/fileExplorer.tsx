@@ -1,4 +1,8 @@
-const FileExplorer = () => {
+import { ApplicationType } from "@/types/types"
+
+const FileExplorer = ({
+    wUuid
+}: ApplicationType) => {
     return (
         <>
         </>

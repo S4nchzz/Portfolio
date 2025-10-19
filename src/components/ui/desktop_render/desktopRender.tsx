@@ -4,7 +4,6 @@ import { ItemComponentTypeCurrentIndex } from "@/types/types"
 import { DragEvent, useState } from "react"
 import ItemComponent from "../item/ItemComponent"
 import style from '@/styles/desktopRender.module.css'
-import { useItemRefStateList } from "@/contexts/items/items.context"
 import Taskbar from "../taskbar/taskbar"
 import { useWindow } from "@/contexts/window/window.context"
 import { WindowIface } from "@/interface/windowIface"
