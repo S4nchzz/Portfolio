@@ -12,13 +12,16 @@ const Terminal = () => {
 
     const [commandList, setCommandList] = useState<string[]>([])
 
+    const [firstCls, setFirstCls] = useState<boolean>(false)
     const onSend = (command: string) => {
+        command = command.toLowerCase()
         if (command) setCommandList(prev => [...prev, command])
         setNPrevCommand(0)
         console.log(commandList);
 
         if (command === 'cls' || command === 'clear') {
             setCommandResults([])
+            setFirstCls(true)
             return
         }
 
@@ -53,6 +56,7 @@ const Terminal = () => {
                 }
 
                 if (k.code === 'KeyC' &&  keyControlDown) {
+                    setFirstCls(true)
                     setCommandResults([])
                 }
 
@@ -74,11 +78,18 @@ const Terminal = () => {
                 }
             }}>
             <div className={style.content}>
-                <div className={style.rights}>
-                    <p>S4nchzz OS [Versión 0.0.1]</p>
-                    <p>S4nchzz Portfolio. Todos los derechos reservados.</p>
-                </div>
-                <div className={style.prompt}>
+                {
+                    !firstCls &&
+                    <div className={style.rights}>
+                        <p>S4nchzz OS [Versión 0.0.1]</p>
+                        <p>S4nchzz Portfolio. Todos los derechos reservados.</p>
+                    </div>
+                }
+                <div
+                    className={style.prompt}
+                    style={{
+                        marginTop: firstCls ? 0 : undefined
+                    }}>
                     {
                         commandResults.map((message, index) => {
                             const isLast = index + 1 === commandResults.length;
