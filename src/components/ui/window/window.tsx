@@ -11,7 +11,8 @@ const Window = (attr: WindowType) => {
     const {
         deleteWindow,
         setMinimizeWindowState,
-        setMaximizedWindowState
+        setMaximizedWindowState,
+        focusThisWindow
     } = useWindow()
 
     const {
@@ -39,6 +40,7 @@ const Window = (attr: WindowType) => {
     const windowRef = useRef<HTMLDivElement>(null)
     return (
         <motion.div
+            onMouseDown={() => focusThisWindow(attr.uuid)}
             ref={windowRef}
             drag
             dragMomentum={false}
@@ -57,7 +59,8 @@ const Window = (attr: WindowType) => {
             style={{
                 visibility: attr.windowAttr.isMinimized ? 'hidden' : undefined,
                 width: attr.windowAttr.width,
-                height: attr.windowAttr.height
+                height: attr.windowAttr.height,
+                zIndex: attr.windowAttr.zindex
             }}>
             <div
                 className={style.windowControlContainer}

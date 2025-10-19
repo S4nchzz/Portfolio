@@ -12,6 +12,7 @@ const defaultWindowAttr: WindowAttr = {
     isMaximized: false,
     x: 0,
     y: 0,
+    zindex: 0
 };
 
 export const appWindowDefaultAttr: Record<ItemType, WindowAttr> = {

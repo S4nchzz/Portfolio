@@ -18,5 +18,6 @@ export interface WindowAttr {
     isMaximized: boolean,
     isMinimized: boolean,
     x: number,
-    y: number
+    y: number,
+    zindex: number
 }

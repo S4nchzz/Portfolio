@@ -108,12 +108,43 @@ export const useWindow = () => {
         })
     }
 
+    const focusThisWindow = (uuid: string) => {
+        checkWindowContext()
+
+        const highestZindex: number[] = []
+        ctx_window!.windowList.map((w) => {
+            highestZindex.push(w.windowAttr.zindex)
+        })
+
+        const maxZindex = Math.max(...highestZindex)
+
+        ctx_window!.setWindowList((prev) => {
+            return prev.map((w) => {
+                if (w.uuid === uuid) {
+                    return {
+                        ...w,
+                        windowAttr: {
+                            ...w.windowAttr,
+                            zindex: maxZindex + 1
+                        }
+                    }
+                }
+
+                return {
+                    ...w
+                }
+            })
+        })
+        
+    }
+
     return {
         addWindow,
         getWindows,
         deleteWindow,
         setMinimizeWindowState,
         setMaximizedWindowState,
-        getWindow
+        getWindow,
+        focusThisWindow
     }
 }

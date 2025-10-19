@@ -5,7 +5,6 @@ import style from '@/styles/resume.module.css'
 import { ApplicationType } from '@/types/types';
 import { useWindow } from '@/contexts/window/window.context';
 import Image from 'next/image';
-import { scale } from 'framer-motion';
 
 const Resume = ({
     wUuid
