@@ -2,7 +2,7 @@ import { WindowAttr } from "@/interface/windowIface"
 import { ItemType } from "@/lib/constants/Item.enum"
 import { TerminalCommands } from "@/lib/constants/terminalCommands.enum"
 import { Item } from "@/lib/matrix/Item"
-import { DragEvent, ReactNode } from "react"
+import { DragEvent, ReactNode, RefObject } from "react"
 
 export type ChildrenType = {
     children: ReactNode
@@ -48,10 +48,11 @@ export type TaskBarMenuStateType = {
 
 export type TerminalInputType = {
     focus: boolean
-    onSend: (command: string) => void /* Method will convert the string command into TerminalCommands */
+    onSend: (command?: string) => void /* Method will convert the string command into TerminalCommands */
     message?: string
     disable: boolean
     iText?: string
+    clearInput: number
 }
 
 export type ManageTerminalCommandType = {

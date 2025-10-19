@@ -19,6 +19,7 @@ const Terminal = () => {
     const [commandList, setCommandList] = useState<string[]>([])
 
     const [firstCls, setFirstCls] = useState<boolean>(false)
+    const [clearFirstInput, setClearFirstInput] = useState<number>(0)
 
     const {
         addWindow
@@ -40,10 +41,15 @@ const Terminal = () => {
         return true
     }
 
-    const onSend = (command: string) => {
+    const onSend = (command?: string) => {
+        if (!command) {
+            setCommandResults(prev => [...prev, '']) /* EMPTY CHAR REPRESENTING THE CTRLC */
+            return
+        }
+
         command = command.toLowerCase()
-        if (command) setCommandList(prev => [...prev, command])
-            
+        if (command) setCommandList(prev => [...prev, command!])
+        
         /* Start command = start notepad for example */
         if (command.startsWith('start')) {
             /* If the app exists start --> notepad <-- then the command name will be start by default to find it on TerminalCommands*/
@@ -54,8 +60,9 @@ const Terminal = () => {
         console.log(commandList);
 
         if (command === 'cls' || command === 'clear') {
-            setCommandResults([])
             setFirstCls(true)
+            setCommandResults([])
+            setClearFirstInput(prev => prev + 1)
             return
         }
 
@@ -74,8 +81,6 @@ const Terminal = () => {
             ])
     }
 
-    const [keyControlDown, setKeyControlDown] = useState<boolean>(false)
-
     const [keyPrevCommand, setKeyPrevCommand] = useState<boolean>(false)
     const [nPrevCommand, setNPrevCommand] = useState<number>(0)
 
@@ -84,16 +89,6 @@ const Terminal = () => {
             className={style.container}
             onClick={() => setFocusInput(!focusInput)}
             onKeyDown={(k) => {
-                if (k.code === 'ControlLeft') {
-                    setKeyControlDown(true)
-                    return
-                }
-
-                if (k.code === 'KeyC' &&  keyControlDown) {
-                    setFirstCls(true)
-                    setCommandResults([])
-                }
-
                 if (k.code === 'ArrowUp') {
                     setKeyPrevCommand(true)
                     setNPrevCommand(prev => prev != commandList.length ? prev + 1 : prev)
@@ -102,13 +97,6 @@ const Terminal = () => {
                 if (k.code === 'ArrowDown') {
                     setKeyPrevCommand(true)
                     setNPrevCommand(prev => prev > 1 ? prev - 1 : prev)
-                }
-            }}
-
-            onKeyUp={(k) => {
-                if (k.code === 'ControlLeft') {
-                    setKeyControlDown(false)
-                    return
                 }
             }}>
             <div className={style.content}>
@@ -124,28 +112,29 @@ const Terminal = () => {
                     style={{
                         marginTop: firstCls ? 0 : undefined
                     }}>
-                    {
-                        commandResults.map((message, index) => {
-                            const isLast = index + 1 === commandResults.length;
-                            return <TerminalInput
-                                        key={index}
-                                        focus={focusInput}
-                                        onSend={onSend}
-                                        message={message}
-                                        disable={!isLast}
-                                        iText={isLast && keyPrevCommand ? commandList.at(commandList.length - nPrevCommand) : undefined}
-                                    />
-                        })
-                    }
-                    {
-                        commandResults.length == 0
-                            && <TerminalInput
-                                    focus={focusInput}
-                                    onSend={onSend}
-                                    disable={commandResults.length > 0}
-                                    iText={keyPrevCommand ? commandList.at(commandList.length - nPrevCommand) : undefined}
-                                />
-                    }
+                        {
+                            <TerminalInput
+                                focus={focusInput}
+                                onSend={onSend}
+                                clearInput={clearFirstInput}
+                                disable={commandResults.length > 0}
+                                iText={keyPrevCommand ? commandList.at(commandList.length - nPrevCommand) : undefined}
+                            />
+                        }
+                        {
+                            commandResults.map((message, index) => {
+                                const isLast = index + 1 === commandResults.length;
+                                return <TerminalInput
+                                            key={index}
+                                            focus={focusInput}
+                                            onSend={onSend}
+                                            message={message}
+                                            clearInput={0}
+                                            disable={!isLast}
+                                            iText={isLast && keyPrevCommand ? commandList.at(commandList.length - nPrevCommand) : undefined}
+                                        />
+                            })
+                        }
                 </div>
             </div>
         </div>
