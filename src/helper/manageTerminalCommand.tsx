@@ -21,7 +21,32 @@ const manageTerminalCommand = ({ command }: ManageTerminalCommandType) => {
                                                ]
                                            ]
         `,
-        [TerminalCommands.github]: "",
+        [TerminalCommands.github]: `
+             OOOOOOOOOOOOOOOO             
+         OOOOOOOOOOOOOOOOOOOOOOOO         
+       OOOOOOOOOOOOOOOOOOOOOOOOOOOO       
+     OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO     
+    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO   
+  OOOOOOOO    OOOOOOOOOOOOOO    OOOOOOOO  
+ OOOOOOOOO                      OOOOOOOOO 
+OOOOOOOOOO                      OOOOOOOOOO
+OOOOOOOOOO                       OOOOOOOOO
+OOOOOOOOO                         OOOOOOOO
+OOOOOOOO                          OOOOOOOO      GITHUB: https://github.com/S4nchzz
+OOOOOOOO                          OOOOOOOO
+OOOOOOOOO                         OOOOOOOO
+OOOOOOOOO                        OOOOOOOOO
+OOOOOOOOOO                      OOOOOOOOOO
+ OOOOOOOOOOOO                OOOOOOOOOOOO 
+ OOOOOO OOOOOOOOO        OOOOOOOOOOOOOOOO 
+   OOOOOO OOOOOOO        OOOOOOOOOOOOOO   
+    OOOOOO                OOOOOOOOOOOO    
+     OOOOOOOOOOO          OOOOOOOOOOO     
+        OOOOOOOO          OOOOOOOOO       
+           OOOOO          OOOOO           
+                                                
+                                          
+        `,
         [TerminalCommands.linkedin]: "",
         [TerminalCommands.help]: ""
     }
