@@ -3,7 +3,7 @@ import { ManageTerminalCommandType } from "@/types/types"
 
 const manageTerminalCommand = ({ command }: ManageTerminalCommandType) => {
     const commandMap: Record<TerminalCommands, string> = {
-        [TerminalCommands.whoami]: `
+      [TerminalCommands.whoami]: `
       :                        -             s4nchzz@Portfolio
        #.                     #.           ---------------------
        -@=                  :@+            OS: S4nchzzOS
@@ -21,7 +21,7 @@ const manageTerminalCommand = ({ command }: ManageTerminalCommandType) => {
                                                ]
                                            ]
         `,
-        [TerminalCommands.github]: `
+      [TerminalCommands.github]: `
              OOOOOOOOOOOOOOOO             
          OOOOOOOOOOOOOOOOOOOOOOOO         
        OOOOOOOOOOOOOOOOOOOOOOOOOOOO       
@@ -47,7 +47,7 @@ OOOOOOOOOO                      OOOOOOOOOO
                                                 
                                           
         `,
-        [TerminalCommands.linkedin]: `
+      [TerminalCommands.linkedin]: `
               JKKKKKKKKKKJ              
           KKKKKKKKKKKKKKKKKKLK          
        KKKKKKKKKKKKKKKKKKKKKKKKKK       
@@ -71,11 +71,13 @@ JKKKKKKKKK     KKX    OKKKN     LKKKKKKK
           KKKKKKKKKKKKKKKKKKLK          
              JKKKKKKKKKKKKJ                                 
         `,
-        [TerminalCommands.help]: `WHOAMI: Some info from me.
+      [TerminalCommands.help]: `WHOAMI: Some info from me.
 GITHUB: A github link to visit my projects.
 LINKEDIN: A linkedin link to visit my experience profile.
+START: Start an app throught the terminal | ex: >start 'notepad' | 'calculator' | 'browser'...
 HELP: To show the available commands.
-        `
+        `,
+      [TerminalCommands.start]: "Opening window..."
     }
 
     return commandMap[command]

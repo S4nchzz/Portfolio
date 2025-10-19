@@ -3,6 +3,12 @@ import TerminalInput from '../terminalInput/terminalInput'
 import { useState } from 'react'
 import { TerminalCommands } from '@/lib/constants/terminalCommands.enum'
 import manageTerminalCommand from '@/helper/manageTerminalCommand'
+import { ItemType } from '@/lib/constants/Item.enum'
+import { useWindow } from '@/contexts/window/window.context'
+import { v4 as uuidv4 } from 'uuid';
+import getAppComponent from '@/helper/getAppComponent'
+import getDefaultWindowAttr from '@/helper/getDefaultWindowAttr'
+
 
 const Terminal = () => {
     const [focusInput, setFocusInput] = useState<boolean>(false)
@@ -13,8 +19,35 @@ const Terminal = () => {
     const [commandList, setCommandList] = useState<string[]>([])
 
     const [firstCls, setFirstCls] = useState<boolean>(false)
+
+    const {
+        addWindow
+    } = useWindow()
+    const manageStartCommand = (startCommand: string) => {
+        const appToBeOpened = startCommand.split(' ')[1].toUpperCase()
+        const appExists = Object.values(ItemType).some((item) => item === appToBeOpened)
+
+        if (!appExists) return false
+
+        const appTypeCast = appToBeOpened as ItemType
+        addWindow({
+                    uuid: uuidv4(),
+                    node: getAppComponent(appTypeCast),
+                    type: appTypeCast,
+                    windowAttr: getDefaultWindowAttr(appTypeCast)
+                })
+
+        return true
+    }
+
     const onSend = (command: string) => {
         command = command.toLowerCase()
+        /* Start command = start notepad for example */
+        if (command.startsWith('start')) {
+            /* If the app exists start --> notepad <-- then the command name will be start by default to find it on TerminalCommands*/
+            if (manageStartCommand(command)) command = 'start'
+        }
+
         if (command) setCommandList(prev => [...prev, command])
         setNPrevCommand(0)
         console.log(commandList);
