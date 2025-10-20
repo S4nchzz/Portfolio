@@ -35,7 +35,7 @@
     "type": "TERMINAL"
   },
   {
-    "img": "/img/items/cv.svg",
+    "img": "/img/items/resume.svg",
     "name": "Resume",
     "type": "RESUME"
   }
