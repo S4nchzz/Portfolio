@@ -78,18 +78,22 @@ const Window = (attr: WindowType) => {
                         />
                     </div>
                     <ul className={style.windowButtons}>
-                        <li>
+                        <li
+                            onClick={() => {
+                                    setMinimizeWindowState(true, attr.uuid)
+                                }}>
                             <Image
                                 src={'/img/desktop/window/minimize.svg'}
                                 alt='Minimize'
                                 width={14}
                                 height={14}
-                                onClick={() => {
-                                    setMinimizeWindowState(true, attr.uuid)
-                                }}
                             />
                         </li>
-                        <li>
+                        <li
+                            onClick={() => {
+                                    setMaximizedWindowState(!isMaximized, attr.uuid)
+                                    setMaximized(!isMaximized)
+                                }}>
                             <Image
                                 style={{
                                     marginLeft: '8px' /* Optical ilusion added some margin pixels to left */
@@ -98,21 +102,17 @@ const Window = (attr: WindowType) => {
                                 alt='Maximize'
                                 width={18}
                                 height={18}
-                                onClick={() => {
-                                    setMaximizedWindowState(isMaximized, attr.uuid)
-                                    setMaximized(!isMaximized)
-                                }}
                             />
                         </li>
-                        <li>
+                        <li
+                            onClick={() => {
+                                    deleteWindow(attr.uuid)
+                                }}>
                             <Image
                                 src={'/img/desktop/window/cross.svg'}
                                 alt='Cross'
                                 width={26}
                                 height={26}
-                                onClick={() => {
-                                    deleteWindow(attr.uuid)
-                                }}
                             />
                         </li>
                     </ul>
