@@ -38,9 +38,16 @@ export const useWindow = () => {
             })
         }
 
-
         checkWindowContext()
-        ctx_window!.setWindowList(prev => [...resetPrevFocus(prev), window])
+        ctx_window!.setWindowList(prev => [...resetPrevFocus(prev), {
+            ...window,
+            windowAttr: {
+                ...window.windowAttr,
+                zindex: getMaxZindex() + 1
+            }
+        }])
+
+        console.log(ctx_window!.windowList);
     }
 
     const getWindows = (): WindowIface[] => {
@@ -67,7 +74,8 @@ export const useWindow = () => {
                         windowAttr: {
                             ...win.windowAttr,
                             isMinimized: state,
-                            isFocused: !state
+                            isFocused: !state,
+                            zindex: !state ? getMaxZindex() + 1 : win.windowAttr.zindex
                         }
                     };
                 }
@@ -111,13 +119,6 @@ export const useWindow = () => {
     const focusThisWindow = (uuid: string) => {
         checkWindowContext()
 
-        const highestZindex: number[] = []
-        ctx_window!.windowList.map((w) => {
-            highestZindex.push(w.windowAttr.zindex)
-        })
-
-        const maxZindex = Math.max(...highestZindex)
-
         ctx_window!.setWindowList((prev) => {
             return prev.map((w) => {
                 if (w.uuid === uuid) {
@@ -126,7 +127,7 @@ export const useWindow = () => {
                         windowAttr: {
                             ...w.windowAttr,
                             isFocused: true,
-                            zindex: maxZindex + 1
+                            zindex: getMaxZindex() + 1
                         }
                     }
                 }
@@ -140,7 +141,15 @@ export const useWindow = () => {
                 }
             })
         })
-        
+    }
+
+    const getMaxZindex = () => {
+        const highestZindex: number[] = []
+        ctx_window!.windowList.map((w) => {
+            highestZindex.push(w.windowAttr.zindex)
+        })
+
+        return highestZindex.length > 0 ? Math.max(...highestZindex) : 0
     }
 
     const unFocusAll = () => {
