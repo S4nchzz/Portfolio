@@ -56,6 +56,13 @@ export const useCtxMenu = () => {
     const setXY = (xy: UseMouseType) => {
         checkContext()
 
+        const ctxMenuCurrentHeight = getItemUuid() ? 220 : 170
+        const taskBarHeight = 46
+
+        if (window.innerHeight - taskBarHeight - xy.y < ctxMenuCurrentHeight) {
+            xy.y = xy.y - ctxMenuCurrentHeight
+        }
+
         ctxContext!.setCtxPos(xy)
     }
 
