@@ -4,21 +4,28 @@ import style from '@/styles/pageComponent.module.css'
 
 import DesktopRender from '../ui/desktop_render/desktopRender'
 import { useItemRefStateList } from '@/contexts/items/items.context'
-import { useState } from 'react'
 import MainContextMenu from '../ui/contextMenu/mainContextMenu'
-import { UseMouseType } from '@/types/types'
 import useMouse from '@/hooks/useMouse'
+import { useCtxMenu } from '@/contexts/ctxMenu/ctxMenu'
+import { useState } from 'react'
 
 const PageComponent = () => {
     const {
         resetGlobalStyle
     } = useItemRefStateList()
 
-    const [showContextMenu, setShowContextMenu] = useState<boolean>(false)
-    const [saveContextPos, setSaveContextPos] = useState<UseMouseType>({ x: 0, y: 0 })
     const {
         pos
     } = useMouse()
+
+    const {
+        getItemUuid,
+        setItemUuid,
+        getXy,
+        setXY,
+        hide,
+        isHidden
+    } = useCtxMenu()
 
     return (
         <div className={style.page}>
@@ -27,15 +34,16 @@ const PageComponent = () => {
                 className={style.container}
                 onClick={() => {
                     resetGlobalStyle()
-                    setShowContextMenu(false)
+                    hide(true)
                 }}
                 onContextMenu={(e) => {
                     e.preventDefault()
-                    setShowContextMenu(true)
-                    setSaveContextPos(pos)
+                    setXY({ x: pos.x, y: pos.y })
+                    setItemUuid(undefined)
+                    hide(false)
                 }}>
 
-                <MainContextMenu open={showContextMenu} xy={saveContextPos}/>
+                <MainContextMenu xy={getXy()} itemUuid={getItemUuid()} hide={isHidden()}/>
                 <DesktopRender/>
             </div>
         </div>

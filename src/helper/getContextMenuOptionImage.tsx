@@ -1,21 +1,24 @@
-import { ContextMenuType } from "@/lib/constants/contextMenu.enum"
+import { DefaultContextMenu, ItemContextMenu } from "@/lib/constants/contextMenus.enum"
 
 const getContextMenuOptionImage = ({ ctxOption }: {
-    ctxOption: ContextMenuType
+    ctxOption: DefaultContextMenu | ItemContextMenu
 }) => {
-    const ctxImage: Record<ContextMenuType, string> = {
-        [ContextMenuType.VIEW]: "view.svg",
-        [ContextMenuType.SORT_BY]: "sort.svg",
-        [ContextMenuType.REFRESH]: "refresh.svg",
-        [ContextMenuType.NEW]: "new.svg",
-        [ContextMenuType.COPY]: "copy.svg",
-        [ContextMenuType.PASTE]: "paste.svg",
-        [ContextMenuType.RENAME]: "rename.svg",
-        [ContextMenuType.DELETE]: "delete.svg",
-        [ContextMenuType.PROPERTIES]: "properties.svg"
+    const ctxDefaultImg: Record<DefaultContextMenu, string> = {
+        [DefaultContextMenu.NEW]: "new.svg",
+        [DefaultContextMenu.VIEW]: "view.svg",
+        [DefaultContextMenu.SORT_BY]: "sort.svg",
+        [DefaultContextMenu.REFRESH]: "refresh.svg"
     }
 
-    return ctxImage[ctxOption]
+    const ctxItemImg: Record<ItemContextMenu, string> = {
+        [ItemContextMenu.COPY]: "copy.svg",
+        [ItemContextMenu.PASTE]: "paste.svg",
+        [ItemContextMenu.RENAME]: "rename.svg",
+        [ItemContextMenu.DELETE]: "delete.svg",
+        [ItemContextMenu.PROPERTIES]: "properties.svg"
+    }
+
+    return Object.values(DefaultContextMenu).includes(ctxOption as DefaultContextMenu) ? ctxDefaultImg[ctxOption as DefaultContextMenu] : ctxItemImg[ctxOption as ItemContextMenu]
 }
 
 export default getContextMenuOptionImage

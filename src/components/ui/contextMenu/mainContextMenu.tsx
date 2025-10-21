@@ -1,13 +1,14 @@
 import getContextMenuOptionImage from '@/helper/getContextMenuOptionImage'
-import { ContextMenuType } from '@/lib/constants/contextMenu.enum'
+import { DefaultContextMenu, ItemContextMenu } from '@/lib/constants/contextMenus.enum'
 import style from '@/styles/mainContextMenu.module.css'
 import { UseMouseType } from '@/types/types'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
-const MainContextMenu = ({ open, xy }: {
-    open: boolean,
-    xy: UseMouseType
+const MainContextMenu = ({ xy, itemUuid, hide }: {
+    xy: UseMouseType,
+    itemUuid?: string | undefined,
+    hide: boolean
 }) => {
     return (
         <motion.div
@@ -18,8 +19,8 @@ const MainContextMenu = ({ open, xy }: {
             }}
 
             animate={{
-                opacity: open ? 1 : 0,
-                display: open ? 'flex' : 'none'
+                opacity: hide ? 0 : 1,
+                display: hide ? 'none' : 'flex'
             }}
             
             style={{
@@ -27,8 +28,9 @@ const MainContextMenu = ({ open, xy }: {
             }}>
             <ul className={style.contextMenu}>
                 {
-                    Object.keys(ContextMenuType).map((key, index) => {
-                        const ctx_key = key as keyof typeof ContextMenuType
+                    Object.keys(!itemUuid ? DefaultContextMenu : ItemContextMenu).map((key, index) => {
+                        const ctx = !itemUuid ? DefaultContextMenu : ItemContextMenu
+                        const ctx_key = key as keyof typeof ctx
                         return (
                             <>
                                 <li>
@@ -36,7 +38,7 @@ const MainContextMenu = ({ open, xy }: {
                                         width={22}
                                         height={22}
                                         src={`/img/contextMenu/${getContextMenuOptionImage({
-                                            ctxOption: ContextMenuType[ctx_key]
+                                            ctxOption: ctx[ctx_key]
                                         })}`}
 
                                         style={{
@@ -44,7 +46,7 @@ const MainContextMenu = ({ open, xy }: {
                                         }}
                                         alt='ctximg'
                                     />
-                                    {ContextMenuType[ctx_key]}
+                                    {ctx[ctx_key]}
                                 </li>
                                 { index === 2 && <hr className={style.ctxSeparator}/> }
                                 { index === 5 && <hr className={style.ctxSeparator}/> }

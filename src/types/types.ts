@@ -62,3 +62,8 @@ export type ManageTerminalCommandType = {
 export type ApplicationType = {
     wUuid: string
 }
+
+export type BuildCtxMenuType = {
+    xy: UseMouseType,
+    itemUuid: string
+}

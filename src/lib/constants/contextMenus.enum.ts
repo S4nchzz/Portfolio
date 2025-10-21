@@ -1,8 +1,11 @@
-export enum ContextMenuType {
+export enum DefaultContextMenu {
+    NEW = "New",
     VIEW = "View",
     SORT_BY = "Sort by",
     REFRESH = "Refresh",
-    NEW = "New",
+}
+
+export enum ItemContextMenu {
     COPY = "Copy",
     PASTE = "Paste",
     RENAME = "Rename",

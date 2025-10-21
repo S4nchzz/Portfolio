@@ -1,3 +1,4 @@
+import CtxMenuProvider from "@/contexts/ctxMenu/ctxMenu"
 import ItemProvider from "@/contexts/items/items.context"
 import MatrixProvider from "@/contexts/matrix/matrix.context"
 import WindowProvider from "@/contexts/window/window.context"
@@ -7,11 +8,13 @@ const Providers = ({ children }: { children: ReactNode }) => {
     return (
         <>
             <MatrixProvider>
-                <WindowProvider>
-                    <ItemProvider>
-                        {children}
-                    </ItemProvider>
-                </WindowProvider>
+                <CtxMenuProvider>
+                    <WindowProvider>
+                        <ItemProvider>
+                            {children}
+                        </ItemProvider>
+                    </WindowProvider>
+                </CtxMenuProvider>
             </MatrixProvider>
         </>
     )

@@ -7,6 +7,8 @@ import { useEffect, useRef, useState } from 'react'
 import getAppComponent from '@/helper/getAppComponent'
 import { v4 as uuidv4 } from 'uuid';
 import getDefaultWindowAttr from '@/helper/getDefaultWindowAttr'
+import { useCtxMenu } from '@/contexts/ctxMenu/ctxMenu'
+import useMouse from '@/hooks/useMouse'
 
 const ItemComponent = ({
     item,
@@ -34,6 +36,17 @@ const ItemComponent = ({
         addWindow
     } = useWindow()
 
+    const {
+        pos
+    } = useMouse()
+
+    const {
+        setItemUuid,
+        setXY,
+        hide,
+        isHidden
+    } = useCtxMenu()
+
     return (
         <div
             ref={ref}
@@ -48,10 +61,14 @@ const ItemComponent = ({
                 e.stopPropagation()
                 setClick(!click)
                 if (ref.current) resetGlobalStyle(ref.current)
+                    hide(true)
             }}
             onContextMenu={(e) => {
                 e.stopPropagation()
-                /* ITEM CONTEXT MENU */
+                e.preventDefault()
+                setItemUuid(item.uuid)
+                setXY({ x: pos.x, y: pos.y })
+                hide(false)
             }}
 
             onDoubleClick={() => {
