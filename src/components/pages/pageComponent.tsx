@@ -8,6 +8,7 @@ import CtxMenu from '../ui/ctxMenu/ctxMenu'
 import useMouse from '@/hooks/useMouse'
 import { useCtxMenu } from '@/contexts/ctxMenu/ctxMenuContext'
 import { useEffect } from 'react'
+import { useWindow } from '@/contexts/window/window.context'
 
 const PageComponent = () => {
     const {
@@ -27,6 +28,10 @@ const PageComponent = () => {
         isHidden
     } = useCtxMenu()
 
+    const {
+        unFocusAll
+    } = useWindow()
+
     useEffect(() => { hide(true) }, [])
 
     return (
@@ -37,6 +42,7 @@ const PageComponent = () => {
                 onClick={() => {
                     resetGlobalStyle()
                     hide(true)
+                    unFocusAll()
                 }}
                 onContextMenu={(e) => {
                     e.preventDefault()

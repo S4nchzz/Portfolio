@@ -17,7 +17,8 @@ const TaskbarAppItem = (attr: TaskbarAppItemAttr) => {
     return (
         <div
             className={style.container}
-            onClick={() => {
+            onClick={(e) => {
+                e.stopPropagation()
                 setMinimizeWindowState(!isMinimized, attr.windowAtatchedUuid)
             }}
             style={{

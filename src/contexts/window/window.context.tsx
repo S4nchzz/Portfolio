@@ -125,17 +125,38 @@ export const useWindow = () => {
                         ...w,
                         windowAttr: {
                             ...w.windowAttr,
+                            isFocused: true,
                             zindex: maxZindex + 1
                         }
                     }
                 }
 
                 return {
-                    ...w
+                    ...w,
+                    windowAttr: {
+                        ...w.windowAttr,
+                        isFocused: false
+                    }
                 }
             })
         })
         
+    }
+
+    const unFocusAll = () => {
+        checkWindowContext()!
+
+        ctx_window!.setWindowList(prev => {
+            return prev.map((w) => {
+                return {
+                    ...w,
+                    windowAttr: {
+                        ...w.windowAttr,
+                        isFocused: false
+                    }
+                }
+            })
+        })
     }
 
     return {
@@ -145,6 +166,7 @@ export const useWindow = () => {
         setMinimizeWindowState,
         setMaximizedWindowState,
         getWindow,
-        focusThisWindow
+        focusThisWindow,
+        unFocusAll
     }
 }

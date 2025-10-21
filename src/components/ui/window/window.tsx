@@ -41,6 +41,7 @@ const Window = (attr: WindowType) => {
     return (
         <motion.div
             onMouseDown={() => focusThisWindow(attr.uuid)}
+            onClick={(e) => e.stopPropagation()}
             ref={windowRef}
             drag
             dragMomentum={false}
