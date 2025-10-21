@@ -4,10 +4,10 @@ import style from '@/styles/pageComponent.module.css'
 
 import DesktopRender from '../ui/desktop_render/desktopRender'
 import { useItemRefStateList } from '@/contexts/items/items.context'
-import MainContextMenu from '../ui/contextMenu/mainContextMenu'
+import CtxMenu from '../ui/ctxMenu/ctxMenu'
 import useMouse from '@/hooks/useMouse'
-import { useCtxMenu } from '@/contexts/ctxMenu/ctxMenu'
-import { useState } from 'react'
+import { useCtxMenu } from '@/contexts/ctxMenu/ctxMenuContext'
+import { useEffect } from 'react'
 
 const PageComponent = () => {
     const {
@@ -27,6 +27,8 @@ const PageComponent = () => {
         isHidden
     } = useCtxMenu()
 
+    useEffect(() => { hide(true) }, [])
+
     return (
         <div className={style.page}>
             <div className={style.virtualBody}/>
@@ -43,7 +45,7 @@ const PageComponent = () => {
                     hide(false)
                 }}>
 
-                <MainContextMenu xy={getXy()} itemUuid={getItemUuid()} hide={isHidden()}/>
+                <CtxMenu xy={getXy()} itemUuid={getItemUuid()} hide={isHidden()}/>
                 <DesktopRender/>
             </div>
         </div>

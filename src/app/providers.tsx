@@ -1,4 +1,4 @@
-import CtxMenuProvider from "@/contexts/ctxMenu/ctxMenu"
+import CtxMenuProvider from "@/contexts/ctxMenu/ctxMenuContext"
 import ItemProvider from "@/contexts/items/items.context"
 import MatrixProvider from "@/contexts/matrix/matrix.context"
 import WindowProvider from "@/contexts/window/window.context"

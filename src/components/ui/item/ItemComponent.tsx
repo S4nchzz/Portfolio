@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from 'react'
 import getAppComponent from '@/helper/getAppComponent'
 import { v4 as uuidv4 } from 'uuid';
 import getDefaultWindowAttr from '@/helper/getDefaultWindowAttr'
-import { useCtxMenu } from '@/contexts/ctxMenu/ctxMenu'
+import { useCtxMenu } from '@/contexts/ctxMenu/ctxMenuContext'
 import useMouse from '@/hooks/useMouse'
 
 const ItemComponent = ({

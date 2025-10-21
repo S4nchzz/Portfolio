@@ -1,11 +1,11 @@
 import getContextMenuOptionImage from '@/helper/getContextMenuOptionImage'
 import { DefaultContextMenu, ItemContextMenu } from '@/lib/constants/contextMenus.enum'
-import style from '@/styles/mainContextMenu.module.css'
+import style from '@/styles/ctxMenu.module.css'
 import { UseMouseType } from '@/types/types'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
-const MainContextMenu = ({ xy, itemUuid, hide }: {
+const CtxMenu = ({ xy, itemUuid, hide }: {
     xy: UseMouseType,
     itemUuid?: string | undefined,
     hide: boolean
@@ -32,7 +32,7 @@ const MainContextMenu = ({ xy, itemUuid, hide }: {
                         const ctx = !itemUuid ? DefaultContextMenu : ItemContextMenu
                         const ctx_key = key as keyof typeof ctx
                         return (
-                            <>
+                            <div key={key}>
                                 <li>
                                     <Image
                                         width={22}
@@ -50,7 +50,7 @@ const MainContextMenu = ({ xy, itemUuid, hide }: {
                                 </li>
                                 { index === 2 && <hr className={style.ctxSeparator}/> }
                                 { index === 5 && <hr className={style.ctxSeparator}/> }
-                            </>
+                            </div>
                         )
                     })
                 }
@@ -60,4 +60,4 @@ const MainContextMenu = ({ xy, itemUuid, hide }: {
     )
 }
 
-export default MainContextMenu
+export default CtxMenu
