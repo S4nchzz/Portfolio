@@ -5,6 +5,7 @@ const getContextMenuOptionImage = ({ ctxOption }: {
 }) => {
     const ctxDefaultImg: Record<DefaultContextMenu, string> = {
         [DefaultContextMenu.NEW]: "new.svg",
+        [DefaultContextMenu.PASTE]: "paste.svg",
         [DefaultContextMenu.VIEW]: "view.svg",
         [DefaultContextMenu.SORT_BY]: "sort.svg",
         [DefaultContextMenu.REFRESH]: "refresh.svg"
@@ -12,7 +13,6 @@ const getContextMenuOptionImage = ({ ctxOption }: {
 
     const ctxItemImg: Record<ItemContextMenu, string> = {
         [ItemContextMenu.COPY]: "copy.svg",
-        [ItemContextMenu.PASTE]: "paste.svg",
         [ItemContextMenu.RENAME]: "rename.svg",
         [ItemContextMenu.DELETE]: "delete.svg",
         [ItemContextMenu.PROPERTIES]: "properties.svg"

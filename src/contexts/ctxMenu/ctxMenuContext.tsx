@@ -1,5 +1,7 @@
 'use client'
 
+import { ItemIface } from "@/interface/Item.interface";
+import { ItemType } from "@/lib/constants/Item.enum";
 import { UseMouseType } from "@/types/types";
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react";
 
@@ -9,7 +11,9 @@ type CtxMenuContextType = {
     itemUuid: string | undefined,
     setItemUuid: Dispatch<SetStateAction<string | undefined>>,
     hideCtx: boolean,
-    setHideCtx: Dispatch<SetStateAction<boolean>>
+    setHideCtx: Dispatch<SetStateAction<boolean>>,
+    copiedItem: ItemType | undefined,
+    setCopiedItem: Dispatch<SetStateAction<ItemType | undefined>>
 }
 
 export const CtxMenuContext = createContext<CtxMenuContextType | undefined>(undefined)
@@ -18,9 +22,10 @@ const CtxMenuProvider = ({ children }: { children: ReactNode }) => {
     const [ctxPos, setCtxPos] = useState<UseMouseType>({ x: 0, y: 0 })
     const [itemUuid, setItemUuid] = useState<string | undefined>(undefined)
     const [hideCtx, setHideCtx] = useState<boolean>(false)
+    const [copiedItem, setCopiedItem] = useState<ItemType | undefined>()
 
     return (
-        <CtxMenuContext.Provider value={{ ctxPos, setCtxPos, itemUuid, setItemUuid, hideCtx, setHideCtx}}>
+        <CtxMenuContext.Provider value={{ ctxPos, setCtxPos, itemUuid, setItemUuid, hideCtx, setHideCtx, copiedItem, setCopiedItem}}>
             {children}
         </CtxMenuContext.Provider>
     )

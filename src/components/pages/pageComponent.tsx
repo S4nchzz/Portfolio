@@ -3,7 +3,7 @@
 import style from '@/styles/pageComponent.module.css'
 
 import DesktopRender from '../ui/desktop_render/desktopRender'
-import { useItemRefStateList } from '@/contexts/items/items.context'
+import { useItems } from '@/contexts/items/items.context'
 import CtxMenu from '../ui/ctxMenu/ctxMenu'
 import useMouse from '@/hooks/useMouse'
 import { useCtxMenu } from '@/contexts/ctxMenu/ctxMenuContext'
@@ -13,7 +13,7 @@ import { useWindow } from '@/contexts/window/window.context'
 const PageComponent = () => {
     const {
         resetGlobalStyle
-    } = useItemRefStateList()
+    } = useItems()
 
     const {
         pos

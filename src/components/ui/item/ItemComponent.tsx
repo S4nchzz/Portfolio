@@ -1,4 +1,4 @@
-import { useItemRefStateList } from '@/contexts/items/items.context'
+import { useItems } from '@/contexts/items/items.context'
 import { useWindow } from '@/contexts/window/window.context'
 import style from '@/styles/item.module.css'
 import { ItemComponentType } from '@/types/types'
@@ -21,7 +21,7 @@ const ItemComponent = ({
     const {
         setItems,
         resetGlobalStyle
-    } = useItemRefStateList()
+    } = useItems()
 
     const resetStyle = () => {
         if (ref.current) ref.current.style = ''

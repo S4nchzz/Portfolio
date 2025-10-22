@@ -32,7 +32,7 @@ const ItemProvider = ({ children }: { children: ReactNode }) => {
 
 export default ItemProvider
 
-export const useItemRefStateList = () => {
+export const useItems = () => {
     const itemContext = useContext(ItemContext)
 
     useEffect(() => {
@@ -51,24 +51,26 @@ export const useItemRefStateList = () => {
 
     const setItems = (component: HTMLDivElement, resetStyle: () => void ) => {
         checkContext()
-        if (!component) throw new Error('HOOK: useItemRefStateList / setItems() | components@param is null or undefined')
-
-        itemContext!.setItemRefStateList(prev => [
-            ...prev,
-            { 
-                component: component,
-                methodList: { resetStyle: resetStyle }
-            }
-        ])
-    }
-
+        if (!component) throw new Error('HOOK: useItems / setItems() | components@param is null or undefined')
+            
+            itemContext!.setItemRefStateList(prev => [
+                ...prev,
+                { 
+                    component: component,
+                    methodList: { resetStyle: resetStyle }
+                }
+            ])
+        }
+        
     const getElementByType = (itemType: ItemType) => {
+        checkContext()
         return itemContext!.itemRefStateList.find((item) => (
             item.component.dataset.type as ItemType) == itemType
         )
     }
-
+    
     const resetGlobalStyle = (from?: HTMLDivElement) => {
+        checkContext()
         itemContext!.itemRefStateList.forEach((item: ItemRefState) => {
             if (item.component !== from) {
                 item.methodList.resetStyle()

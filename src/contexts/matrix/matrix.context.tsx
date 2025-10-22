@@ -113,15 +113,19 @@ export const useMatrix = () => {
     
         const matrixUpdated = [...matrix!]
 
-        matrixUpdated!.forEach((row, ri) => {
-            row.forEach((_, ci) => {
-                if (!matrixUpdated[ri][ci]) {
-                    matrixUpdated[ri][ci] = item
+        let updated = false
+        for (let i = 0; i < MatrixEnum.ROWS; i++) {
+            for (let k = 0; k < MatrixEnum.COLS; k++) {
+                if (!matrixUpdated[i][k]) {
+                    matrixUpdated[i][k] = item
+                    updated = true
                 }
-            })
-        })
 
-       
+                if (updated) break
+            }   
+            if (updated) break
+        }
+
         setMatrix(matrixUpdated)
     }
 
@@ -142,6 +146,17 @@ export const useMatrix = () => {
     }
 
     const getElement = () => {}
+
+    const getElementByUuid = (uuid: string): Item | undefined => {
+        checkMatrix()
+
+        const item = matrixContext!.matrix?.flatMap((r) => r)
+        .filter((ci) => ci !== null)
+        .find((ci) => ci?.uuid == uuid)
+
+        return item ? item : undefined
+    }
+
     const getElementByRowCol = ({ row, col }: { row: number, col: number}) => {}
 
     const removeElement = () => {}
@@ -150,10 +165,11 @@ export const useMatrix = () => {
     return {
         getMatrix,
         addElement,
+        getElementByUuid,
         addElementByRowCol,
         getElement,
         getElementByRowCol,
         removeElement,
-        removeElementByRowCol
+        removeElementByRowCol,
     }
 }

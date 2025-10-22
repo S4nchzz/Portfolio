@@ -1,5 +1,6 @@
 export enum DefaultContextMenu {
     NEW = "New",
+    PASTE = "Paste",
     VIEW = "View",
     SORT_BY = "Sort by",
     REFRESH = "Refresh",
@@ -7,7 +8,6 @@ export enum DefaultContextMenu {
 
 export enum ItemContextMenu {
     COPY = "Copy",
-    PASTE = "Paste",
     RENAME = "Rename",
     DELETE = "Delete",
     PROPERTIES = "Properties",
