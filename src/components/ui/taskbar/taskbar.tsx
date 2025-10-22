@@ -5,6 +5,7 @@ import TaskbarAppItem from './taskbarAppItem'
 import { useWindow } from '@/contexts/window/window.context'
 import StartMenu from './startMenu'
 import SearchMenu from './searchMenu'
+import { useTaskbar } from '@/contexts/taskbar/taskbar.context'
 
 const Taskbar = () => {
     const [searchBarFocused, setSearchBarFocused] = useState<boolean>(false)
@@ -12,32 +13,35 @@ const Taskbar = () => {
     const {
         getWindows
     } = useWindow()
-
-    const [isStartMenuOpened, setIsStartMenuOpened] = useState<boolean>(false)
-    const [isSearchMenuOpened, setIsSearchMenuOpened] = useState<boolean>(false)
-
     const handleSearchChange = (e: ChangeEvent) => {
         
     }
 
+    const {
+        seamVisibility,
+        stamVisibility,
+        getSeamVisibility,
+        getStamVisibility
+    } = useTaskbar()
+
     return (
         <div className={style.container}>
-            <StartMenu open={isStartMenuOpened}/>
-            <SearchMenu open={isSearchMenuOpened}/>
+            <StartMenu open={getStamVisibility()}/>
+            <SearchMenu open={getSeamVisibility()}/>
 
-            <div className={style.wImageContainer}>
+            <div
+                className={style.wImageContainer}
+                onClick={(e) => {
+                    e.stopPropagation()
+                    seamVisibility(false)
+                    stamVisibility(!getStamVisibility())
+                }}>
                 <Image
                     className={style.wImage}
                     src={'/img/desktop/w-logo.png'}
                     alt='Wlogo'
                     width={32}
                     height={32}
-                    onClick={() => {
-                        setIsStartMenuOpened(!isStartMenuOpened)
-                        if (!isStartMenuOpened) {
-                            setIsSearchMenuOpened(false)
-                        }
-                    }}
                 />
             </div>
 
@@ -58,11 +62,10 @@ const Taskbar = () => {
                 <input
                     placeholder='Search'
                     className={style.searchBarInput}
-                    onClick={() => {
-                        setIsSearchMenuOpened(!isSearchMenuOpened)
-                        if (!isSearchMenuOpened) {
-                            setIsStartMenuOpened(false)
-                        }
+                    onClick={(e) => {
+                        e.stopPropagation()
+                        seamVisibility(!getSeamVisibility())
+                        stamVisibility(false)
                     }}
                     onChange={handleSearchChange}
                 />

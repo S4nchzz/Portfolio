@@ -28,6 +28,10 @@
     cursor: pointer;
 }
 
+.wImage {
+    pointer-events: none;
+}
+
 .searchBar {
     display: flex;
     align-items: center;

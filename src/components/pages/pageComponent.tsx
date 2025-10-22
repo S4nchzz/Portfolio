@@ -9,6 +9,7 @@ import useMouse from '@/hooks/useMouse'
 import { useCtxMenu } from '@/contexts/ctxMenu/ctxMenuContext'
 import { useEffect } from 'react'
 import { useWindow } from '@/contexts/window/window.context'
+import { useTaskbar } from '@/contexts/taskbar/taskbar.context'
 
 const PageComponent = () => {
     const {
@@ -32,6 +33,10 @@ const PageComponent = () => {
         unFocusAll
     } = useWindow()
 
+    const {
+        unfocusTaskbarMenus
+    } = useTaskbar()
+
     useEffect(() => { hide(true) }, [])
 
     return (
@@ -43,6 +48,7 @@ const PageComponent = () => {
                     resetGlobalStyle()
                     hide(true)
                     unFocusAll()
+                    unfocusTaskbarMenus()
                 }}
                 onContextMenu={(e) => {
                     e.preventDefault()

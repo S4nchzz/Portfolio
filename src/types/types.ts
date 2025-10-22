@@ -3,7 +3,7 @@ import { DefaultContextMenu, ItemContextMenu } from "@/lib/constants/contextMenu
 import { ItemType } from "@/lib/constants/Item.enum"
 import { TerminalCommands } from "@/lib/constants/terminalCommands.enum"
 import { Item } from "@/lib/matrix/Item"
-import { DragEvent, ReactNode, RefObject } from "react"
+import { Dispatch, DragEvent, ReactNode, RefObject, SetStateAction } from "react"
 
 export type ChildrenType = {
     children: ReactNode
@@ -67,4 +67,11 @@ export type ApplicationType = {
 export type BuildCtxMenuType = {
     xy: UseMouseType,
     itemUuid: string
+}
+
+export type TaskbarContextType = {
+    searchMenuVisibility: boolean,
+    setSearchMenuVisibility: Dispatch<SetStateAction<boolean>>
+    starMenuVisibility: boolean
+    setStarMenuVisibility: Dispatch<SetStateAction<boolean>>
 }
