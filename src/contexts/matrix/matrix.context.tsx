@@ -126,6 +126,7 @@ export const useMatrix = () => {
             if (updated) break
         }
 
+        localStorage.setItem('mtx_pos_save', JSON.stringify(matrixUpdated))
         setMatrix(matrixUpdated)
     }
 

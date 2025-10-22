@@ -15,7 +15,7 @@ const ItemComponent = ({
     currentIndex,
     onDrag
 }: ItemComponentType) => {
-    const [click, setClick] = useState<boolean>(false)
+    const [focus, setFocus] = useState<boolean>(false)
     const ref = useRef<HTMLDivElement>(null)
 
     const {
@@ -25,7 +25,7 @@ const ItemComponent = ({
 
     const resetStyle = () => {
         if (ref.current) ref.current.style = ''
-        setClick(false)
+        setFocus(false)
     }
 
     useEffect(() => {
@@ -52,16 +52,16 @@ const ItemComponent = ({
             ref={ref}
             data-type={item.type}
             style={{
-                backgroundColor: click ? '#7979794d' : undefined
+                backgroundColor: focus ? '#7979794d' : undefined
             }}
             draggable={true}
             className={style.container}
             onDrag={(e) => onDrag(e, item, currentIndex)}
             onClick={(e) => {
                 e.stopPropagation()
-                setClick(!click)
+                setFocus(!focus)
                 if (ref.current) resetGlobalStyle(ref.current)
-                    hide(true)
+                hide(true)
             }}
             onContextMenu={(e) => {
                 e.stopPropagation()
@@ -69,6 +69,9 @@ const ItemComponent = ({
                 setItemUuid(item.uuid)
                 setXY({ x: pos.x, y: pos.y })
                 hide(false)
+
+                setFocus(true)
+                if (ref.current) resetGlobalStyle(ref.current)
             }}
 
             onDoubleClick={() => {
