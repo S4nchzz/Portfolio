@@ -32,6 +32,7 @@ const CtxMenu = ({ xy, itemUuid, hide }: {
                 if (!copiedItem) return
                 
                 addElement(copiedItem)
+                setCopiedItem(undefined)
             },
             SORT_BY: () => {},
             REFRESH: () => {},
@@ -80,10 +81,16 @@ const CtxMenu = ({ xy, itemUuid, hide }: {
                         const ctx_key = key as keyof typeof ctx
                         return (
                             <div key={key}>
-                                <li onClick={() => handleContextMenuOption({
-                                    ctx_type: ctx_key
-                                    
-                                    })}>
+                                <li
+                                    onClick={() => handleContextMenuOption({
+                                        ctx_type: ctx_key
+                                    })}
+
+                                    style={{
+                                        opacity: copiedItem && ctx_key == 'PASTE' ? 1 : ctx_key !== 'PASTE' ? 1 : .5,
+                                        pointerEvents: copiedItem && ctx_key == 'PASTE' ? 'all' : ctx_key != 'PASTE' ? 'all' : 'none'
+                                    }}
+                                    >
                                     <Image
                                         width={22}
                                         height={22}
