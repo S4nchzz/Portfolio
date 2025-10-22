@@ -48,45 +48,48 @@ const Resume = ({
                 <Page pageNumber={1} renderTextLayer={false} renderAnnotationLayer={false} scale={pageScale}/>
             </Document>
                 <div className={style.pdfControlContainer}>
-                    <button
-                        className={style.pdfControlButtons}
-                        onMouseEnter={() => setHoverButtonPlus(true)}
-                        onMouseLeave={() => setHoverButtonPlus(false)}
-                        style={{
-                            ...hoverButtonPlusStyle
-                        }}
+                    <div className={style.controls}>
+                        <button
+                            className={style.pdfControlButtons}
+                            onMouseEnter={() => setHoverButtonPlus(true)}
+                            onMouseLeave={() => setHoverButtonPlus(false)}
+                            style={{
+                                ...hoverButtonPlusStyle
+                            }}
 
-                        onClick={() => {
-                            if (pageScale < 2.5) {
-                                setPageScale(prev => prev + .1)
-                            }
-                        }}>
-                        <Image
-                            src={'/img/applications/resume/plus.svg'}
-                            alt='Plus image'
-                            width={20}
-                            height={20}
-                        />
-                    </button>
-                    <button
-                        className={style.pdfControlButtons}
-                        onMouseEnter={() => setHoverButtonMinus(true)}
-                        onMouseLeave={() => setHoverButtonMinus(false)}
-                        style={{
-                            ...hoverButtonMinusStyle
-                        }}
-                        onClick={() => {
-                            if (pageScale > 1) {
-                                setPageScale(prev => prev - .1)
-                            }
-                        }}>
-                        <Image
-                            src={'/img/applications/resume/minus.svg'}
-                            alt='Minus image'
-                            width={20}
-                            height={20}
-                        />
-                    </button>
+                            onClick={() => {
+                                if (pageScale < 2.5) {
+                                    setPageScale(prev => prev + .1)
+                                }
+                            }}>
+                            <Image
+                                src={'/img/applications/resume/plus.svg'}
+                                alt='Plus image'
+                                width={20}
+                                height={20}
+                            />
+                        </button>
+                        <button
+                            className={style.pdfControlButtons}
+                            onMouseEnter={() => setHoverButtonMinus(true)}
+                            onMouseLeave={() => setHoverButtonMinus(false)}
+                            style={{
+                                ...hoverButtonMinusStyle
+                            }}
+                            onClick={() => {
+                                if (pageScale > 1) {
+                                    setPageScale(prev => prev - .1)
+                                }
+                            }}>
+                            <Image
+                                src={'/img/applications/resume/minus.svg'}
+                                alt='Minus image'
+                                width={20}
+                                height={20}
+                            />
+                        </button>
+                    </div>
+                    <span className={style.percentage}>{Math.floor(pageScale * 100 / 2)}%</span>
                 </div>
         </div>
     )

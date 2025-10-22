@@ -7,10 +7,12 @@
 
 .pdfControlContainer {
     position: fixed;
+    display: flex;
+    flex-direction: column;
     top: 40px;
     left: 5px;
-    display: flex;
     gap: 10px;
+    align-items: center;
 }
 
 .pdfControlButtons {
@@ -20,4 +22,8 @@
     border: 0;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.percentage {
+    color: grey;
 }
