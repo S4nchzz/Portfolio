@@ -9,10 +9,6 @@ import { v4 as uuidv4 } from 'uuid';
 import getDefaultWindowAttr from '@/helper/getDefaultWindowAttr'
 import { useCtxMenu } from '@/contexts/ctxMenu/ctxMenuContext'
 import useMouse from '@/hooks/useMouse'
-import { useMatrix } from '@/contexts/matrix/matrix.context'
-import { Item } from '@/lib/matrix/Item'
-import { setConfig } from 'next/config'
-import { cp } from 'fs'
 
 const ItemComponent = ({
     item,
@@ -47,29 +43,14 @@ const ItemComponent = ({
     const {
         setItemUuid,
         setXY,
-        hide,
-        isHidden
+        hide
     } = useCtxMenu()
-
-    const {
-        addElement
-    } = useMatrix()
 
     const {
         copyItem,
-        getCopiedItem
     } = useCtxMenu()
     
-    const [iCopy, setICopy] = useState<Item | undefined>(undefined)
-    useEffect(() => {
-        const copiedItem = getCopiedItem()
-        if (!copiedItem) return
-
-        setICopy(copiedItem)
-    }, [getCopiedItem()])
-
     const [ctrlPressed, setCtrlPressed] = useState<boolean>(false)
-
 
     return (
         <div
@@ -102,19 +83,10 @@ const ItemComponent = ({
             }}
 
             onKeyDown={(k) => {
-                k.stopPropagation()
                 if (k.code == 'ControlLeft') setCtrlPressed(true)
 
                 if (k.code == 'KeyC' && ctrlPressed) {
-                    setICopy(item)
                     copyItem(item)
-                }
-                
-                if (k.code == 'KeyV' && ctrlPressed) {
-                    const copiedItem = getCopiedItem()
-                    if (!copiedItem) return
-
-                    addElement(copiedItem, true)
                 }
             }}
 

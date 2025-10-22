@@ -26,14 +26,6 @@ const CtxMenu = ({ xy, itemUuid, hide }: {
         getCopiedItem
     } = useCtxMenu()
 
-    const [copiedItem, setCopiedItem] = useState<Item | undefined>(undefined)
-    useEffect(() => {
-        const copiedItem = getCopiedItem()
-        if (!copiedItem) return
-
-        setCopiedItem(copiedItem)
-    }, [getCopiedItem()])
-
     const handleContextMenuOption = ({ ctx_type } : {
         ctx_type: keyof typeof DefaultContextMenu | ItemContextMenu
     }) => {
@@ -56,7 +48,6 @@ const CtxMenu = ({ xy, itemUuid, hide }: {
                 const item = getElementByUuid(itemUuid)
                 if (!item) return
 
-                setCopiedItem(item)
                 copyItem(item)
             },
             RENAME: () => {},
@@ -104,8 +95,8 @@ const CtxMenu = ({ xy, itemUuid, hide }: {
                                     })}
 
                                     style={{
-                                        opacity: copiedItem && ctx_key == 'PASTE' ? 1 : ctx_key !== 'PASTE' ? 1 : .5,
-                                        pointerEvents: copiedItem && ctx_key == 'PASTE' ? 'all' : ctx_key != 'PASTE' ? 'all' : 'none'
+                                        opacity: getCopiedItem() && ctx_key == 'PASTE' ? 1 : ctx_key !== 'PASTE' ? 1 : .5,
+                                        pointerEvents: getCopiedItem() && ctx_key == 'PASTE' ? 'all' : ctx_key != 'PASTE' ? 'all' : 'none'
                                     }}>
                                     <Image
                                         width={22}

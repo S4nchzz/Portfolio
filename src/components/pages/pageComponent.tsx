@@ -71,7 +71,6 @@ const PageComponent = () => {
                 
                 onKeyDown={(k) => {
                     if (k.code == 'ControlLeft') setCtrlPressed(true)
-                    console.log('asd');
                     if (k.code == 'KeyV' && ctrlPressed) {
                         const copiedItem = getCopiedItem()
                         if (!copiedItem) return
