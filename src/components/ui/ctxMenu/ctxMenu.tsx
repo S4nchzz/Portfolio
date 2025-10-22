@@ -1,3 +1,4 @@
+import { useCtxMenu } from '@/contexts/ctxMenu/ctxMenuContext'
 import { useMatrix } from '@/contexts/matrix/matrix.context'
 import getContextMenuOptionImage from '@/helper/getContextMenuOptionImage'
 import { DefaultContextMenu, ItemContextMenu } from '@/lib/constants/contextMenus.enum'
@@ -20,10 +21,18 @@ const CtxMenu = ({ xy, itemUuid, hide }: {
         removeElementByUuid
     } = useMatrix()
 
+    const {
+        copyItem,
+        getCopiedItem
+    } = useCtxMenu()
+
     const [copiedItem, setCopiedItem] = useState<Item | undefined>(undefined)
     useEffect(() => {
-        console.log(copiedItem);
-    }, [])
+        const copiedItem = getCopiedItem()
+        if (!copiedItem) return
+
+        setCopiedItem(copiedItem)
+    }, [getCopiedItem()])
 
     const handleContextMenuOption = ({ ctx_type } : {
         ctx_type: keyof typeof DefaultContextMenu | ItemContextMenu
@@ -31,10 +40,10 @@ const CtxMenu = ({ xy, itemUuid, hide }: {
         const ctxDefault: Record<keyof typeof DefaultContextMenu, () => void> = {
             VIEW: () => {},
             PASTE: () => {
+                const copiedItem = getCopiedItem()
                 if (!copiedItem) return
-                
+
                 addElement(copiedItem, true)
-                setCopiedItem(undefined)
             },
             SORT_BY: () => {},
             REFRESH: () => {},
@@ -45,7 +54,10 @@ const CtxMenu = ({ xy, itemUuid, hide }: {
             COPY: () => {
                 if (!itemUuid) throw new Error('ItemUUID is not available, did you use this function from DefaultContextMenu?')
                 const item = getElementByUuid(itemUuid)
+                if (!item) return
+
                 setCopiedItem(item)
+                copyItem(item)
             },
             RENAME: () => {},
             DELETE: () => {

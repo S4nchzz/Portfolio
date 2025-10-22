@@ -1,7 +1,7 @@
 import { useMatrix } from "@/contexts/matrix/matrix.context"
 import { Item } from "@/lib/matrix/Item"
 import { ItemComponentTypeCurrentIndex } from "@/types/types"
-import { DragEvent, useState } from "react"
+import { DragEvent, useEffect, useState } from "react"
 import ItemComponent from "../item/ItemComponent"
 import style from '@/styles/desktopRender.module.css'
 import Taskbar from "../taskbar/taskbar"
@@ -12,7 +12,7 @@ import buildWindow from "@/helper/buildWindow"
 const DesktopRender = () => {
     const {
         getMatrix,
-        addElementByRowCol
+        addElementByRowCol,
     } = useMatrix()
 
     const [itemBeingDragged, setItemBeingDragged] = useState<{ item: Item, index: ItemComponentTypeCurrentIndex} | undefined>(undefined)

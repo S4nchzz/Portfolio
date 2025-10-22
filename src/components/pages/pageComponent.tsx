@@ -7,9 +7,10 @@ import { useItems } from '@/contexts/items/items.context'
 import CtxMenu from '../ui/ctxMenu/ctxMenu'
 import useMouse from '@/hooks/useMouse'
 import { useCtxMenu } from '@/contexts/ctxMenu/ctxMenuContext'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useWindow } from '@/contexts/window/window.context'
 import { useTaskbar } from '@/contexts/taskbar/taskbar.context'
+import { useMatrix } from '@/contexts/matrix/matrix.context'
 
 const PageComponent = () => {
     const {
@@ -39,11 +40,22 @@ const PageComponent = () => {
 
     useEffect(() => { hide(true) }, [])
 
+    const {
+        addElement
+    } = useMatrix()
+
+    const {
+        getCopiedItem
+    } = useCtxMenu()
+
+    const [ctrlPressed, setCtrlPressed] = useState<boolean>(false)
+
     return (
         <div className={style.page}>
             <div className={style.virtualBody}/>
             <div
                 className={style.container}
+                tabIndex={0}
                 onClick={() => {
                     resetGlobalStyle()
                     hide(true)
@@ -55,7 +67,23 @@ const PageComponent = () => {
                     setXY({ x: pos.x, y: pos.y })
                     setItemUuid(undefined)
                     hide(false)
-                }}>
+                }}
+                
+                onKeyDown={(k) => {
+                    if (k.code == 'ControlLeft') setCtrlPressed(true)
+                    console.log('asd');
+                    if (k.code == 'KeyV' && ctrlPressed) {
+                        const copiedItem = getCopiedItem()
+                        if (!copiedItem) return
+                        
+                        addElement(copiedItem, true)
+                    }
+                }}
+                
+                onKeyUp={(k) => {
+                    if (k.code == 'ControlLeft') setCtrlPressed(false)
+                }}
+                >
 
                 <CtxMenu xy={getXy()} itemUuid={getItemUuid()} hide={isHidden()}/>
                 <DesktopRender/>
