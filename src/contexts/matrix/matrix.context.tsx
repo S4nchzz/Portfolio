@@ -100,8 +100,8 @@ export const useMatrix = () => {
     useEffect(() => {
         if (!matrixContext?.matrix) return
 
-        setMatrix(matrixContext?.matrix)
         localStorage.setItem('mtx_pos_save', JSON.stringify(matrixContext?.matrix))
+        setMatrix(matrixContext?.matrix)
     }, [matrixContext?.matrix])
 
     const checkMatrix = () => {
@@ -132,7 +132,7 @@ export const useMatrix = () => {
             if (updated) break
         }
 
-        setMatrix(matrixUpdated)
+        matrixContext!.setMatrix(matrixUpdated)
     }
 
     const addElementByRowCol = ({ row, col, item, lastElementPosition }: { row: number, col: number, item: Item, lastElementPosition: ItemComponentTypeCurrentIndex }) => {
