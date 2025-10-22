@@ -15,7 +15,8 @@ const CtxMenu = ({ xy, itemUuid, hide }: {
 }) => {
     const {
         addElement,
-        getElementByUuid
+        getElementByUuid,
+        removeElementByUuid
     } = useMatrix()
 
     const [copiedItem, setCopiedItem] = useState<Item | undefined>(undefined)
@@ -42,11 +43,14 @@ const CtxMenu = ({ xy, itemUuid, hide }: {
         const ctxItem: Record<keyof typeof ItemContextMenu, () => void> = {
             COPY: () => {
                 if (!itemUuid) throw new Error('ItemUUID is not available, did you use this function from DefaultContextMenu?')
-                const item = getElementByUuid(itemUuid)
+                    const item = getElementByUuid(itemUuid)
                 setCopiedItem(item)
             },
             RENAME: () => {},
-            DELETE: () => {},
+            DELETE: () => {
+                if (!itemUuid) throw new Error('ItemUUID is not available, did you use this function from DefaultContextMenu?')
+                removeElementByUuid(itemUuid)
+            },
             PROPERTIES: () => {}
         }
 
@@ -89,8 +93,7 @@ const CtxMenu = ({ xy, itemUuid, hide }: {
                                     style={{
                                         opacity: copiedItem && ctx_key == 'PASTE' ? 1 : ctx_key !== 'PASTE' ? 1 : .5,
                                         pointerEvents: copiedItem && ctx_key == 'PASTE' ? 'all' : ctx_key != 'PASTE' ? 'all' : 'none'
-                                    }}
-                                    >
+                                    }}>
                                     <Image
                                         width={22}
                                         height={22}

@@ -3,11 +3,11 @@
 import { MatrixEnum } from "@/lib/constants/matrix.enum";
 import { Item } from "@/lib/matrix/Item";
 import { ItemComponentTypeCurrentIndex, ItemFromJSON } from "@/types/types";
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useState } from "react";
 
 type MatrixContextType = {
     matrix: (Item | null)[][] | undefined,
-    setMatrix: (newMatrix: (Item | null)[][]) => void
+    setMatrix: Dispatch<SetStateAction<(Item | null)[][] | undefined>>
 }
 
 export const MatrixContext = createContext<MatrixContextType | undefined>(undefined)
@@ -98,8 +98,11 @@ export const useMatrix = () => {
     const [matrix, setMatrix] = useState<(null | Item)[][]>()
 
     useEffect(() => {
+        if (!matrixContext?.matrix) return
+
         setMatrix(matrixContext?.matrix)
-    }, [matrixContext])
+        localStorage.setItem('mtx_pos_save', JSON.stringify(matrixContext?.matrix))
+    }, [matrixContext?.matrix])
 
     const checkMatrix = () => {
         if (!matrixContext) throw new Error('Matrix context is undefined, where are you using this hook?')
@@ -126,7 +129,6 @@ export const useMatrix = () => {
             if (updated) break
         }
 
-        localStorage.setItem('mtx_pos_save', JSON.stringify(matrixUpdated))
         setMatrix(matrixUpdated)
     }
 
@@ -138,8 +140,6 @@ export const useMatrix = () => {
 
             matrixUpdated[row][col]  = item
             matrixUpdated[lastElementPosition.row][lastElementPosition.col] = null
-
-            localStorage.setItem('mtx_pos_save', JSON.stringify(matrixUpdated))
 
             setMatrix(matrixUpdated)
             matrixContext!.setMatrix(matrixUpdated)
@@ -161,6 +161,24 @@ export const useMatrix = () => {
     const getElementByRowCol = ({ row, col }: { row: number, col: number}) => {}
 
     const removeElement = () => {}
+
+    const removeElementByUuid = (uuid: string) => {
+        checkMatrix()
+
+        matrixContext!.setMatrix((prev) => {
+            return prev?.map((row) => {
+                const rowUpdated = row.map((ci) => {
+                    if (ci?.uuid == uuid) {
+                        return null
+                    }
+
+                    return ci
+                })
+                return rowUpdated
+            })
+        })
+    }
+
     const removeElementByRowCol = ({ row, col }: { row: number, col: number}) => {}
 
     return {
@@ -172,5 +190,6 @@ export const useMatrix = () => {
         getElementByRowCol,
         removeElement,
         removeElementByRowCol,
+        removeElementByUuid
     }
 }
