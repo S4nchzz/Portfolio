@@ -111,9 +111,12 @@ export const useMatrix = () => {
 
     const getMatrix = () => matrix
 
-    const addElement = (item: Item) => {
+    const addElement = (item: Item, newUuid: boolean) => {
         checkMatrix()
-    
+        if (newUuid) {
+            item = new Item(item.img, item.name, item.type)
+        }
+
         const matrixUpdated = [...matrix!]
 
         let updated = false
@@ -168,7 +171,7 @@ export const useMatrix = () => {
         matrixContext!.setMatrix((prev) => {
             return prev?.map((row) => {
                 const rowUpdated = row.map((ci) => {
-                    if (ci?.uuid == uuid) {
+                    if (ci?.uuid === uuid) {
                         return null
                     }
 

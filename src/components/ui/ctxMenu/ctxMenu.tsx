@@ -7,6 +7,7 @@ import { UseMouseType } from '@/types/types'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import { v4 as uuidv4 } from 'uuid';
 
 const CtxMenu = ({ xy, itemUuid, hide }: {
     xy: UseMouseType,
@@ -32,7 +33,7 @@ const CtxMenu = ({ xy, itemUuid, hide }: {
             PASTE: () => {
                 if (!copiedItem) return
                 
-                addElement(copiedItem)
+                addElement(copiedItem, true)
                 setCopiedItem(undefined)
             },
             SORT_BY: () => {},
@@ -43,7 +44,7 @@ const CtxMenu = ({ xy, itemUuid, hide }: {
         const ctxItem: Record<keyof typeof ItemContextMenu, () => void> = {
             COPY: () => {
                 if (!itemUuid) throw new Error('ItemUUID is not available, did you use this function from DefaultContextMenu?')
-                    const item = getElementByUuid(itemUuid)
+                const item = getElementByUuid(itemUuid)
                 setCopiedItem(item)
             },
             RENAME: () => {},

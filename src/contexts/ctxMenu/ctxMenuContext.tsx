@@ -4,6 +4,7 @@ import { ItemIface } from "@/interface/Item.interface";
 import { ItemType } from "@/lib/constants/Item.enum";
 import { UseMouseType } from "@/types/types";
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 type CtxMenuContextType = {
     ctxPos: UseMouseType,
