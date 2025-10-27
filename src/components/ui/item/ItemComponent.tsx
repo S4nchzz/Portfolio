@@ -58,7 +58,7 @@ const ItemComponent = ({
             data-type={item.type}
             tabIndex={0}
             style={{
-                backgroundColor: focus ? '#7979794d' : undefined
+                backgroundColor: focus ? '#f9f9f92f' : undefined
             }}
             
             draggable={true}
