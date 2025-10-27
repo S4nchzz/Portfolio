@@ -25,8 +25,14 @@ const StartMenu = ({ open }: TaskBarMenuStateType) => {
 
     }
 
+    const [showOffMenu, setShowOffMenu] = useState<boolean>(false)
+
+    useEffect(() => {
+        console.log(showOffMenu);
+    }, [showOffMenu]);
     return (
         <motion.div
+            onClick={(e) => e.stopPropagation()}
             className={style.container}
             initial={{
                 opacity: 0,
@@ -56,6 +62,39 @@ const StartMenu = ({ open }: TaskBarMenuStateType) => {
                     />
                 </div>
 
+                <motion.div
+                    animate={{
+                        opacity: showOffMenu ? 1 : 0,
+                    }}
+
+                    style={{
+                        pointerEvents: showOffMenu ? 'all' : 'none'
+                    }}
+                    className={style.offMenu}>
+                    <ul>
+                        <li>
+                            <Image
+                                className={style.offMenuIcons}
+                                src={'/img/desktop/taskbar/power_off.svg'}
+                                width={28}
+                                height={28}
+                                alt='User'
+                            />
+                            Power off
+                        </li>
+                        <li>
+                            <Image
+                                className={style.offMenuIcons}
+                                src={'/img/desktop/taskbar/suspend.svg'}
+                                width={28}
+                                height={28}
+                                alt='User'
+                            />
+                            Suspend
+                        </li>
+                    </ul>
+                </motion.div>
+
                 <div className={style.stamControls}>
                     <div className={style.user}>
                         <Image
@@ -73,6 +112,7 @@ const StartMenu = ({ open }: TaskBarMenuStateType) => {
                         width={28}
                         height={28}
                         alt='User'
+                        onClick={(e) => setShowOffMenu(!showOffMenu)}
                     />
                 </div>
         </motion.div>

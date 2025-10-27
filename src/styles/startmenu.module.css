@@ -81,3 +81,45 @@
 .powerOffImg:hover {
     background-color: #c3cdd6;
 }
+
+.offMenu {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 80px;
+    right: 10px;
+    background-color: #d9e3ee;
+    width: 140px;
+    padding: 5px;
+    border-radius: 15px;
+    filter: drop-shadow(0 0 0.1rem rgb(168, 168, 168));
+}
+
+.offMenu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    align-items: center;
+}
+
+.offMenu ul li {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px 20px 5px 10px;
+    border-radius: 10px;
+    transition: .15s ease-in;
+}
+
+.offMenu ul li:hover {
+    background-color: #cdd7e0;
+}
+
+.offMenuIcons {
+
+}
