@@ -16,19 +16,10 @@ const defaultWindowAttr: WindowAttr = {
 };
 
 export const appWindowDefaultAttr: Record<ItemType, WindowAttr> = {
-    'NOTEPAD': {
-        ...defaultWindowAttr,
-    },
     'CALCULATOR': {
         ...defaultWindowAttr,
-        width: '400px', 
+        width: '400px',
         height: '600px',
-    },
-    'BROWSER': {
-        ...defaultWindowAttr,
-    },
-    'FILE_EXPLORER': {
-        ...defaultWindowAttr,
     },
     'SETTINGS': {
         ...defaultWindowAttr,
@@ -40,16 +31,19 @@ export const appWindowDefaultAttr: Record<ItemType, WindowAttr> = {
         width: '1100px',
         height: '600px',
     },
-    'TRASH': {
-        ...defaultWindowAttr,
-    },
     'RESUME': {
         ...defaultWindowAttr,
         minWidth: '500px',
         width: 'fit-content',
         height: '90vh',
     },
-    'DEFAULT': {
+    'BROWSER': {
+        ...defaultWindowAttr,
+    },
+    'ABOUT ME': {
+        ...defaultWindowAttr,
+    },
+    'CONTACT ME': {
         ...defaultWindowAttr,
     },
 };

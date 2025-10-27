@@ -28,5 +28,10 @@
     "img": "/img/items/settings.svg",
     "name": "Settings",
     "type": "SETTINGS"
+  },
+  {
+    "img": "/img/items/contact.svg",
+    "name": "Contact",
+    "type": "CONTACT"
   }
 ]
