@@ -40,10 +40,10 @@ export const appWindowDefaultAttr: Record<ItemType, WindowAttr> = {
     'BROWSER': {
         ...defaultWindowAttr,
     },
-    'ABOUT ME': {
+    'ABOUT_ME': {
         ...defaultWindowAttr,
     },
-    'CONTACT ME': {
+    'CONTACT': {
         ...defaultWindowAttr,
     },
 };

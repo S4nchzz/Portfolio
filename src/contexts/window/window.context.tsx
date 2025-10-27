@@ -31,6 +31,7 @@ export const useWindow = () => {
     }
 
     const addWindow = (window: WindowIface) =>  {
+        checkWindowContext()
         const resetPrevFocus = (prevs: WindowIface[]) => {
             return prevs.map((winPrev) => {
                 winPrev.windowAttr.isFocused = false
@@ -38,7 +39,6 @@ export const useWindow = () => {
             })
         }
 
-        checkWindowContext()
         ctx_window!.setWindowList(prev => [...resetPrevFocus(prev), {
             ...window,
             windowAttr: {

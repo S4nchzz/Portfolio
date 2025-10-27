@@ -5,7 +5,7 @@ const Browser = ({
 }: ApplicationType) => {
     return (
         <>
-
+            
         </>
     )
 }
