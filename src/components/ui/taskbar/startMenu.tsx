@@ -1,8 +1,30 @@
 import style from '@/styles/startmenu.module.css'
-import { TaskBarMenuStateType } from '@/types/types'
+import { ItemFromJSON, TaskBarMenuStateType } from '@/types/types'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { ChangeEvent, useEffect, useState } from 'react'
+import ItemComponent from '../item/ItemComponent'
+import { Item } from '@/lib/matrix/Item'
+import getAppImage from '@/helper/getAppImage'
+import { ItemType } from '@/lib/constants/Item.enum'
 
 const StartMenu = ({ open }: TaskBarMenuStateType) => {
+    const [featApps, setFeatApps] = useState<ItemFromJSON[]>()
+
+    useEffect(() => {
+        const fetchApps = async() => {
+            const data = await fetch('/util/mainApps.json')
+            if (!data) throw new Error('mainApp.json empty or not found.')
+            setFeatApps(await data.json())
+        }
+
+        fetchApps()
+    }, [])
+
+    const handleSearchChange = (e: ChangeEvent) => {
+
+    }
+
     return (
         <motion.div
             className={style.container}
@@ -18,8 +40,21 @@ const StartMenu = ({ open }: TaskBarMenuStateType) => {
 
             transition={{
                 duration: .25
-            }}
-            >
+            }}>
+                <div className={style.inputContainer}>
+                    <Image
+                        className={style.inputImg}
+                        src={'./img/desktop/taskbar/mag_glass.svg'}
+                        width={24}
+                        height={24}
+                        alt='Search'
+                    />
+                    <input
+                        placeholder='Search programs, configurations or documents'
+                        onChange={handleSearchChange}
+                        onClick={(e) => e.stopPropagation()}
+                    />
+                </div>
         </motion.div>
     )
 }

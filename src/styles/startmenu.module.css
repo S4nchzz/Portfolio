@@ -9,3 +9,29 @@
     background-color: #e6f1fc;
     border: 1px solid #d7e6f5;
 }
+
+.inputContainer {
+    position: relative;
+    display: flex;
+    margin-top: 20px;
+    height: 30px;
+    justify-content: center;
+}
+
+.inputImg {
+    position: absolute;
+    top: 54.5%;
+    transform: translate(-50%, -50%);
+    left: 78px;
+}
+
+.inputContainer input {
+    width: 75%;
+    border: 0;
+    height: 100%;
+    border-radius: 15px;
+    padding-left: 50px;
+    padding-right: 10px;
+    border: 1px solid rgb(201, 201, 201);
+    outline: none;
+}
