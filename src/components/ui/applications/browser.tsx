@@ -4,7 +4,8 @@ const Browser = ({
     wUuid
 }: ApplicationType) => {
     return (
-        <>asd
+        <>
+
         </>
     )
 }

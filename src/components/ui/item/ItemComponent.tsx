@@ -108,7 +108,7 @@ const ItemComponent = ({
             }}>
             <Image
                 draggable={false}
-                width={50}
+                width={40}
                 height={40}
                 src={item.img}
                 alt='Program image'

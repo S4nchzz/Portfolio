@@ -1,10 +1,10 @@
 .container {
     position: absolute;
-    left: 37%;
+    left: 34%;
     transform: translate(0%, -50%);
     bottom: 56px;
     border-radius: 7px;
-    width: 535px;
+    width: 640px;
     height: 620px;
     background-color: #e6f1fc;
     border: 1px solid #d7e6f5;

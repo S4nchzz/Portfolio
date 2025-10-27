@@ -1,12 +1,12 @@
 import { ApplicationType } from "@/types/types"
 
-const Trash = ({
+const Projects = ({
     wUuid
 }: ApplicationType) => {
     return (
-        <>
+        <>asd
         </>
     )
 }
 
-export default Trash
+export default Projects

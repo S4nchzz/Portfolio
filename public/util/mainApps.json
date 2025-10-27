@@ -1,33 +1,13 @@
 [
   {
-    "img": "/img/items/trash.svg",
-    "name": "Trash",
-    "type": "TRASH"
-  },
-  {
-    "img": "/img/items/notepad.svg",
-    "name": "Notepad",
-    "type": "NOTEPAD"
-  },
-  {
-    "img": "/img/items/file-explorer.svg",
-    "name": "File Explorer",
-    "type": "FILE_EXPLORER"
-  },
-  {
-    "img": "/img/items/calculator.svg",
-    "name": "Calculator",
-    "type": "CALCULATOR"
+    "img": "/img/items/about_me.png",
+    "name": "About me",
+    "type": "ABOUT_ME"
   },
   {
     "img": "/img/items/browser.svg",
     "name": "Browser",
     "type": "BROWSER"
-  },
-  {
-    "img": "/img/items/settings.svg",
-    "name": "Settings",
-    "type": "SETTINGS"
   },
   {
     "img": "/img/items/terminal.svg",
@@ -38,5 +18,15 @@
     "img": "/img/items/resume.svg",
     "name": "Resume",
     "type": "RESUME"
+  },
+  {
+    "img": "/img/items/calculator.svg",
+    "name": "Calculator",
+    "type": "CALCULATOR"
+  },
+  {
+    "img": "/img/items/settings.svg",
+    "name": "Settings",
+    "type": "SETTINGS"
   }
 ]

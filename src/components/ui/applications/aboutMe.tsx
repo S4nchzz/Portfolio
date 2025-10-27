@@ -1,12 +1,13 @@
 import { ApplicationType } from "@/types/types"
 
-const Default = ({
+const AboutMe = ({
     wUuid
 }: ApplicationType) => {
     return (
         <>
+
         </>
     )
 }
 
-export default Default
+export default AboutMe

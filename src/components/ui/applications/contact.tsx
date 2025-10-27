@@ -1,12 +1,13 @@
 import { ApplicationType } from "@/types/types"
 
-const FileExplorer = ({
+const Contact = ({
     wUuid
 }: ApplicationType) => {
     return (
         <>
+            
         </>
     )
 }
 
-export default FileExplorer
+export default Contact
