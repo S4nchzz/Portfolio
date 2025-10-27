@@ -22,7 +22,7 @@ const TaskbarAppItem = (attr: TaskbarAppItemAttr) => {
                 setMinimizeWindowState(!isMinimized, attr.windowAtatchedUuid)
             }}
             style={{
-                backgroundColor: isFocused ? '#c2c7ccff' : undefined
+                backgroundColor: isFocused ? '#e8f0f1ff' : undefined
             }}>
             <Image
                 src={`/img/items/${getAppImage(attr.windowType)}`}
@@ -33,9 +33,9 @@ const TaskbarAppItem = (attr: TaskbarAppItemAttr) => {
             <div
                 className={style.openedHr}
                 style={{
-                    backgroundColor: isMinimized ? undefined : '#9b9b9bff'
-                }}
-                />
+                    backgroundColor: isMinimized ? undefined : isFocused ? '#4CC2FF' : '#7E8688',
+                    width: !isFocused ? '15%' : undefined
+                }}/>
         </div>
     )
 }

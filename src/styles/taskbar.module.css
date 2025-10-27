@@ -1,25 +1,26 @@
 .container {
     position: absolute;
     width: 100vw;
-    height: 45px;
+    height: 50px;
     bottom: -1;
     left: 0;
-    background-color: #e6f1fcea;
-    border-top: 1px solid #e6f1fc;
+    background-color: #dfeaf2f5;
+    border-top: 1px solid #d0eef1;
 
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     z-index: 9999999;
+    gap: 5px;
 }
 
 .wImageContainer {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 100%;
+    width: 45px;
+    height: 85%;
 
     transition: .15s ease-in;
     border-radius: 3px;
@@ -36,13 +37,15 @@
 
 .mgImage {
     cursor: pointer;
-    height: 100%;
-    padding-left: 8px;
-    padding-right: 8px;
+    width: 35px;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 85%;
     transition: .15s ease-in;
+    border-radius: 3px;
 }
 
 .mgImage:hover {
-    background-color: #e6f1fc;
+    background-color: #E6F4F8;
     cursor: pointer;
 }
