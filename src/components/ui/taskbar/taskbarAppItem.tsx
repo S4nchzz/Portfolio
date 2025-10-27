@@ -22,7 +22,7 @@ const TaskbarAppItem = (attr: TaskbarAppItemAttr) => {
                 setMinimizeWindowState(!isMinimized, attr.windowAtatchedUuid)
             }}
             style={{
-                backgroundColor: isFocused ? 'rgb(36, 36, 36)' : undefined
+                backgroundColor: isFocused ? '#c2c7ccff' : undefined
             }}>
             <Image
                 src={`/img/items/${getAppImage(attr.windowType)}`}

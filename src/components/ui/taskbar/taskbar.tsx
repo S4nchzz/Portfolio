@@ -4,7 +4,6 @@ import { ChangeEvent, useState } from 'react'
 import TaskbarAppItem from './taskbarAppItem'
 import { useWindow } from '@/contexts/window/window.context'
 import StartMenu from './startMenu'
-import SearchMenu from './searchMenu'
 import { useTaskbar } from '@/contexts/taskbar/taskbar.context'
 
 const Taskbar = () => {
@@ -18,58 +17,40 @@ const Taskbar = () => {
     }
 
     const {
-        seamVisibility,
         stamVisibility,
-        getSeamVisibility,
         getStamVisibility
     } = useTaskbar()
 
     return (
         <div className={style.container}>
             <StartMenu open={getStamVisibility()}/>
-            <SearchMenu open={getSeamVisibility()}/>
 
             <div
                 className={style.wImageContainer}
                 onClick={(e) => {
                     e.stopPropagation()
-                    seamVisibility(false)
                     stamVisibility(!getStamVisibility())
                 }}>
                 <Image
                     className={style.wImage}
-                    src={'/img/desktop/w-logo.png'}
+                    src={'/img/desktop/taskbar/w-logo.png'}
                     alt='Wlogo'
-                    width={32}
-                    height={32}
+                    width={28}
+                    height={28}
                 />
             </div>
-
-            <div
-                className={style.searchBar}
-                style={{
-                    backgroundColor: searchBarFocused ? '#2b2b2bff' : undefined
-                }}
-                onClick={() => setSearchBarFocused(!searchBarFocused)}>
-                <Image
-                    className={style.mgImage}
-                    src={'/img/desktop/mag_glass.svg'}
-                    alt='Wlogo'
-                    width={32}
-                    height={32}
-                />
-
-                <input
-                    placeholder='Search'
-                    className={style.searchBarInput}
-                    onClick={(e) => {
-                        e.stopPropagation()
-                        seamVisibility(!getSeamVisibility())
-                        stamVisibility(false)
-                    }}
-                    onChange={handleSearchChange}
-                />
-            </div>
+            <Image
+                className={style.mgImage}
+                src={'/img/desktop/taskbar/mag_glass.svg'}
+                alt='Wlogo'
+                width={32}
+                height={32}
+                onClick={(e) => {
+                    e.stopPropagation()
+                    stamVisibility(!getStamVisibility())
+                    setSearchBarFocused(!searchBarFocused)}
+                }
+            />
 
             {
                 getWindows().map((window, index) => {

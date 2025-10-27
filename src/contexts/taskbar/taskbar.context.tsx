@@ -7,11 +7,10 @@ import { createContext, ReactNode, useContext, useEffect, useState } from "react
 export const TaskbarContext = createContext<TaskbarContextType | undefined>(undefined)
 
 const TaskbarProvider = ({ children }: { children: ReactNode }) => {
-    const [searchMenuVisibility, setSearchMenuVisibility] = useState<boolean>(false)
     const [starMenuVisibility, setStarMenuVisibility] = useState<boolean>(false)
 
     return (
-        <TaskbarContext.Provider value={{ searchMenuVisibility, setSearchMenuVisibility, starMenuVisibility, setStarMenuVisibility }}>
+        <TaskbarContext.Provider value={{ starMenuVisibility, setStarMenuVisibility }}>
             {children}
         </TaskbarContext.Provider>
     )
@@ -35,18 +34,6 @@ export const useTaskbar = () => {
         ctx_taskbar!.setStarMenuVisibility(state)
     }
 
-    const seamVisibility = (state: boolean) => {
-        checkContext()
-
-        ctx_taskbar!.setSearchMenuVisibility(state)
-    }
-
-    const getSeamVisibility = () => {
-        checkContext()
-
-        return ctx_taskbar!.searchMenuVisibility
-    }
-
     const getStamVisibility = () => {
         checkContext()
 
@@ -57,13 +44,10 @@ export const useTaskbar = () => {
         checkContext()
 
         ctx_taskbar!.setStarMenuVisibility(false)
-        ctx_taskbar!.setSearchMenuVisibility(false)
     }
 
     return {
         stamVisibility,
-        seamVisibility,
-        getSeamVisibility,
         getStamVisibility,
         unfocusTaskbarMenus
     }

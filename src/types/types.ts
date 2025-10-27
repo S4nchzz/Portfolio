@@ -70,8 +70,6 @@ export type BuildCtxMenuType = {
 }
 
 export type TaskbarContextType = {
-    searchMenuVisibility: boolean,
-    setSearchMenuVisibility: Dispatch<SetStateAction<boolean>>
     starMenuVisibility: boolean
     setStarMenuVisibility: Dispatch<SetStateAction<boolean>>
 }
