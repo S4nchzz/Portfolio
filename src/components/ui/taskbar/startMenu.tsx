@@ -44,7 +44,7 @@ const StartMenu = ({ open }: TaskBarMenuStateType) => {
                 <div className={style.inputContainer}>
                     <Image
                         className={style.inputImg}
-                        src={'./img/desktop/taskbar/mag_glass.svg'}
+                        src={'/img/desktop/taskbar/mag_glass.svg'}
                         width={24}
                         height={24}
                         alt='Search'
@@ -53,6 +53,26 @@ const StartMenu = ({ open }: TaskBarMenuStateType) => {
                         placeholder='Search programs, configurations or documents'
                         onChange={handleSearchChange}
                         onClick={(e) => e.stopPropagation()}
+                    />
+                </div>
+
+                <div className={style.stamControls}>
+                    <div className={style.user}>
+                        <Image
+                            className={style.userImg}
+                            src={'/img/desktop/taskbar/user_logo.png'}
+                            width={64}
+                            height={64}
+                            alt='User'
+                        />
+                        <span>S4nchzz</span>
+                    </div>
+                    <Image
+                        className={style.powerOffImg}
+                        src={'/img/desktop/taskbar/power_off.svg'}
+                        width={28}
+                        height={28}
+                        alt='User'
                     />
                 </div>
         </motion.div>
