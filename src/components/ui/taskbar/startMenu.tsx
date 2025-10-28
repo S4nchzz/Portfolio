@@ -11,25 +11,26 @@ import { ItemType } from '@/lib/constants/Item.enum'
 const StartMenu = ({ open }: TaskBarMenuStateType) => {
     const [featApps, setFeatApps] = useState<ItemFromJSON[]>()
 
+    
     useEffect(() => {
         const fetchApps = async() => {
             const data = await fetch('/util/mainApps.json')
             if (!data) throw new Error('mainApp.json empty or not found.')
-            setFeatApps(await data.json())
+                setFeatApps(await data.json())
         }
-
+        
         fetchApps()
     }, [])
-
+    
     const handleSearchChange = (e: ChangeEvent) => {
-
+        
     }
-
+    
     const [showOffMenu, setShowOffMenu] = useState<boolean>(false)
-
     useEffect(() => {
-        console.log(showOffMenu);
-    }, [showOffMenu]);
+        if (!open) setShowOffMenu(false)
+    }, [open])
+        
     return (
         <motion.div
             onClick={(e) => e.stopPropagation()}
