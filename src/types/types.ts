@@ -73,3 +73,11 @@ export type TaskbarContextType = {
     starMenuVisibility: boolean
     setStarMenuVisibility: Dispatch<SetStateAction<boolean>>
 }
+
+export type BrowserSearchCardType = {
+    title: string,
+    subTitle: string,
+    img: string,
+    uriTitle: string,
+    pageDesc: string
+}

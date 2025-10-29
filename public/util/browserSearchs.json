@@ -1,0 +1,30 @@
+[
+    {
+        "title": "Linkedin",
+        "subTitle": "https://linkedin.com/S4nchzz",
+        "img": "/img/browser/linkedin.svg",
+        "uriTitle": "Linkedin",
+        "pageDesc": "My name is Iyan Sánchez da Costa, and I'm a full-stack developer with a strong technical foundation and a proactive approach to learning. Throughout my career..."
+    },
+    {
+        "title": "Github",
+        "subTitle": "https://github.com/S4nchzz",
+        "img": "/img/browser/github.svg",
+        "uriTitle": "Linkedin",
+        "pageDesc": "Explore all my GitHub repositories and discover the projects I've developed, showcasing my experience in full-stack development, clean code practices, and continuous learning."
+    },
+    {
+        "title": "Resume",
+        "subTitle": "https://resume.com/S4nchzz",
+        "img": "/img/browser/pdf.svg",
+        "uriTitle": "Linkedin",
+        "pageDesc": "Download my professional resume to see my work experience, skills, and educational background in detail."
+    },
+    {
+        "title": "Contact",
+        "subTitle": "https://contact.me/S4nchzz",
+        "img": "/img/browser/contact.svg",
+        "uriTitle": "Contact",
+        "pageDesc": "Feel free to reach out to me for any inquiries, collaboration opportunities, or professional connections. I’m always happy to connect and discuss new ideas."
+    }
+]
