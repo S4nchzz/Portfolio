@@ -81,5 +81,6 @@ export type BrowserSearchCardType = {
     img: string,
     uriTitle: string,
     pageDesc: string,
-    to: BrowserTo
+    to: BrowserTo,
+    focus: boolean
 }

@@ -21,8 +21,9 @@ const Browser = ({
         fetchBsData()
     }, [])
 
-    const handleSearchChange = (e: ChangeEvent) => {
-
+    const [filterText, setFilterText] = useState<string>('')
+    const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setFilterText(e.target.value)
     }
 
     return (
@@ -47,17 +48,36 @@ const Browser = ({
             <div className={style.searchResults}>
                 {
                     bsData.map((bs, index) => {
-                        return (
-                        <BrowserSearchCard
-                            key={bs.title + index}
-                            title={bs.title}
-                            subTitle={bs.subTitle}
-                            img={bs.img}
-                            uriTitle={bs.uriTitle}
-                            pageDesc={bs.pageDesc}
-                            to={bs.to}
-                        />
-                        );
+                        if (!filterText) {
+                            return (
+                            <BrowserSearchCard
+                                key={bs.title + index}
+                                title={bs.title}
+                                subTitle={bs.subTitle}
+                                img={bs.img}
+                                uriTitle={bs.uriTitle}
+                                pageDesc={bs.pageDesc}
+                                to={bs.to}
+                                focus={false}
+                            />
+                            );
+                        }
+
+                        if (Object.values(bs).some((e) => e.toString().includes(filterText))) {
+                            return (
+                                <BrowserSearchCard
+                                    key={bs.title + index}
+                                    title={bs.title}
+                                    subTitle={bs.subTitle}
+                                    img={bs.img}
+                                    uriTitle={bs.uriTitle}
+                                    pageDesc={bs.pageDesc}
+                                    to={bs.to}
+                                    focus={true}
+                                />
+                            )
+                        }
+                        
                     })
                 }
             </div>

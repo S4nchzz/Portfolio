@@ -2,6 +2,7 @@ import execBrowserTo from '@/helper/execBrowserTo'
 import style from '@/styles/browserSearchCard.module.css'
 import { BrowserSearchCardType } from '@/types/types'
 import Image from 'next/image'
+import { useEffect } from 'react'
 
 const BrowserSearchCard = ({
     title,
@@ -9,10 +10,15 @@ const BrowserSearchCard = ({
     img,
     uriTitle,
     pageDesc,
-    to
+    to,
+    focus = false
 }: BrowserSearchCardType) => {
     return (
-        <div className={style.container}>
+        <div
+            className={style.container}
+            style={{
+                filter: focus ? 'drop-shadow(0 0 0.1rem grey)' : undefined
+            }}>
             <div className={style.header}>
                 <Image
                     className={style.pageImg}
