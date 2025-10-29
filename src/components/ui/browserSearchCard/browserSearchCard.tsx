@@ -1,3 +1,4 @@
+import execBrowserTo from '@/helper/execBrowserTo'
 import style from '@/styles/browserSearchCard.module.css'
 import { BrowserSearchCardType } from '@/types/types'
 import Image from 'next/image'
@@ -7,7 +8,8 @@ const BrowserSearchCard = ({
     subTitle,
     img,
     uriTitle,
-    pageDesc
+    pageDesc,
+    to
 }: BrowserSearchCardType) => {
     return (
         <div className={style.container}>
@@ -25,7 +27,12 @@ const BrowserSearchCard = ({
                 </div>
             </div>
             <div className={style.content}>
-                <span className={style.uriTitle}>{uriTitle}</span>
+                <span
+                    className={style.uriTitle}
+                    onClick={() => execBrowserTo({
+                        to: to
+                    })}
+                    >{uriTitle}</span>
                 <span className={style.pageDesc}>{pageDesc}</span>
             </div>
         </div>

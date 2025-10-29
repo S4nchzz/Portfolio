@@ -5,11 +5,11 @@
     width: 1400px;
     height: 700px;
     border-radius: 5px;
-    background-color: #fafbfd;
+    background-color: #fcfcfc;
 
     display: flex;
     flex-direction: column;
-    border: 2px solid #ffffff;
+    border: 2px solid #c5c5c5;
 }
 
 .windowControlContainer {
@@ -18,7 +18,7 @@
     height: 30px;
     padding-top: 2px;
     padding-bottom: 2px;
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 2px solid #e0e0e0;
 }
 
 .windowButtons {

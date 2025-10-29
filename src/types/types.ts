@@ -1,4 +1,5 @@
 import { WindowAttr } from "@/interface/windowIface"
+import { BrowserTo } from "@/lib/constants/browserTo.enum"
 import { DefaultContextMenu, ItemContextMenu } from "@/lib/constants/contextMenus.enum"
 import { ItemType } from "@/lib/constants/Item.enum"
 import { TerminalCommands } from "@/lib/constants/terminalCommands.enum"
@@ -79,5 +80,6 @@ export type BrowserSearchCardType = {
     subTitle: string,
     img: string,
     uriTitle: string,
-    pageDesc: string
+    pageDesc: string,
+    to: BrowserTo
 }

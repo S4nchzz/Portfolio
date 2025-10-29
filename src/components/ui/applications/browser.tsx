@@ -12,7 +12,7 @@ const Browser = ({
 
     useEffect(() => {
         const fetchBsData = async() => {
-            const data = await fetch('/util/browserSearchs.json')
+            const data = await fetch('/util/browserSearch.json')
             const json = await data.json()
 
             setBsData(json)
@@ -55,6 +55,7 @@ const Browser = ({
                             img={bs.img}
                             uriTitle={bs.uriTitle}
                             pageDesc={bs.pageDesc}
+                            to={bs.to}
                         />
                         );
                     })
