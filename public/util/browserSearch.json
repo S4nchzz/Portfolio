@@ -24,55 +24,27 @@
         "pageDesc": "Download my professional resume to see my work experience, skills, and educational background in detail."
     },
     {
-        "title": "Contact",
-        "subTitle": "https://contact.me/S4nchzz",
-        "img": "/img/browser/pages/contact.svg",
-        "to": "CONTACT",
-        "uriTitle": "Contact",
-        "pageDesc": "Feel free to reach out to me for any inquiries, collaboration opportunities, or professional connections. I’m always happy to connect and discuss new ideas."
+        "title": "Fortune frontend",
+        "subTitle": "https://github.com/S4nchzz/Fortune-app-frontend",
+        "img": "/img/browser/pages/github.svg",
+        "to": "FORTUNE_FRONT",
+        "uriTitle": "Fortune frontend",
+        "pageDesc": "Frontend of Fortune, a mobile banking app designed to provide users with an intuitive and secure experience for managing their finances."
     },
     {
-        "title": "Contact",
-        "subTitle": "https://contact.me/S4nchzz",
-        "img": "/img/browser/pages/contact.svg",
-        "to": "CONTACT",
-        "uriTitle": "Contact",
-        "pageDesc": "Feel free to reach out to me for any inquiries, collaboration opportunities, or professional connections. I’m always happy to connect and discuss new ideas."
+        "title": "Fortune backend",
+        "subTitle": "https://github.com/S4nchzz/Fortune-app-backend",
+        "img": "/img/browser/pages/github.svg",
+        "to": "FORTUNE_BACK",
+        "uriTitle": "Fortune backend",
+        "pageDesc": "Backend of Fortune, responsible for the app's logic, security, and data management to ensure reliable and efficient banking operations."
     },
     {
-        "title": "Contact",
-        "subTitle": "https://contact.me/S4nchzz",
-        "img": "/img/browser/pages/contact.svg",
-        "to": "CONTACT",
-        "uriTitle": "Contact",
-        "pageDesc": "Feel free to reach out to me for any inquiries, collaboration opportunities, or professional connections. I’m always happy to connect and discuss new ideas."
-    },{
-        "title": "Contact",
-        "subTitle": "https://contact.me/S4nchzz",
-        "img": "/img/browser/pages/contact.svg",
-        "to": "CONTACT",
-        "uriTitle": "Contact",
-        "pageDesc": "Feel free to reach out to me for any inquiries, collaboration opportunities, or professional connections. I’m always happy to connect and discuss new ideas."
-    },{
-        "title": "Contact",
-        "subTitle": "https://contact.me/S4nchzz",
-        "img": "/img/browser/pages/contact.svg",
-        "to": "CONTACT",
-        "uriTitle": "Contact",
-        "pageDesc": "Feel free to reach out to me for any inquiries, collaboration opportunities, or professional connections. I’m always happy to connect and discuss new ideas."
-    },{
-        "title": "Contact",
-        "subTitle": "https://contact.me/S4nchzz",
-        "img": "/img/browser/pages/contact.svg",
-        "to": "CONTACT",
-        "uriTitle": "Contact",
-        "pageDesc": "Feel free to reach out to me for any inquiries, collaboration opportunities, or professional connections. I’m always happy to connect and discuss new ideas."
-    },{
-        "title": "Contact",
-        "subTitle": "https://contact.me/S4nchzz",
-        "img": "/img/browser/pages/contact.svg",
-        "to": "CONTACT",
-        "uriTitle": "Contact",
-        "pageDesc": "Feel free to reach out to me for any inquiries, collaboration opportunities, or professional connections. I’m always happy to connect and discuss new ideas."
+        "title": "Portfolio OS",
+        "subTitle": "https://github.com/S4nchzz/PortfolioOS",
+        "img": "/img/browser/pages/w-logo.png",
+        "to": "PORTFOLIO",
+        "uriTitle": "Portfolio OS",
+        "pageDesc": "Portfolio OS is an interactive portfolio showcasing my projects, skills, and developments, designed to highlight my professional and technical experience."
     }
 ]

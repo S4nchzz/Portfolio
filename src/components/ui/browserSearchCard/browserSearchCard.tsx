@@ -2,7 +2,7 @@ import execBrowserTo from '@/helper/execBrowserTo'
 import style from '@/styles/browserSearchCard.module.css'
 import { BrowserSearchCardType } from '@/types/types'
 import Image from 'next/image'
-import { useEffect } from 'react'
+import { motion } from 'framer-motion'
 
 const BrowserSearchCard = ({
     title,
@@ -17,8 +17,9 @@ const BrowserSearchCard = ({
         <div
             className={style.container}
             style={{
-                filter: focus ? 'drop-shadow(0 0 0.1rem grey)' : undefined
-            }}>
+                border: focus ? '2px solid #e2e2e2ff' : undefined
+            }}
+            >
             <div
                 className={style.header}
                 onClick={() => execBrowserTo({
