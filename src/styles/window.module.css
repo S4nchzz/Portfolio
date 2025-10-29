@@ -5,7 +5,7 @@
     width: 1400px;
     height: 700px;
     border-radius: 5px;
-    background-color: #dee5ee;
+    background-color: #fafbfd;
 
     display: flex;
     flex-direction: column;
@@ -16,7 +16,9 @@
     position: relative;
     width: 100%;
     height: 30px;
-    border-bottom: 2px solid #e6f1fc;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #ffffff;
 }
 
 .windowButtons {

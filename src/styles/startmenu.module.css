@@ -6,8 +6,8 @@
     border-radius: 7px;
     width: 640px;
     height: 620px;
-    background-color: #e6f1fc;
-    border: 1px solid #d7e6f5;
+    background-color: #fafafa;
+    border: 1px solid #c4c4c4;
 }
 
 .inputContainer {
@@ -45,7 +45,7 @@
     align-items: center;
     justify-content: space-between;
 
-    background-color: #d6e1eb;
+    background-color: #f1f1f1;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
 }
@@ -67,7 +67,7 @@
 }
 
 .user:hover {
-    background-color: #c8d2db;
+    background-color: #e0e0e0;
 }
 
 .powerOffImg {
@@ -79,7 +79,7 @@
 }
 
 .powerOffImg:hover {
-    background-color: #c3cdd6;
+    background-color: #e0e0e0;
 }
 
 .offMenu {
@@ -88,7 +88,7 @@
     justify-content: center;
     bottom: 80px;
     right: 10px;
-    background-color: #d9e3ee;
+    background-color: #f0f0f0;
     width: 140px;
     padding: 5px;
     border-radius: 15px;

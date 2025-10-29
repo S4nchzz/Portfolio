@@ -38,7 +38,7 @@ export const appWindowDefaultAttr: Record<ItemType, WindowAttr> = {
         height: '90vh',
     },
     'BROWSER': {
-        ...defaultWindowAttr,
+        ...defaultWindowAttr
     },
     'ABOUT_ME': {
         ...defaultWindowAttr,
