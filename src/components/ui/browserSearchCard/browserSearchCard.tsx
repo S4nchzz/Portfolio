@@ -19,7 +19,11 @@ const BrowserSearchCard = ({
             style={{
                 filter: focus ? 'drop-shadow(0 0 0.1rem grey)' : undefined
             }}>
-            <div className={style.header}>
+            <div
+                className={style.header}
+                onClick={() => execBrowserTo({
+                    to: to
+                })}>
                 <Image
                     className={style.pageImg}
                     src={img}

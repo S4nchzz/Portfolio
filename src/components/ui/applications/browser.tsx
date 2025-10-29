@@ -45,26 +45,12 @@ const Browser = ({
                     />
                 </div>
             </div>
-            <div className={style.searchResults}>
-                {
-                    bsData.map((bs, index) => {
-                        if (!filterText) {
-                            return (
-                            <BrowserSearchCard
-                                key={bs.title + index}
-                                title={bs.title}
-                                subTitle={bs.subTitle}
-                                img={bs.img}
-                                uriTitle={bs.uriTitle}
-                                pageDesc={bs.pageDesc}
-                                to={bs.to}
-                                focus={false}
-                            />
-                            );
-                        }
-
-                        if (Object.values(bs).some((e) => e.toString().includes(filterText))) {
-                            return (
+            <div className={style.body}>
+                <div className={style.searchResults}>
+                    {
+                        bsData.map((bs, index) => {
+                            if (!filterText) {
+                                return (
                                 <BrowserSearchCard
                                     key={bs.title + index}
                                     title={bs.title}
@@ -73,13 +59,40 @@ const Browser = ({
                                     uriTitle={bs.uriTitle}
                                     pageDesc={bs.pageDesc}
                                     to={bs.to}
-                                    focus={true}
+                                    focus={false}
                                 />
-                            )
-                        }
-                        
-                    })
-                }
+                                );
+                            }
+
+                            if (Object.values(bs).some((e) => e.toString().includes(filterText))) {
+                                return (
+                                    <BrowserSearchCard
+                                        key={bs.title + index}
+                                        title={bs.title}
+                                        subTitle={bs.subTitle}
+                                        img={bs.img}
+                                        uriTitle={bs.uriTitle}
+                                        pageDesc={bs.pageDesc}
+                                        to={bs.to}
+                                        focus={true}
+                                    />
+                                )
+                            }
+                            
+                        })
+                    }
+                </div>
+                <div className={style.profileCard}>
+                    <Image
+                        className={style.profileImage}
+                        src={'/img/browser/logo.jpg'}
+                        width={256}
+                        height={256}
+                        alt='Logo'
+                    />
+                    <span className={style.profileName}>Iyan Sanchez</span>
+                    <span className={style.profileDescription}>Passionate about programming and new technologies. Experienced in Java, Kotlin, PHP, JavaScript/TypeScript, SpringBoot, React, NextJS, NestJS, JavaFX, and mobile development. Projects in e-commerce and productivity. Organized, professional, and focused on best practices and collaboration.</span>
+                </div>
             </div>
         </div>
     )

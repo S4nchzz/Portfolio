@@ -11,11 +11,12 @@
     gap: 10px;
     margin-left: 150px;
     margin-top: 20px;
+    width: 750px;
+    border-right: 1px solid rgb(202, 202, 202);
 }
 
 .header {
-    background-color: rgb(245, 245, 245);
-    border-bottom: 1px solid rgb(196, 196, 196);
+    border-bottom: 1px solid rgb(226, 226, 226);
 }
 
 .inputContainer {
@@ -45,7 +46,6 @@
     padding-right: 45px;
     border: 1px solid rgb(201, 201, 201);
     outline: none;
-    transition: .15s ease-in;
 }
 
 .inputContainer input:hover {
@@ -64,4 +64,42 @@
     flex-direction: column;
     gap: 40px;
     margin-left: 100px;
+}
+
+.body {
+    display: flex;
+    gap: 250px;
+}
+
+.profileCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    margin-top: 40px;
+    width: 500px;
+    min-height: 550px;
+    height: fit-content;
+    padding-bottom: 20px;
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 20px;
+    background-color: white;
+    filter: drop-shadow(0 0 0.15rem rgb(223, 223, 223));
+    gap: 30px;
+}
+
+.profileImage {
+    border: 1px solid rgb(201, 201, 201);
+    border-radius: 50%;
+}
+
+.profileName {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.profileDescription {
+    width: 80%;
+    text-align: justify;
+    color: rgb(94, 94, 94);
 }
