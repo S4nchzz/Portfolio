@@ -1,11 +1,11 @@
 import PageComponent from "@/components/pages/pageComponent";
-import Loading from "@/components/ui/loading/loading";
+import OSLoading from "@/components/ui/osLoadingVideo/osLoading";
 
 export default function Page() {
   return (
     <>
+      <OSLoading/>
       <PageComponent/>
-      {/* <Loading/> */}
     </>
   );
 }

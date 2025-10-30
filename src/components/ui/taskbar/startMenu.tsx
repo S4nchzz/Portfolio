@@ -3,14 +3,9 @@ import { ItemFromJSON, TaskBarMenuStateType } from '@/types/types'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { ChangeEvent, useEffect, useState } from 'react'
-import ItemComponent from '../item/ItemComponent'
-import { Item } from '@/lib/matrix/Item'
-import getAppImage from '@/helper/getAppImage'
-import { ItemType } from '@/lib/constants/Item.enum'
 
 const StartMenu = ({ open }: TaskBarMenuStateType) => {
     const [featApps, setFeatApps] = useState<ItemFromJSON[]>()
-
     
     useEffect(() => {
         const fetchApps = async() => {
