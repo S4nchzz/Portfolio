@@ -2,9 +2,11 @@ import style from '@/styles/osUserSelection.module.css'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useState } from 'react'
+import Loader from '../loader/loading'
 
 const OSUserSelection = () => {
-    const [openOS, setOpenOS] = useState<boolean>()
+    const [openOS, setOpenOS] = useState<boolean>(false)
+    const [showLoader, setShowLoader] = useState<boolean>(false)
 
     return (
         <>
@@ -32,8 +34,23 @@ const OSUserSelection = () => {
                     <button
                         className={style.openOs}
                         onClick={() => {
-                            setOpenOS(true)
+                            setShowLoader(true)
+                            setTimeout(() => {
+                                setOpenOS(true)
+                            }, 1500)
                         }}>Enter</button>
+                    <motion.div
+                        className={style.loaderContainer}
+                        initial={{
+                            opacity: 0
+                        }}
+
+                        animate={{
+                            opacity: showLoader ? 1 : 0 
+                        }}>
+                            <span className={style.welcome}>Welcome</span>
+                            <Loader/>
+                    </motion.div>
                 </div>
             </motion.div>
         </>

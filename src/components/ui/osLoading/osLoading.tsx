@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { clearTimeout } from 'timers'
 import { motion } from 'framer-motion'
 import OSUserSelection from './osUserSelection'
+import Loader from '../loader/loading'
 
 
 const OSLoading = () => {
@@ -39,8 +40,7 @@ const OSLoading = () => {
                     height={220}
                     alt='Logo OS'
                 />
-                <span className={style.loader}/>
-
+                <Loader/>
             </motion.div>
             <OSUserSelection/>
         </>
