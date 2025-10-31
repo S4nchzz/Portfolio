@@ -37,6 +37,10 @@
 }
 
 .openOs {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 200px;
     height: 50px;
     background-color: transparent;
@@ -49,6 +53,18 @@
     border: 3px solid rgba(255, 255, 255, 0.24);
     transition: .15s ease-in;
     cursor: pointer;
+}
+
+.enterImageSvg {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+
+.openOs p {
+    margin: 0;
+    padding: 0;
 }
 
 .openOs:hover {

@@ -38,7 +38,15 @@ const OSUserSelection = () => {
                             setTimeout(() => {
                                 setOpenOS(true)
                             }, 1500)
-                        }}>Enter</button>
+                        }}>
+                            <p>Enter</p>
+                            <Image
+                                className={style.enterImageSvg}
+                                src={'/img/osLoading/enter.svg'}
+                                width={40}
+                                height={40}
+                                alt='Enter image'
+                            /></button>
                     <motion.div
                         className={style.loaderContainer}
                         initial={{
