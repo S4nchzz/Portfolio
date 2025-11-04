@@ -6,11 +6,12 @@
     width: 45px;
     height: 85%;
     cursor: pointer;
+    border-radius: 5px;
     transition: .15s ease-in;
 }
 
 .container:hover {
-    background-color: #e8f0f1ff;
+    background-color: rgb(213, 213, 213);
 }
 
 .openedHr {
