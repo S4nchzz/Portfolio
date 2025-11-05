@@ -45,6 +45,8 @@ export const appWindowDefaultAttr: Record<ItemType, WindowAttr> = {
     },
     'CONTACT': {
         ...defaultWindowAttr,
+        width: '750px',
+        height: '550px'
     },
 };
 

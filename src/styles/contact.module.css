@@ -1,0 +1,66 @@
+.to {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgb(219, 219, 219);
+    padding: 10px;
+    color: grey;
+    font-size: 1rem;
+}
+
+.toBox {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 5px;
+    color: rgb(87, 87, 87);
+    border-radius: 500px;
+    background-color: rgb(245, 245, 245);
+}
+
+.subject {
+    border-bottom: 1px solid rgb(219, 219, 219);
+    padding: 10px;
+}
+
+.subject input {
+    border: 0;
+    outline: none;
+    font-size: 1rem;
+    color: grey;
+    width: 100%;
+    background-color: transparent;
+}
+
+.body {
+
+}
+
+.body textarea {
+    resize: none;
+    width: 100%;
+    height: 300px;
+    border: 0;
+    outline: none;
+    padding: 0;
+    border-bottom: 1px solid rgb(218, 218, 218);
+}
+
+.mailControls {
+    width: 100%;
+    display: flex;
+    padding: 10px;
+}
+
+.mailControls button {
+    background-color: #26965a;
+    border: 0;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .15s ease;
+}
+
+.mailControls button:hover {
+    background-color: #20834e;
+}
