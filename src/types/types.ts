@@ -90,3 +90,11 @@ export type MailAttr = {
     subject: string,
     body: string
 }
+
+export type MailContextAttr = {
+    defaultTime: number,
+    timeoutTime: number,
+    setTimeoutTime: Dispatch<SetStateAction<number>>,
+    mailBlocked: boolean,
+    setMailBlocked: Dispatch<SetStateAction<boolean>>
+}

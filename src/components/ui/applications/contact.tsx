@@ -1,7 +1,8 @@
 import { ApplicationType } from "@/types/types"
 import style from '@/styles/contact.module.css'
-import { useState } from "react"
+import { CSSProperties, useEffect, useState } from "react"
 import Loader from "../loader/loading"
+import { useMail } from "@/contexts/mailContext/mail.context"
 
 const Contact = ({
     wUuid
@@ -9,8 +10,14 @@ const Contact = ({
     const [subject, setSubject] = useState<string>('')
     const [body, setBody] = useState<string>('')
     const [messageStatus, setMessageStatus] = useState<string>()
+    
+    const useMailTimeout = useMail()
+    
+    useEffect(() => {
+        console.log(useMailTimeout.currentTime());
+    }, [useMailTimeout.currentTime()])
 
-    const sendMail = () => {
+    const onSend = () => {
         const sendMail = async() => {
             const res = await fetch('/api/mail', {
                 method: 'POST',
@@ -26,6 +33,13 @@ const Contact = ({
         }
 
         sendMail()
+        useMailTimeout.applyTimeout()
+    }
+
+    const buttonBlockStyle: CSSProperties = {
+        pointerEvents: useMailTimeout.isMailBocked() || !body || !subject ? 'none' : 'all',
+        backgroundColor: useMailTimeout.isMailBocked() || !body || !subject ? 'grey' : undefined,
+        opacity: useMailTimeout.isMailBocked() || !body || !subject ? 1 : .8
     }
 
     return (
@@ -47,12 +61,24 @@ const Contact = ({
 
             <div className={style.mailControls}>
                 <button
-                    onClick={sendMail}
+                    onClick={onSend}
                     style={{
-                        pointerEvents: body && subject ? 'all' : 'none',
-                        backgroundColor: body && subject ? undefined : 'grey',
-                        opacity: body && subject ? 1 : .8
+                        ...buttonBlockStyle
                     }}>Send</button>
+                {
+                    useMailTimeout.isMailBocked() &&
+                    <span className={style.banClock}>
+                        {(() => {
+                            const totalSeconds = Math.floor(useMailTimeout.currentTime() / 1000);
+                            const minutes = Math.floor((totalSeconds % 3600) / 60);
+                            const seconds = totalSeconds % 60;
+
+                            const format = (n: number) => n.toString().padStart(2, '0');
+
+                            return `${format(minutes)}:${format(seconds)}`;
+                        })()}
+                    </span>
+                }
             </div>
             <span className={style.messageStatus}>{messageStatus}</span>
         </div>
