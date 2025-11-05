@@ -15,7 +15,7 @@ const Contact = ({
     
     useEffect(() => {
         const mtout = localStorage.getItem('mtout')
-        if (mtout) useMailTimeout.applyTimeout(parseInt(mtout))
+        if (mtout && parseInt(mtout) != useMailTimeout.currentTime()) useMailTimeout.applyTimeout(parseInt(mtout))
     }, [])
 
     useEffect(() => {

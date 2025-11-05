@@ -66,6 +66,12 @@ export const useMail = () => {
         return ctx!.timeoutTime
     }
 
+    const defaultTime = () => {
+        checkCtx()
+
+        return ctx!.defaultTime
+    }
+
     const isMailBocked = () => {
         checkCtx()
 
@@ -74,6 +80,7 @@ export const useMail = () => {
 
     return {
         applyTimeout,
+        defaultTime,
         currentTime,
         isMailBocked
     }
