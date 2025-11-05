@@ -14,6 +14,11 @@ const Contact = ({
     const useMailTimeout = useMail()
     
     useEffect(() => {
+        const mtout = localStorage.getItem('mtout')
+        if (mtout) useMailTimeout.applyTimeout(parseInt(mtout))
+    }, [])
+
+    useEffect(() => {
         console.log(useMailTimeout.currentTime());
     }, [useMailTimeout.currentTime()])
 

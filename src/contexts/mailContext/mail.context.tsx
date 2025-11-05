@@ -8,7 +8,7 @@ export const MailContext = createContext<MailContextAttr | undefined>(undefined)
 const MailProvider = ({ children }: {
     children: ReactNode
 }) => {
-    const defaultTime = 600000
+    const defaultTime = 900000
     const [mailBlocked, setMailBlocked] = useState<boolean>(false)
     const [timeoutTime, setTimeoutTime] = useState<number>(defaultTime)
     
@@ -34,18 +34,27 @@ export const useMail = () => {
         if (!ctx) throw new Error('MailContext is not initialzied, where are you using this hook?')
     }
 
-    const applyTimeout = () => {
+    let interval: NodeJS.Timeout | null = null
+
+    const applyTimeout = (savedTimeout?: number) => {
         checkCtx()
 
+        if (interval) clearInterval(interval)
+
+        if (savedTimeout) ctx!.setTimeoutTime(savedTimeout)
+
         ctx!.setMailBlocked(true)
-        const interval = setInterval(() => {
+        interval = setInterval(() => {
             ctx!.setTimeoutTime(prev => {
                 if (prev == 0) {
-                    clearInterval(interval)
+                    localStorage.removeItem('mtout')
+                    clearInterval(interval!)
+                    
                     ctx!.setMailBlocked(false)
                     return ctx!.defaultTime
                 }
-
+                
+                localStorage.setItem('mtout', (prev - 1000).toString())
                 return prev - 1000
             })
         }, 1000)
