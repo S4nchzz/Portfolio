@@ -1,8 +1,11 @@
 import { ApplicationType } from "@/types/types"
 import style from '@/styles/contact.module.css'
-import { CSSProperties, useEffect, useState } from "react"
+import { ChangeEvent, CSSProperties, useEffect, useState } from "react"
 import Loader from "../loader/loading"
 import { useMail } from "@/contexts/mailContext/mail.context"
+import Image from "next/image"
+import { toArray } from "gsap"
+import ContactFile from "../contact/contactFile"
 
 const Contact = ({
     wUuid
@@ -47,6 +50,21 @@ const Contact = ({
         opacity: useMailTimeout.isMailBocked() || !body || !subject ? 1 : .8
     }
 
+    const maxFilesN = 3
+    const [files, setFiles] = useState<File[]>([])
+
+    const addFile = (e: ChangeEvent<HTMLInputElement>) => {
+        if (!e.target.files) return
+
+        const newFiles = Array.from(e.target.files);
+        setFiles(prev => [...prev, ...newFiles])
+        console.log(files);
+    }
+
+    const removeFile = (fileName: string) => {
+        setFiles(files.filter((file) => file.name !== fileName))
+    }
+
     return (
         <div className={style.container}>
            <div className={style.to}>
@@ -64,12 +82,49 @@ const Contact = ({
                 <textarea required onChange={(e) => { setBody(e.target.value) }}/>
             </div>
 
+            <div className={style.fileList}>
+                {
+                    files.map((file, index) => {
+                        return (
+                            <ContactFile key={index} fileName={file.name} remove={removeFile}/>
+                        )
+                    })
+                }
+            </div>
+
             <div className={style.mailControls}>
                 <button
                     onClick={onSend}
                     style={{
                         ...buttonBlockStyle
                     }}>Send</button>
+
+                <label
+                    htmlFor="fileInput"
+                    className={style.clipImage}
+                    style={{
+                        opacity: files.length == maxFilesN ? .3 : 1,
+                        pointerEvents: files.length == maxFilesN ? 'none' : 'all',
+                    }}
+                    >
+                    <Image
+                        src="/img/applications/contact/clip.svg"
+                        alt="Insert image"
+                        width={24}
+                        height={24}
+                    />
+                </label>
+
+                <input
+                    type="file"
+                    id="fileInput"
+                    className={style.hiddenInput}
+                    onChange={addFile}
+                />
+
+                <span className={style.maxFiles}>
+                    {files.length} / {maxFilesN}
+                </span>
                 {
                     useMailTimeout.isMailBocked() &&
                     <span className={style.banClock}>

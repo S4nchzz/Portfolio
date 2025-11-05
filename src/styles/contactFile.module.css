@@ -1,0 +1,18 @@
+.contactFile {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 50px;
+    border: 1px solid rgb(218, 218, 218);
+}
+
+.removeSvg {
+    cursor: pointer;
+    border-radius: 15px;
+    transition: .15s ease;
+}
+
+.removeSvg:hover {
+    background-color: rgb(224, 224, 224);
+}
