@@ -1,15 +1,31 @@
 import { ApplicationType } from "@/types/types"
 import style from '@/styles/contact.module.css'
-import { useEffect, useState } from "react"
+import { useState } from "react"
+import Loader from "../loader/loading"
 
 const Contact = ({
     wUuid
 }: ApplicationType) => {
     const [subject, setSubject] = useState<string>('')
     const [body, setBody] = useState<string>('')
+    const [messageStatus, setMessageStatus] = useState<string>()
 
     const sendMail = () => {
+        const sendMail = async() => {
+            const res = await fetch('/api/mail', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    subject: subject,
+                    body: body
+                })
+            })
 
+            const data = await res.json()
+            setMessageStatus(data.ok ? 'Correo enviado' : 'Error al enviar')
+        }
+
+        sendMail()
     }
 
     return (
@@ -36,9 +52,9 @@ const Contact = ({
                         pointerEvents: body && subject ? 'all' : 'none',
                         backgroundColor: body && subject ? undefined : 'grey',
                         opacity: body && subject ? 1 : .8
-                    }}
-                    >Send</button>
+                    }}>Send</button>
             </div>
+            <span className={style.messageStatus}>{messageStatus}</span>
         </div>
     )
 }

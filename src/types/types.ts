@@ -4,6 +4,7 @@ import { DefaultContextMenu, ItemContextMenu } from "@/lib/constants/contextMenu
 import { ItemType } from "@/lib/constants/Item.enum"
 import { TerminalCommands } from "@/lib/constants/terminalCommands.enum"
 import { Item } from "@/lib/matrix/Item"
+import { type } from "os"
 import { Dispatch, DragEvent, ReactNode, RefObject, SetStateAction } from "react"
 
 export type ChildrenType = {
@@ -83,4 +84,9 @@ export type BrowserSearchCardType = {
     pageDesc: string,
     to: BrowserTo,
     focus: boolean
+}
+
+export type MailAttr = {
+    subject: string,
+    body: string
 }

@@ -64,3 +64,7 @@
 .mailControls button:hover {
     background-color: #20834e;
 }
+
+.messageStatus {
+    color: grey;
+}
