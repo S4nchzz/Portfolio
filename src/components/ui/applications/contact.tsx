@@ -1,17 +1,21 @@
-import { ApplicationType } from "@/types/types"
+import { ApplicationType, MailBodyAttr } from "@/types/types"
 import style from '@/styles/contact.module.css'
 import { ChangeEvent, CSSProperties, useEffect, useState } from "react"
-import Loader from "../loader/loading"
 import { useMail } from "@/contexts/mailContext/mail.context"
 import Image from "next/image"
-import { toArray } from "gsap"
 import ContactFile from "../contact/contactFile"
 
 const Contact = ({
     wUuid
 }: ApplicationType) => {
     const [subject, setSubject] = useState<string>('')
-    const [body, setBody] = useState<string>('')
+
+    const maxFilesN = 3
+    const [files, setFiles] = useState<File[]>([])
+    const [body, setBody] = useState<MailBodyAttr>({
+        text: ''
+    })
+
     const [messageStatus, setMessageStatus] = useState<string>()
     
     const useMailTimeout = useMail()
@@ -21,19 +25,18 @@ const Contact = ({
         if (mtout && parseInt(mtout) != useMailTimeout.currentTime()) useMailTimeout.applyTimeout(parseInt(mtout))
     }, [])
 
-    useEffect(() => {
-        console.log(useMailTimeout.currentTime());
-    }, [useMailTimeout.currentTime()])
-
     const onSend = () => {
         const sendMail = async() => {
+            const formData = new FormData()
+            formData.append('subject', subject)
+            formData.append('text', body.text)
+            files.forEach((file) => {
+                formData.append('files', file)
+            })
+
             const res = await fetch('/api/mail', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    subject: subject,
-                    body: body
-                })
+                body: formData
             })
 
             const data = await res.json()
@@ -50,15 +53,11 @@ const Contact = ({
         opacity: useMailTimeout.isMailBocked() || !body || !subject ? 1 : .8
     }
 
-    const maxFilesN = 3
-    const [files, setFiles] = useState<File[]>([])
-
     const addFile = (e: ChangeEvent<HTMLInputElement>) => {
         if (!e.target.files) return
 
         const newFiles = Array.from(e.target.files);
         setFiles(prev => [...prev, ...newFiles])
-        console.log(files);
     }
 
     const removeFile = (fileName: string) => {
@@ -79,7 +78,15 @@ const Contact = ({
             </div>
 
             <div className={style.body}>
-                <textarea required onChange={(e) => { setBody(e.target.value) }}/>
+                <textarea
+                    required
+                    onChange={(e) => {
+                    setBody((prev) => ({
+                            ...prev,
+                            text: e.target.value,
+                        }));
+                    }}
+                />
             </div>
 
             <div className={style.fileList}>

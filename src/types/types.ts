@@ -98,3 +98,7 @@ export type MailContextAttr = {
     mailBlocked: boolean,
     setMailBlocked: Dispatch<SetStateAction<boolean>>
 }
+
+export type MailBodyAttr = {
+    text: string,
+}
