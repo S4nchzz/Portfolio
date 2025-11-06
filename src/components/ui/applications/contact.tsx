@@ -48,13 +48,21 @@ const Contact = ({
     }
 
     const buttonBlockStyle: CSSProperties = {
-        pointerEvents: useMailTimeout.isMailBocked() || !body || !subject ? 'none' : 'all',
-        backgroundColor: useMailTimeout.isMailBocked() || !body || !subject ? 'grey' : undefined,
-        opacity: useMailTimeout.isMailBocked() || !body || !subject ? 1 : .8
+        pointerEvents: useMailTimeout.isMailBocked() || !body.text || !subject ? 'none' : 'all',
+        backgroundColor: useMailTimeout.isMailBocked() || !body.text || !subject ? 'grey' : undefined,
+        opacity: useMailTimeout.isMailBocked() || !body.text || !subject ? 1 : .8
     }
 
     const addFile = (e: ChangeEvent<HTMLInputElement>) => {
         if (!e.target.files) return
+        const fileLenghtIncorrect = Array.from(e.target.files).some(file => {
+            return parseInt((file.size / (1024*1024)).toFixed(2)) > 2;
+        });
+
+        if (fileLenghtIncorrect) {
+            alert('The file size cant exceed 2mb')
+            return
+        }
 
         const newFiles = Array.from(e.target.files);
         setFiles(prev => [...prev, ...newFiles])
@@ -81,10 +89,9 @@ const Contact = ({
                 <textarea
                     required
                     onChange={(e) => {
-                    setBody((prev) => ({
-                            ...prev,
-                            text: e.target.value,
-                        }));
+                        setBody({
+                            text: e.target.value
+                        })
                     }}
                 />
             </div>
