@@ -16,11 +16,6 @@ const defaultWindowAttr: WindowAttr = {
 };
 
 export const appWindowDefaultAttr: Record<ItemType, WindowAttr> = {
-    'CALCULATOR': {
-        ...defaultWindowAttr,
-        width: '400px',
-        height: '600px',
-    },
     'SETTINGS': {
         ...defaultWindowAttr,
         width: '1000px',
@@ -39,9 +34,6 @@ export const appWindowDefaultAttr: Record<ItemType, WindowAttr> = {
     },
     'BROWSER': {
         ...defaultWindowAttr
-    },
-    'ABOUT_ME': {
-        ...defaultWindowAttr,
     },
     'CONTACT': {
         ...defaultWindowAttr,

@@ -9,11 +9,9 @@ import Contact from "@/components/ui/applications/contact";
 import Browser from "@/components/ui/applications/browser";
 
 const appComponents: Record<ItemType, (wUuid: string) => ReactNode> = {
-    [ItemType.CALCULATOR]: (wUuid) => <Calculator wUuid={wUuid} />,
     [ItemType.SETTINGS]: (wUuid) => <Settings wUuid={wUuid} />,
     [ItemType.TERMINAL]: (wUuid) => <Terminal wUuid={wUuid} />,
     [ItemType.RESUME]: (wUuid) => <Resume wUuid={wUuid} />,
-    [ItemType.ABOUT_ME]: (wUuid) => <AboutMe wUuid={wUuid}/>,
     [ItemType.BROSWER]: (wUuid) => <Browser wUuid={wUuid}/>,
     [ItemType.CONTACT]: (wUuid) => <Contact wUuid={wUuid}/>
 }

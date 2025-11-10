@@ -1,9 +1,7 @@
 export enum ItemType {
-    CALCULATOR = 'CALCULATOR',
     BROSWER = 'BROWSER',
     SETTINGS = 'SETTINGS',
     TERMINAL = 'TERMINAL',
     RESUME = 'RESUME',
-    ABOUT_ME = 'ABOUT_ME',
     CONTACT = 'CONTACT'
 }
