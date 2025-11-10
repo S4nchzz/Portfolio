@@ -6,6 +6,11 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { ChangeEvent, useEffect, useState } from 'react'
 import StartMenuItem from './startMenuItem'
+import { useWindow } from '@/contexts/window/window.context'
+import { v4 as uuidv4 } from 'uuid';
+import getAppComponent from '@/helper/getAppComponent'
+import getDefaultWindowAttr from '@/helper/getDefaultWindowAttr'
+import { ItemType } from '@/lib/constants/Item.enum'
 
 const StartMenu = ({ open }: TaskBarMenuStateType) => {
     const [featApps, setFeatApps] = useState<ItemFromJSON[]>()
@@ -35,7 +40,11 @@ const StartMenu = ({ open }: TaskBarMenuStateType) => {
     const {
         stamVisibility
     } = useTaskbar()
-        
+    
+    const {
+        addWindow
+    } = useWindow()
+
     return (
         <motion.div
             onClick={(e) => e.stopPropagation()}
@@ -131,6 +140,22 @@ const StartMenu = ({ open }: TaskBarMenuStateType) => {
                         />
                         <span>S4nchzz</span>
                     </div>
+                    <Image
+                        className={style.settingsImg}
+                        src={'/img/desktop/taskbar/settings.svg'}
+                        width={28}
+                        height={28}
+                        alt='User'
+                        onClick={(e) => {
+                            const uuid = uuidv4()
+                            addWindow({
+                                uuid: uuid,
+                                node: getAppComponent(ItemType.SETTINGS, uuid),
+                                type: ItemType.SETTINGS,
+                                windowAttr: getDefaultWindowAttr(ItemType.SETTINGS)
+                            })
+                        }}
+                    />
                     <Image
                         className={style.powerOffImg}
                         src={'/img/desktop/taskbar/power_off.svg'}

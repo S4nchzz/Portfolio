@@ -43,7 +43,6 @@
     height: 65px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
 
     background-color: #f1f1f1;
     border-bottom-left-radius: 7px;
@@ -76,6 +75,7 @@
     transition: .15s ease-in;
     cursor: pointer;
     border-radius: 40px;
+    margin:0 20px 0 5px;
 }
 
 .powerOffImg:hover {
@@ -127,4 +127,17 @@
     padding-top: 50px;
     justify-content: center;
     gap: 25px;
+}
+
+.settingsImg {
+    margin-right: 40px;
+    padding: 8px;
+    transition: .15s ease-in;
+    cursor: pointer;
+    border-radius: 40px;
+    margin: 0 0 0 auto;
+}
+
+.settingsImg:hover {
+    background-color: #e0e0e0;
 }
