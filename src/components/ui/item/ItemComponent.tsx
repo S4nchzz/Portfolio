@@ -9,6 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 import getDefaultWindowAttr from '@/helper/getDefaultWindowAttr'
 import { useCtxMenu } from '@/contexts/ctxMenu/ctxMenuContext'
 import useMouse from '@/hooks/useMouse'
+import { useMatrix } from '@/contexts/matrix/matrix.context'
 
 const ItemComponent = ({
     item,
@@ -52,6 +53,10 @@ const ItemComponent = ({
     
     const [ctrlPressed, setCtrlPressed] = useState<boolean>(false)
 
+    const {
+        removeElementByUuid
+    } = useMatrix()
+
     return (
         <div
             ref={ref}
@@ -83,6 +88,8 @@ const ItemComponent = ({
             }}
 
             onKeyDown={(k) => {
+                if (k.code == 'Delete') removeElementByUuid(item.uuid)
+
                 if (k.code == 'ControlLeft') setCtrlPressed(true)
 
                 if (k.code == 'KeyC' && ctrlPressed) {
