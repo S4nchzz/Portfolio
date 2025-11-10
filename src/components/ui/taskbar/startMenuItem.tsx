@@ -6,6 +6,7 @@ import { useWindow } from '@/contexts/window/window.context'
 import { v4 as uuidv4 } from 'uuid';
 import getAppComponent from '@/helper/getAppComponent'
 import getDefaultWindowAttr from '@/helper/getDefaultWindowAttr'
+import { useTaskbar } from '@/contexts/taskbar/taskbar.context'
 
 
 const StartMenuItem = ({
@@ -17,10 +18,15 @@ const StartMenuItem = ({
         addWindow
     } = useWindow()
 
+    const {
+        unfocusTaskbarMenus
+    } = useTaskbar()
+
     return (
         <div
             className={style.container}
             onClick={() => {
+                unfocusTaskbarMenus()
                 const uuid = uuidv4()
                 addWindow({
                     uuid: uuid,
@@ -28,8 +34,7 @@ const StartMenuItem = ({
                     type: type,
                     windowAttr: getDefaultWindowAttr(type)
                 })
-            }}
-            >
+            }}>
             <Image
                 src={img}
                 alt='Item'
