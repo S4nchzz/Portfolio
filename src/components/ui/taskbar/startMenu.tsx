@@ -5,6 +5,7 @@ import { ItemFromJSON, TaskBarMenuStateType } from '@/types/types'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { ChangeEvent, useEffect, useState } from 'react'
+import StartMenuItem from './startMenuItem'
 
 const StartMenu = ({ open }: TaskBarMenuStateType) => {
     const [featApps, setFeatApps] = useState<ItemFromJSON[]>()
@@ -19,9 +20,8 @@ const StartMenu = ({ open }: TaskBarMenuStateType) => {
         fetchApps()
     }, [])
     
-    const handleSearchChange = (e: ChangeEvent) => {
-        
-    }
+    const [appFilterName, setAppFilterName] = useState<string>('')
+    const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => setAppFilterName(e.target.value)
     
     const [showOffMenu, setShowOffMenu] = useState<boolean>(false)
     useEffect(() => {
@@ -33,8 +33,7 @@ const StartMenu = ({ open }: TaskBarMenuStateType) => {
     } = useOSState()
 
     const {
-        stamVisibility,
-        getStamVisibility
+        stamVisibility
     } = useTaskbar()
         
     return (
@@ -67,6 +66,17 @@ const StartMenu = ({ open }: TaskBarMenuStateType) => {
                         onChange={handleSearchChange}
                         onClick={(e) => e.stopPropagation()}
                     />
+                </div>
+
+                <div className={style.smBody}>
+                    {
+                        featApps?.map((app, idx) => {
+                            if (!appFilterName || app.name.toLowerCase().includes(appFilterName.toLowerCase())) {
+                                return <StartMenuItem key={idx} type={app.type} name={app.name} img={app.img}/>
+                            }
+
+                        })
+                    }
                 </div>
 
                 <motion.div

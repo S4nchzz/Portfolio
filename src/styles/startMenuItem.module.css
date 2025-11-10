@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    padding: 15px;
+    border-radius: 10px;
+    transition: .15s ease;
+    cursor: pointer;
+}
+
+.container:hover {
+    background-color: rgb(236, 236, 236);
+}
