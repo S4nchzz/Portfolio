@@ -3,10 +3,14 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useState } from 'react'
 import Loader from '../loader/loading'
+import { useOSState } from '@/contexts/osStatus/osStatus.context'
 
 const OSUserSelection = () => {
-    const [openOS, setOpenOS] = useState<boolean>(false)
     const [showLoader, setShowLoader] = useState<boolean>(false)
+    const {
+        alterOSState,
+        osState
+    } = useOSState()
 
     return (
         <>
@@ -14,8 +18,8 @@ const OSUserSelection = () => {
                 className={style.container}
                 
                 animate={{
-                    opacity: !openOS ? 1 : 0,
-                    display: !openOS ? undefined : 'none'
+                    opacity: !osState() ? 1 : 0,
+                    display: !osState() ? undefined : 'none'
                 }}
 
                 transition={{
@@ -36,7 +40,8 @@ const OSUserSelection = () => {
                         onClick={() => {
                             setShowLoader(true)
                             setTimeout(() => {
-                                setOpenOS(true)
+                                alterOSState(true)
+                                setShowLoader(false)
                             }, 1500)
                         }}>
                             <p>Enter</p>

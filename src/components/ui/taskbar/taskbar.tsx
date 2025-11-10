@@ -12,6 +12,7 @@ const Taskbar = () => {
     const {
         getWindows
     } = useWindow()
+    
     const handleSearchChange = (e: ChangeEvent) => {
         
     }

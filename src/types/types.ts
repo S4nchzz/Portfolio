@@ -102,3 +102,8 @@ export type MailContextAttr = {
 export type MailBodyAttr = {
     text: string,
 }
+
+export type osStatusType = {
+    on: boolean,
+    setOn: Dispatch<SetStateAction<boolean>>
+}

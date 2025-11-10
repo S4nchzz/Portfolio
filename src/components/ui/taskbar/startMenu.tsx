@@ -1,3 +1,5 @@
+import { useOSState } from '@/contexts/osStatus/osStatus.context'
+import { useTaskbar } from '@/contexts/taskbar/taskbar.context'
 import style from '@/styles/startmenu.module.css'
 import { ItemFromJSON, TaskBarMenuStateType } from '@/types/types'
 import { motion } from 'framer-motion'
@@ -25,6 +27,15 @@ const StartMenu = ({ open }: TaskBarMenuStateType) => {
     useEffect(() => {
         if (!open) setShowOffMenu(false)
     }, [open])
+
+    const {
+        alterOSState
+    } = useOSState()
+
+    const {
+        stamVisibility,
+        getStamVisibility
+    } = useTaskbar()
         
     return (
         <motion.div
@@ -68,7 +79,11 @@ const StartMenu = ({ open }: TaskBarMenuStateType) => {
                     }}
                     className={style.offMenu}>
                     <ul>
-                        <li>
+                        <li onClick={() => {
+                            setShowOffMenu(false)
+                            stamVisibility(false)
+                            alterOSState(false)
+                        }}>
                             <Image
                                 className={style.offMenuIcons}
                                 src={'/img/desktop/taskbar/power_off.svg'}
@@ -78,7 +93,11 @@ const StartMenu = ({ open }: TaskBarMenuStateType) => {
                             />
                             Power off
                         </li>
-                        <li>
+                        <li onClick={() => {
+                            setShowOffMenu(false)
+                            stamVisibility(false)
+                            alterOSState(false)
+                        }}>
                             <Image
                                 className={style.offMenuIcons}
                                 src={'/img/desktop/taskbar/suspend.svg'}
